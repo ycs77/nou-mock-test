@@ -1,0 +1,202 @@
+/* eslint-disable style/brace-style */
+import type { PDFExtractResult, PDFExtractText } from 'pdf.js-extract'
+import stringWidth from 'string-width'
+
+/**
+ * @param pdfData PDF 檔案資料
+ * @param lineDeviation 計算同一行的文字允許的誤差值
+ */
+export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number = 2) {
+  let prevY = null as number | null
+
+  const content = pdfData
+    .pages
+    .reduce<PDFExtractText[]>((texts, page) => [...texts, ...page.content], [])
+    .filter(text => text.str.trim() !== '')
+    .reduce<string>((content, text) => {
+      let breakline = ''
+
+      // 和上一個元素不同行，因此輸出換行符號
+      if (typeof prevY === 'number' && Math.abs(text.y - prevY) > lineDeviation) {
+        breakline = `\n`
+      }
+
+      prevY = text.y
+
+      return `${content}${breakline}${text.str}`
+    }, '')
+
+  return content
+}
+
+export function getMaxLineWidth(content: string) {
+  return content
+    .split('\n')
+    .reduce((maxWidth, line) => Math.max(maxWidth, stringWidth(line)), 0)
+}
+
+export function serializePdfStringToParagraphs(content: string) {
+  const maxWidth = getMaxLineWidth(content)
+
+  let newContent = ''
+  let sectionTitle = null as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題' | null
+
+  // 當前題目
+  let currentQuestion = '' as string
+  let currentQuestionComplete = true
+
+  // 當前答案段落是否可以換行
+  let currentAnswerCanBreakLine = false
+
+  const lines = content
+    .split('\n')
+    .filter(line => line.trim() !== '')
+
+  for (const line of lines) {
+    // ignores
+    const ignores = [
+      '其他符號作答不計分',
+      '說明：請按題號依序作答，並標示題號。',
+    ]
+    if (ignores.some(pattern => pattern.includes(line))) continue
+
+    // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
+    if (line.match(/^國立空中大學 ?\d+ ?學年度下學期期中考試題/)) {
+      newContent += `${line}\n`
+      continue
+    }
+
+    // ex: 科目：Linux 作業系統管理      一律橫式作答  頁
+    if (line.startsWith('科目：')) {
+      newContent += `${line}\n`
+      continue
+    }
+
+    // ex: 作答結束
+    if (line === '作答結束') continue
+
+    // ex: 一、選擇題（每題 5 分，共 50 分）
+    const sectionTitleMatchs = line.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、?(是非題|選擇題|簡答題|問答題|申論題)/)
+    if (sectionTitleMatchs) {
+      newContent = newContent.replace(/\n$/, '')
+      newContent += `\n${line}\n`
+      sectionTitle = sectionTitleMatchs[1] as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題'
+      continue
+    }
+
+    // 解析是非題
+    if (sectionTitle === '是非題') {
+      if (line.match(/^[OX] ?\d+\./)) {
+        // ex: X 1.
+        // ex: X1.
+      } else if (line.match(/^\([OX]\) ?\d+\./)) {
+        // ex: (O) 1.
+      } else if (line.match(/^\d+\./)) {
+        // ex: 1.
+      } else {
+        // 取消上行結尾的換行，因為不是段落中第一行
+        newContent = newContent.replace(/\n$/, '')
+      }
+
+      newContent += `${line}\n`
+      continue
+    }
+
+    // 解析選擇題
+    else if (sectionTitle === '選擇題') {
+      if (line.match(/^[A-E](?:或[A-E])? ?\d+\./)) {
+        // ex: A 1.
+        // ex: A1.
+        // ex: A 或 C 1.
+      } else if (line.match(/^\([A-E]\) ?\d+\./)) {
+        // ex: (A) 1.
+      } else if (line.match(/^\d+\./)) {
+        // ex: 1.
+      } else {
+        // 取消上行結尾的換行，因為不是段落中第一行
+        newContent = newContent.replace(/\n$/, '')
+      }
+
+      newContent += `${line}\n`
+      continue
+    }
+
+    // 解析簡答題 or 問答題
+    else if (sectionTitle === '簡答題' || sectionTitle === '問答題') {
+      if (line.match(/^(?:\d+\.|[一二三四五六七八九十]、)/)) {
+        // 確認當前行是題目的開始
+        // ex: 1.
+        currentQuestion = line
+        currentQuestionComplete = false
+      } else if (currentQuestion && !currentQuestionComplete) {
+        // 確認當前行是題目的續行
+        currentQuestion += line
+      }
+
+      // 當前題目是否輸出完畢
+      if (currentQuestion && !currentQuestionComplete) {
+        if (currentQuestion.match(/\((\d+-\d+(?:-\d+)?)\)$/)) {
+          // 確認題目結尾存在對應課程章節
+          // ex: (1-1-1)
+          currentQuestionComplete = true
+        } else if (currentQuestion.match(/CH\d+ ?P\.\d+$/)) {
+          // 確認題目結尾存在對應課程章節
+          // ex: CH1 P.1
+          currentQuestionComplete = true
+        } else if (currentQuestion.match(/\(教科書第[\d\-、]+頁；媒體教材[\d-]+\)$/)) {
+          // 確認題目結尾存在對應課程章節
+          // ex: (教科書第15、17頁；媒體教材1-2-3)
+          currentQuestionComplete = true
+        }
+      }
+
+      if (line.match(/^(?:\d+\.|[一二三四五六七八九十]、)/)) {
+        // 確保標題換到新行
+        // ex: 1.
+        newContent = newContent.replace(/\n$/, '')
+        newContent += `\n${line}`
+      } else if (line.match(/^答 ?[:：]/)) {
+        // ex: 答:
+        // ex: 答：
+        newContent = newContent.replace(/\n$/, '')
+        newContent += `\n${line}`
+        currentQuestion = ''
+        currentAnswerCanBreakLine = true
+      } else {
+        newContent += line
+      }
+
+      if (currentQuestion && currentQuestionComplete) {
+        // 確認當前題目為輸出完畢，才可以換行
+        newContent += '\n'
+        currentQuestion = ''
+      } else if (currentAnswerCanBreakLine && stringWidth(line) < (maxWidth - 10)) {
+        // 需要斷行的答案段落，且本行未佔滿頁面寬度
+        newContent += '\n'
+      }
+
+      continue
+    }
+
+    // 解析申論題
+    else if (sectionTitle === '申論題') {
+      if (line.match(/^[一二三四五六七八九十]、/)) {
+        // 確保標題換到新行
+        // ex: 一、
+        newContent = newContent.replace(/\n$/, '')
+        newContent += `\n${line}`
+      } else {
+        newContent += line
+      }
+
+      if (currentAnswerCanBreakLine && stringWidth(line) < (maxWidth - 10)) {
+        // 需要斷行的答案段落，且本行未佔滿頁面寬度
+        newContent += '\n'
+      }
+
+      continue
+    }
+  }
+
+  return newContent.replace(/\n$/, '')
+}
