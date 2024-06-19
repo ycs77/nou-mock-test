@@ -1,11 +1,11 @@
 [
   {
     "type": "title",
-    "subject": "國立空中大學101學年度上學期期中考試題"
+    "subject": "國立空中大學 101 學年度上學期期中考試題"
   },
   {
     "type": "subtitle",
-    "subject": "科目：Linux作業系統管理"
+    "subject": "科目：Linux 作業系統管理"
   },
   {
     "type": "section",
@@ -35,7 +35,7 @@
       },
       {
         "type": "radio",
-        "subject": "3. Ubuntu作業系統的正體中文官網提供了最新版本作業系統軟體下載，其網址為http://www.ubuntu-tw.com ",
+        "subject": "3. Ubuntu 作業系統的正體中文官網提供了最新版本作業系統軟體下載，其網址為http://www.ubuntu-tw.com",
         "options": [
           "O",
           "X"
@@ -45,7 +45,7 @@
       },
       {
         "type": "radio",
-        "subject": "4. Linux作業系統的目錄結構為樹狀結構，其根目錄為/root。",
+        "subject": "4. Linux作業系統的目錄結構為樹狀結構，其根目錄為 /root。",
         "options": [
           "O",
           "X"
@@ -85,7 +85,7 @@
       },
       {
         "type": "radio",
-        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為",
+        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為 ",
         "options": [
           "(A) IPod",
           "(B) IPus",
@@ -93,7 +93,7 @@
           "(D) IBus"
         ],
         "answer": "D",
-        "reference": "P.56圖2-11"
+        "reference": "P.56 圖2-11"
       },
       {
         "type": "radio",
@@ -141,20 +141,20 @@
     "children": [
       {
         "type": "textarea",
-        "subject": "1.請列出三種Linux發佈的版本。",
-        "answer": "答：參見課本",
+        "subject": "1. 請列出三種Linux發佈的版本。",
+        "answer": "答：參見課本 ",
         "reference": "P.6-7"
       },
       {
         "type": "textarea",
-        "subject": "2.請列出Ubuntu中的任三種型態的網路連線設定。",
-        "answer": "答：參見課本\n(有線網路、無線網路、行動寬頻、VPN、DSL )",
-        "reference": "P.64圖2-23"
+        "subject": "2. 請列出Ubuntu中的任三種型態的網路連線設定。",
+        "answer": "答：參見課本 \n( 有線網路、無線網路、行動寬頻、VPN、DSL )",
+        "reference": "P.64 圖2-23"
       },
       {
         "type": "textarea",
-        "subject": "3.在文件搜尋的指令中有find、whereis與locate，請簡述在搜尋速度上有何差異?。",
-        "answer": "答：參見課本\nfind:速度慢，硬碟存取頻繁，比較耗資源\nwhereis與locate:利用資訊庫搜尋，速度快",
+        "subject": "3. 在文件搜尋的指令中有 find、whereis 與 locate，請簡述在搜尋速度上有何差異?。",
+        "answer": "答：參見課本 \nfind: 速度慢，硬碟存取頻繁，比較耗資源\nwhereis 與 locate: 利用資訊庫搜尋，速度快",
         "reference": "P.139"
       }
     ]
@@ -167,20 +167,20 @@
     "children": [
       {
         "type": "textarea",
-        "subject": "1.安裝Ubuntu作業系統可以選擇一種稱作「Live CD」的方式，何謂「Live CD」?",
-        "answer": "答：參見課本",
+        "subject": "1. 安裝Ubuntu作業系統可以選擇一種稱作「Live CD」的方式，何謂「Live CD」?",
+        "answer": "答：參見課本 ",
         "reference": "P.14-15"
       },
       {
         "type": "textarea",
-        "subject": "2.何謂命令殼層(shell)?",
-        "answer": "答：參見課本",
+        "subject": "2. 何謂命令殼層(shell)?",
+        "answer": "答：參見課本 ",
         "reference": "P.115"
       },
       {
         "type": "textarea",
-        "subject": "3.請說明在終端機內指令: $ cpfile1./subdir1/file2./subdir2之意義為何?",
-        "answer": "答：參見課本",
+        "subject": "3. 請說明在終端機內指令: $ cp file1 ./subdir1/file2 ./subdir2 之意義為何 ?",
+        "answer": "答：參見課本 ",
         "reference": "P.128"
       }
     ]

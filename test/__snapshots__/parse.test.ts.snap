@@ -3,11 +3,11 @@
 exports[`parse pdf string to exam data - 1011_760008_11 1`] = `
 [
   {
-    "subject": "國立空中大學101學年度上學期期中考試題",
+    "subject": "國立空中大學 101 學年度上學期期中考試題",
     "type": "title",
   },
   {
-    "subject": "科目：Linux作業系統管理",
+    "subject": "科目：Linux 作業系統管理",
     "type": "subtitle",
   },
   {
@@ -39,7 +39,7 @@ exports[`parse pdf string to exam data - 1011_760008_11 1`] = `
           "X",
         ],
         "reference": "P.13",
-        "subject": "3. Ubuntu作業系統的正體中文官網提供了最新版本作業系統軟體下載，其網址為http://www.ubuntu-tw.com ",
+        "subject": "3. Ubuntu 作業系統的正體中文官網提供了最新版本作業系統軟體下載，其網址為http://www.ubuntu-tw.com",
         "type": "radio",
       },
       {
@@ -49,7 +49,7 @@ exports[`parse pdf string to exam data - 1011_760008_11 1`] = `
           "X",
         ],
         "reference": "P.20",
-        "subject": "4. Linux作業系統的目錄結構為樹狀結構，其根目錄為/root。",
+        "subject": "4. Linux作業系統的目錄結構為樹狀結構，其根目錄為 /root。",
         "type": "radio",
       },
       {
@@ -90,8 +90,8 @@ exports[`parse pdf string to exam data - 1011_760008_11 1`] = `
           "(C) IPad",
           "(D) IBus",
         ],
-        "reference": "P.56圖2-11",
-        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為",
+        "reference": "P.56 圖2-11",
+        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為 ",
         "type": "radio",
       },
       {
@@ -139,24 +139,24 @@ exports[`parse pdf string to exam data - 1011_760008_11 1`] = `
   {
     "children": [
       {
-        "answer": "答：參見課本",
+        "answer": "答：參見課本 ",
         "reference": "P.6-7",
-        "subject": "1.請列出三種Linux發佈的版本。",
+        "subject": "1. 請列出三種Linux發佈的版本。",
         "type": "textarea",
       },
       {
-        "answer": "答：參見課本
-(有線網路、無線網路、行動寬頻、VPN、DSL )",
-        "reference": "P.64圖2-23",
-        "subject": "2.請列出Ubuntu中的任三種型態的網路連線設定。",
+        "answer": "答：參見課本 
+( 有線網路、無線網路、行動寬頻、VPN、DSL )",
+        "reference": "P.64 圖2-23",
+        "subject": "2. 請列出Ubuntu中的任三種型態的網路連線設定。",
         "type": "textarea",
       },
       {
-        "answer": "答：參見課本
-find:速度慢，硬碟存取頻繁，比較耗資源
-whereis與locate:利用資訊庫搜尋，速度快",
+        "answer": "答：參見課本 
+find: 速度慢，硬碟存取頻繁，比較耗資源
+whereis 與 locate: 利用資訊庫搜尋，速度快",
         "reference": "P.139",
-        "subject": "3.在文件搜尋的指令中有find、whereis與locate，請簡述在搜尋速度上有何差異?。",
+        "subject": "3. 在文件搜尋的指令中有 find、whereis 與 locate，請簡述在搜尋速度上有何差異?。",
         "type": "textarea",
       },
     ],
@@ -168,21 +168,21 @@ whereis與locate:利用資訊庫搜尋，速度快",
   {
     "children": [
       {
-        "answer": "答：參見課本",
+        "answer": "答：參見課本 ",
         "reference": "P.14-15",
-        "subject": "1.安裝Ubuntu作業系統可以選擇一種稱作「Live CD」的方式，何謂「Live CD」?",
+        "subject": "1. 安裝Ubuntu作業系統可以選擇一種稱作「Live CD」的方式，何謂「Live CD」?",
         "type": "textarea",
       },
       {
-        "answer": "答：參見課本",
+        "answer": "答：參見課本 ",
         "reference": "P.115",
-        "subject": "2.何謂命令殼層(shell)?",
+        "subject": "2. 何謂命令殼層(shell)?",
         "type": "textarea",
       },
       {
-        "answer": "答：參見課本",
+        "answer": "答：參見課本 ",
         "reference": "P.128",
-        "subject": "3.請說明在終端機內指令: $ cpfile1./subdir1/file2./subdir2之意義為何?",
+        "subject": "3. 請說明在終端機內指令: $ cp file1 ./subdir1/file2 ./subdir2 之意義為何 ?",
         "type": "textarea",
       },
     ],
@@ -197,11 +197,11 @@ whereis與locate:利用資訊庫搜尋，速度快",
 exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
 [
   {
-    "subject": "國立空中大學104學年度下學期期中考試題",
+    "subject": "國立空中大學 104 學年度下學期期中考試題",
     "type": "title",
   },
   {
-    "subject": "科目：Linux作業系統管理",
+    "subject": "科目：Linux 作業系統管理",
     "type": "subtitle",
   },
   {
@@ -213,7 +213,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "X",
         ],
         "reference": "1-1",
-        "subject": "1.Linux作業系統通常要在大型主機上使用，一般的個人電腦無法安裝使用。",
+        "subject": "1. Linux 作業系統通常要在大型主機上使用，一般的個人電腦無法安裝使用。",
         "type": "radio",
       },
       {
@@ -223,7 +223,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "X",
         ],
         "reference": "1-4-2",
-        "subject": "2.網站提供的Ubuntu下載檔案格式為「ISO」，ISO格式的檔案可以直接燒錄到光碟上。",
+        "subject": "2. 網站提供的 Ubuntu 下載檔案格式為「ISO」， ISO 格式的檔案可以直接燒錄到光碟上。",
         "type": "radio",
       },
       {
@@ -233,7 +233,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "X",
         ],
         "reference": "2-1",
-        "subject": "3.Linux作業系統並不支援圖形化的使用者介面(graphical user interface)，所以這一部分的功能跟微軟公司的視窗作業系統不同。",
+        "subject": "3. Linux 作業系統並不支援圖形化的使用者介面(graphical user interface)，所以這一部分的功能跟微軟公司的視窗作業系統不同。",
         "type": "radio",
       },
       {
@@ -243,7 +243,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "X",
         ],
         "reference": "2-4-1",
-        "subject": "4.IE(Internet Explorer)是Ubuntu系統提供的網際網路瀏覽程式。",
+        "subject": "4. IE(Internet Explorer)是 Ubuntu 系統提供的網際網路瀏覽程式。",
         "type": "radio",
       },
       {
@@ -253,7 +253,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "X",
         ],
         "reference": "3-3.4",
-        "subject": "5.find指令會直接存取硬碟，比較耗費系統資源。",
+        "subject": "5. find 指令會直接存取硬碟，比較耗費系統資源。",
         "type": "radio",
       },
     ],
@@ -272,7 +272,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) /dev/hda",
         ],
         "reference": "1-5-2-1",
-        "subject": "1.Linux中硬碟通常對應到下列哪一種儲存裝置代號？",
+        "subject": "1. Linux 中硬碟通常對應到下列哪一種儲存裝置代號？ ",
         "type": "radio",
       },
       {
@@ -283,7 +283,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) ex t4",
         ],
         "reference": "1-5-2-2",
-        "subject": "2.Linux作業系統採用過下列哪一種檔案系統格式？",
+        "subject": "2. Linux 作業系統採用過下列哪一種檔案系統格式？ ",
         "type": "radio",
       },
       {
@@ -294,7 +294,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) 印表機的管理",
         ],
         "reference": "2-3",
-        "subject": "3.Ubuntu利用apt-get及apt-cache兩個指令的變化來進行下列哪一項操作？",
+        "subject": "3. Ubuntu 利用 apt-get 及 apt-cache 兩個指令的變化來進行下列哪一項操作？ ",
         "type": "radio",
       },
       {
@@ -306,7 +306,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(d) 印表機",
         ],
         "reference": "2-1-2",
-        "subject": "4.假如要改變螢幕的解析度，在Ubuntu的「系統設定」中要選擇哪一項選項進行設定？",
+        "subject": "4. 假如要改變螢幕的解析度，在 Ubuntu 的「系統設定」中要選擇哪一項選項進行設定？ ",
         "type": "radio",
       },
       {
@@ -317,7 +317,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) apt-get --purge remove",
         ],
         "reference": "2-3-4",
-        "subject": "5.Ubuntu中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？",
+        "subject": "5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？ ",
         "type": "radio",
       },
       {
@@ -328,7 +328,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) 主目錄",
         ],
         "reference": "3-2",
-        "subject": "6.使用者登入系統之後，內定的工作目錄稱之為？",
+        "subject": "6. 使用者登入系統之後，內定的工作目錄稱之為？ ",
         "type": "radio",
       },
       {
@@ -339,7 +339,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) 不可回溯已執行的指令",
         ],
         "reference": "3-2",
-        "subject": "7.下列有關bash的敘述何者錯誤？",
+        "subject": "7. 下列有關 bash 的敘述何者錯誤？ ",
         "type": "radio",
       },
       {
@@ -350,7 +350,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) top",
         ],
         "reference": "3-5",
-        "subject": "8.下列哪一個指令會顯示伺服器上佔用CPU的任務資訊，並且每5秒鐘刷新一次？",
+        "subject": "8. 下列哪一個指令會顯示伺服器上佔用 CPU 的任務資訊，並且每 5 秒鐘刷新一次？ ",
         "type": "radio",
       },
       {
@@ -361,7 +361,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) free",
         ],
         "reference": "3-5",
-        "subject": "9.下列哪一個指令與系統中的程序無關？",
+        "subject": "9. 下列哪一個指令與系統中的程序無關？ ",
         "type": "radio",
       },
       {
@@ -372,7 +372,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
           "(c) more",
         ],
         "reference": "3-3-3",
-        "subject": "10.下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？",
+        "subject": "10. 下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？ ",
         "type": "radio",
       },
     ],
@@ -386,31 +386,31 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
       {
         "answer": undefined,
         "reference": "1-4-1",
-        "subject": "1.何謂「Live CD」？",
+        "subject": "1. 何謂「Live CD」？",
         "type": "textarea",
       },
       {
         "answer": undefined,
         "reference": "1-4-4",
-        "subject": "2.Linux作業系統與微軟Windows作業系統有什麼相似的地方？",
+        "subject": "2. Linux 作業系統與微軟 Windows 作業系統有什麼相似的地方？",
         "type": "textarea",
       },
       {
         "answer": undefined,
         "reference": "2-3-7",
-        "subject": "3.Ubuntu作業系統中使用不同的軟體來安裝軟體，會不會造成管理上的問題？",
+        "subject": "3. Ubuntu 作業系統中使用不同的軟體來安裝軟體，會不會造成管理上的問題？",
         "type": "textarea",
       },
       {
         "answer": undefined,
         "reference": "2-4-5",
-        "subject": "4.Ubuntu作業系統中網際網路瀏覽程式需要做哪些設定才能正常使用？",
+        "subject": "4. Ubuntu 作業系統中網際網路瀏覽程式需要做哪些設定才能正常使用？",
         "type": "textarea",
       },
       {
         "answer": undefined,
         "reference": "3-1-1",
-        "subject": "5.圖形介面組成要素包含哪五部分？",
+        "subject": "5. 圖形介面組成要素包含哪五部分？",
         "type": "textarea",
       },
     ],
@@ -425,7 +425,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
 exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
 [
   {
-    "subject": "國立空中大學112學年度下學期期中考試題",
+    "subject": "國立空中大學 112 學年度下學期期中考試題",
     "type": "title",
   },
   {
@@ -434,12 +434,12 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
         "answer": "A",
         "options": [
           "(A) Ubuntu 作業系統無提供圖形化使用者介面",
-          "(B) Linux作業系統可以安裝在個人電腦或大型電腦上",
-          "(C) Ubuntu官方網站提供下載的檔案格式是「ISO」檔",
-          "(D) Ubuntu Desktop是可以安裝在個人電腦上的Ubuntu版本",
+          "(B) Linux 作業系統可以安裝在個人電腦或大型電腦上",
+          "(C) Ubuntu 官方網站提供下載的檔案格式是「ISO」檔",
+          "(D) Ubuntu Desktop 是可以安裝在個人電腦上的 Ubuntu 版本",
         ],
         "reference": "2-1",
-        "subject": "1.下列敘述何者有誤？",
+        "subject": "1. 下列敘述何者有誤？",
         "type": "radio",
       },
       {
@@ -451,7 +451,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) 設定值",
         ],
         "reference": "1-6-3",
-        "subject": "2.在 Linux作業系統裡要以文字介面來進行簡單作業，如複製檔案或管理目錄，可以使用下列哪一個程式? ",
+        "subject": "2. 在 Linux 作業系統裡要以文字介面來進行簡單作業，如複製檔案或管理目錄，可以使用下列哪一個程式? ",
         "type": "radio",
       },
       {
@@ -463,7 +463,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) 以上皆是",
         ],
         "reference": "1-4",
-        "subject": "3.下列何者是在 VirtualBox虛擬機器軟體上安裝Ubuntu 的好處? ",
+        "subject": "3. 下列何者是在 VirtualBox 虛擬機器軟體上安裝 Ubuntu 的好處? ",
         "type": "radio",
       },
       {
@@ -475,7 +475,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) 檔案格式",
         ],
         "reference": "1-2-1",
-        "subject": "4.下列何者是作業系統功能裡記憶體的管理範圍? ",
+        "subject": "4. 下列何者是作業系統功能裡記憶體的管理範圍? ",
         "type": "radio",
       },
       {
@@ -487,7 +487,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) 其中一種授權狀況是不容許程式以商業化的方式使用或散佈",
         ],
         "reference": "1-1-1",
-        "subject": "5.以下關於自由軟體(Freeware)的敘述，何者錯誤? ",
+        "subject": "5. 以下關於自由軟體(Freeware)的敘述，何者錯誤? ",
         "type": "radio",
       },
       {
@@ -499,7 +499,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) 隱私",
         ],
         "reference": "2-1-3",
-        "subject": "6.要 Ubuntu系統裡要調整桌面風格或佈景主題時，可在”設定值”裡選擇哪一個選項進行? ",
+        "subject": "6. 要 Ubuntu 系統裡要調整桌面風格或佈景主題時，可在”設定值”裡選擇哪一個選項進行? ",
         "type": "radio",
       },
       {
@@ -511,19 +511,19 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) 以上皆非",
         ],
         "reference": "3-2",
-        "subject": "7.下列哪一個是使用者登入 Ubuntu系統後，內定(預設)的工作目錄？",
+        "subject": "7. 下列哪一個是使用者登入 Ubuntu 系統後，內定(預設)的工作目錄？",
         "type": "radio",
       },
       {
         "answer": "D",
         "options": [
-          "(A) Ubuntu軟體中心",
+          "(A) Ubuntu 軟體中心",
           "(B) apt",
           "(C) synaptic",
           "(D) cd",
         ],
         "reference": "2-3",
-        "subject": "8.在 Ubuntu系統裡，下列哪一個功能或指令不是用來管理或安裝套件的? ",
+        "subject": "8. 在 Ubuntu 系統裡，下列哪一個功能或指令不是用來管理或安裝套件的? ",
         "type": "radio",
       },
       {
@@ -535,7 +535,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) ls",
         ],
         "reference": "3-3-2",
-        "subject": "9.下列何者不是與檔案與目錄管理相關的指令? ",
+        "subject": "9. 下列何者不是與檔案與目錄管理相關的指令? ",
         "type": "radio",
       },
       {
@@ -547,7 +547,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
           "(D) /etc",
         ],
         "reference": "1-5",
-        "subject": "10.下列哪 Ubuntu目錄是用來存放Linux 核心及開機程式? ",
+        "subject": "10.下列哪 Ubuntu 目錄是用來存放 Linux 核心及開機程式? ",
         "type": "radio",
       },
     ],
@@ -561,31 +561,31 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
       {
         "answer": "處理器的管理、記憶體的管理、檔案的管理、裝置的管理",
         "reference": "1-2-1",
-        "subject": "1.請寫出作業系統的四大功能。",
+        "subject": "1. 請寫出作業系統的四大功能。",
         "type": "textarea",
       },
       {
         "answer": undefined,
         "reference": "1-4",
-        "subject": "2.安裝Ubuntu作業系統有一種方式稱作「Live CD」，請問何謂「Live CD」? ",
+        "subject": "2. 安裝 Ubuntu 作業系統有一種方式稱作「Live CD」，請問何謂「Live CD」?",
         "type": "textarea",
       },
       {
         "answer": "穩定性、輕巧靈活、免費、多人多工的使用環境、硬體規格需求不高、多樣化圖形介面的加入",
         "reference": "1-1-4",
-        "subject": "3.請簡述Linux作業系統的優點與用途。",
+        "subject": "3. 請簡述 Linux 作業系統的優點與用途。",
         "type": "textarea",
       },
       {
         "answer": "桌面、視窗、選單、圖示、按鈕",
         "reference": "3-1-1",
-        "subject": "4.請列出圖形化使用者介面的五項組成要素。",
+        "subject": "4. 請列出圖形化使用者介面的五項組成要素。",
         "type": "textarea",
       },
       {
         "answer": "pwd、cd、mkdir、rmdir、ls、cp、rm、mv",
         "reference": "3-3",
-        "subject": "5.請列出至少四個與目錄或檔案相關的Linux指令，並簡單說明其指令功能。",
+        "subject": "5. 請列出至少四個與目錄或檔案相關的 Linux 指令，並簡單說明其指令功能。",
         "type": "textarea",
       },
     ],
@@ -600,7 +600,7 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
 exports[`parse pdf string to exam data - 1122_780022_11 1`] = `
 [
   {
-    "subject": "國立空中大學112學年度下學期期中考試題",
+    "subject": "國立空中大學 112 學年度下學期期中考試題",
     "type": "title",
   },
   {
@@ -666,7 +666,7 @@ exports[`parse pdf string to exam data - 1122_780022_11 1`] = `
           "X",
         ],
         "reference": "CH3 P.55",
-        "subject": "6.CEDAW的全名是消除對男女一切形式歧視公約。",
+        "subject": "6.CEDAW 的全名是消除對男女一切形式歧視公約。",
         "type": "radio",
       },
       {
@@ -723,71 +723,71 @@ exports[`parse pdf string to exam data - 1122_780022_11 1`] = `
           "C",
         ],
         "options": [],
-        "reference": undefined,
-        "subject": "1.2024巴黎奧運主題之一為性別平等，也是首屆男女選手比例達50%。請問此一進步最直接符合性別主流化哪一項工作？A性別意識培力B性別預算C性別統計CH3 P.61113.4.23更正",
+        "reference": "CH3 P.61",
+        "subject": "1.2024 巴黎奧運主題之一為性別平等，也是首屆男女選手比例達 50%。請問此一進步最直接符合性別主流化哪一項工作？ A 性別意識培力 B 性別預算 C 性別統計",
         "type": "radio",
       },
       {
         "answer": "A",
         "options": [],
         "reference": "CH3 P.74",
-        "subject": "2.承上題巴黎奧運也符合CEDAW重視的A機會平等B支持平等C優惠平等",
+        "subject": "2.承上題 巴黎奧運也符合 CEDAW 重視的 A 機會平等 B 支持平等 C 優惠平等",
         "type": "radio",
       },
       {
         "answer": "B",
         "options": [],
         "reference": "CH2 P.30",
-        "subject": "3.台灣原住民族正名運動及相關文化復興的運動，是透過何種權利的爭取而讓原住民族得到應有的尊嚴？A政治權B文化權C自治權",
+        "subject": "3.台灣原住民族正名運動及相關文化復興的運動，是透過何種權利的爭取而讓原住民族得到應有的尊嚴？A 政治權 B 文化權 C 自治權",
         "type": "radio",
       },
       {
         "answer": "B",
         "options": [],
         "reference": "CH5 P.135",
-        "subject": "4.科技工程領域中性別不平等之處，進行性別分析，利用分析結果納入研發科技以利創新，藉以達到減少性別偏差，改善性別關係，促進性別平等。此稱?A性別統計B性別創新C性別意識培力",
+        "subject": "4.科技工程領域中性別不平等之處，進行性別分析，利用分析結果納入研發科技以利創新，藉以達到減少性別偏差，改善性別關係，促進性別平等。此稱?A 性別統計 B 性別創新 C 性別意識培力",
         "type": "radio",
       },
       {
         "answer": "A",
         "options": [],
         "reference": "CH5 P.147",
-        "subject": "5.亞洲非吸菸女性的肺癌環境因子暴露研究指出？A烹飪油煙是重要危險因子B吸菸行為C工廠環境暴露",
+        "subject": "5.亞洲非吸菸女性的肺癌環境因子暴露研究指出？ A 烹飪油煙是重要危險因子 B 吸菸行為 C 工廠環境暴露",
         "type": "radio",
       },
       {
         "answer": "B",
         "options": [],
         "reference": "CH4 P.87",
-        "subject": "6.性別影響評估的目的，何者正確？A譴責不平等之處B瞭解不平等的原因C否認性別差異",
+        "subject": "6.性別影響評估的目的，何者正確？ A 譴責不平等之處 B 瞭解不平等的原因 C 否認性別差異",
         "type": "radio",
       },
       {
         "answer": "B",
         "options": [],
         "reference": "CH1 P.14",
-        "subject": "7.下列關於第三波女性主義的敘述，何者為非？A重視性別多元B反對酷兒運動C重視論述與權力關係",
+        "subject": "7.下列關於第三波女性主義的敘述，何者為非？A 重視性別多元 B 反對酷兒運動 C 重視論述與權力關係",
         "type": "radio",
       },
       {
         "answer": "C",
         "options": [],
         "reference": "CH2 P.40",
-        "subject": "8.從兩性關係到性別關係的敘述何者正確？A重視性別二分B重視性別規範C重視性別多元",
+        "subject": "8.從兩性關係到性別關係的敘述何者正確？ A 重視性別二分 B 重視性別規範 C 重視性別多元",
         "type": "radio",
       },
       {
         "answer": "A",
         "options": [],
         "reference": "CH2 P.44",
-        "subject": "9.韓式炸雞近來風靡一時，韓國炸雞店也如雨後春筍般來台成立，但據報載辣度口味亦調整成台灣人可接受程度，請問此為？A全球在地化B經濟全球化C食物全球化",
+        "subject": "9.韓式炸雞近來風靡一時，韓國炸雞店也如雨後春筍般來台成立，但據報載辣度口味亦調整成台灣人可接受程度，請問此為？ A 全球在地化 B 經濟全球化 C 食物全球化",
         "type": "radio",
       },
       {
         "answer": "A",
         "options": [],
         "reference": "CH4P.107",
-        "subject": "10.探討新生兒性別比例差異的社會文化原因，此為？A性別分析B性別統計C性別影響評估",
+        "subject": "10.探討新生兒性別比例差異的社會文化原因，此為？A 性別分析 B 性別統計 C 性別影響評估",
         "type": "radio",
       },
     ],
@@ -823,7 +823,7 @@ exports[`parse pdf string to exam data - 1122_780022_11 1`] = `
 exports[`parse pdf string to exam data - 1122_780051_11 1`] = `
 [
   {
-    "subject": "國立空中大學112學年度下學期期中考試題",
+    "subject": "國立空中大學 112 學年度下學期期中考試題",
     "type": "title",
   },
   {
@@ -834,25 +834,25 @@ exports[`parse pdf string to exam data - 1122_780051_11 1`] = `
     "children": [
       {
         "answer": undefined,
-        "reference": "(教科書第5頁；媒體教材1-1-2)",
+        "reference": "(教科書第 5 頁；媒體教材 1-1-2)",
         "subject": "一、試述構成「對偶」的四項要素。",
         "type": "textarea",
       },
       {
         "answer": undefined,
-        "reference": "(教科書第15、17頁；媒體教材1-2-3)",
+        "reference": "(教科書第 15、17 頁；媒體教材 1-2-3)",
         "subject": "二、中國在哪個時期開始在桃木板上題詞，取代了原本書寫門神名字或掛門神圖像的作法？對聯文化在哪個時代推展到民間？",
         "type": "textarea",
       },
       {
         "answer": undefined,
-        "reference": "(教科書第33、35頁；媒體教材1-3-5)",
+        "reference": "(教科書第 33、35 頁；媒體教材 1-3-5)",
         "subject": "三、南明抗清名將黃道周的諷刺聯「史筆留芳，雖未成功終可法；洪恩浩蕩，不能報國反成仇。」用了哪一個修辭手法？另外，「常將有日思無日，莫待無時思有時」又用哪個修辭手法？",
         "type": "textarea",
       },
       {
         "answer": undefined,
-        "reference": "(教科書第102-103頁)",
+        "reference": "(教科書第 102-103 頁)",
         "subject": "四、清代四川總督丁寶楨十分讚許「十年宦比梅花冷，一夜春隨爆竹來」對聯，試述此聯原本旨意及其比興寓意。",
         "type": "textarea",
       },
@@ -866,19 +866,19 @@ exports[`parse pdf string to exam data - 1122_780051_11 1`] = `
     "children": [
       {
         "answer": undefined,
-        "reference": "(教科書第94-96頁；媒體教材2-3-9)",
+        "reference": "(教科書第 94-96 頁；媒體教材 2-3-9)",
         "subject": "一、「異文比較」是賞析對聯的一種方式。試就「善由此地心無愧，惡過吾門膽自寒」、「善來此地心無愧，惡過我門膽自寒」說明異文含義的不同，並請賞析之。",
         "type": "textarea",
       },
       {
         "answer": undefined,
-        "reference": "(教科書第106頁；媒體教材3-2-1)",
+        "reference": "(教科書第 106 頁；媒體教材 3-2-1)",
         "subject": "二、試逐項檢核並說明「大塊能相假，名山不獨藏。」是否符合基本的對聯格律？另請說明這副對聯適合張貼在什麼場所？為什麼？",
         "type": "textarea",
       },
       {
         "answer": undefined,
-        "reference": "(教科書第170-171頁)",
+        "reference": "(教科書第 170-171 頁)",
         "subject": "三、試賞析江蘇無錫陸宣公祠柱聯「世上幾百年舊家，無非積德；天下第一件好事，只是讀書。」",
         "type": "textarea",
       },

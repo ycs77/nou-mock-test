@@ -20,8 +20,8 @@ export function parseExam(content: string) {
       continue
     }
 
-    // ex: 科目：Linux 作業系統管理  一律橫式作答2-2頁
-    const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)?一律橫式作答(?:\d+-)?(\d+)頁/)
+    // ex: 科目：Linux 作業系統管理  一律橫式作答 2-2 頁
+    const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)? ?一律橫式作答 (?:\d+-)?(\d+) ?頁/)
     if (subtitleMatchs) {
       const page = Number.parseInt(subtitleMatchs[2] ?? '1')
       if (page === 1) {
@@ -34,7 +34,7 @@ export function parseExam(content: string) {
     }
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
-    const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])、?(是非題|選擇題|簡答題|問答題|申論題)/)
+    const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])[、 ]?(是非題|選擇題|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
       const count = sectionTitleMatchs[1]
       sectionTitle = sectionTitleMatchs[2] as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題'
@@ -77,26 +77,26 @@ export function parseExam(content: string) {
       // ex: (X) 1.
       if (field.subject.match(/^\(?([OX])\)? ?\d+\./i)) {
         field.answer = field.subject.match(/^\(?([OX])\)? ?/i)?.[1]
-        field.subject = field.subject.replace(/^\(?([OX])\)? ?/i, '')
+        field.subject = field.subject.replace(/^\(?([OX])\)? ?/i, '').trim()
       }
 
-      if (field.subject.match(/\([OX]，([\d\-圖.]+)\)$/i)) {
+      if (field.subject.match(/\([OX]，([\d\-. 圖]+)\)$/i)) {
         // 確認題目結尾存在對應課程章節
         // ex: (O，1-1)
-        const parts = field.subject.match(/\(([OX])，([\d\-圖.]+)\)$/i)
+        const parts = field.subject.match(/\(([OX])，([\d\-. 圖]+)\)$/i)
         field.answer = parts?.[1]
         field.reference = parts?.[2]
-        field.subject = field.subject.replace(/\([OX]，([\d\-圖.]+)\)$/i, '').trim()
-      } else if (field.subject?.match(/CH\d+ ?P\.\d+$/)) {
+        field.subject = field.subject.replace(/\([OX]，([\d\-. 圖]+)\)$/i, '').trim()
+      } else if (field.subject.match(/CH\d+ ?P\.\d+$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: CH1 P.1
         field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
-        field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '')
-      } else if (field.subject.match(/\((P\.[\d\-圖.]+)\)$/)) {
+        field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+      } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: (P.1圖1-1)
-        field.reference = field.subject.match(/\((P\.[\d\-圖.]+)\)$/)?.[1]
-        field.subject = field.subject.replace(/\((P\.[\d\-圖.]+)\)$/, '')
+        field.reference = field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)?.[1]
+        field.subject = field.subject.replace(/\((P\.[\d\-. 圖]+)\)$/, '').trim()
       }
 
       const section = blocks[blocks.length - 1] as Section
@@ -118,34 +118,34 @@ export function parseExam(content: string) {
 
       // ex: A 1.
       // ex: (A) 1.
-      // ex: A或C 1.
-      const matches = field.subject.match(/^\(?([A-E])(?:或([A-E]))?\)? ?\d+\./i)
+      // ex: A 或 C 1.
+      const matches = field.subject.match(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?\d+\./i)
       if (matches) {
         if (matches[2]) {
           field.answer = matches.slice(1, 3)
         } else {
           field.answer = matches[1]
         }
-        field.subject = field.subject.replace(/^\(?([A-E])(?:或([A-E]))?\)? ?/i, '')
+        field.subject = field.subject.replace(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?/i, '').trim()
       }
 
-      if (field.subject.match(/\([A-E]，([\d\-圖.]+)\)$/i)) {
+      if (field.subject.match(/\([A-E]，([\d\-. 圖]+)\)$/i)) {
         // 確認題目結尾存在對應課程章節
         // ex: (A，1-1)
-        const parts = field.subject.match(/\(([A-E])，([\d\-圖.]+)\)$/i)
+        const parts = field.subject.match(/\(([A-E])，([\d\-. 圖]+)\)$/i)
         field.answer = parts?.[1]
         field.reference = parts?.[2]
-        field.subject = field.subject.replace(/\([A-E]，([\d\-圖.]+)\)$/i, '').trim()
-      } else if (field.subject?.match(/CH\d+ ?P\.\d+$/)) {
+        field.subject = field.subject.replace(/\([A-E]，([\d\-. 圖]+)\)$/i, '').trim()
+      } else if (field.subject.match(/CH\d+ ?P\.\d+$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: CH1 P.1
         field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
-        field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '')
-      } else if (field.subject.match(/\((P\.[\d\-圖.]+)\)$/)) {
+        field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+      } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
-        // ex: (P.1圖1-1)
-        field.reference = field.subject.match(/\((P\.[\d\-圖.]+)\)$/)?.[1]
-        field.subject = field.subject.replace(/\((P\.[\d\-圖.]+)\)$/, '')
+        // ex: (P.1 圖1-1)
+        field.reference = field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)?.[1]
+        field.subject = field.subject.replace(/\((P\.[\d\-. 圖]+)\)$/, '').trim()
       }
 
       // ex: (A)... (B)... (C)... (D)...
@@ -179,27 +179,27 @@ export function parseExam(content: string) {
           reference: undefined,
         }
 
-        if (field.subject?.match(/\(([\d\-圖.]+)\)$/)) {
+        if (field.subject.match(/\(([\d\-. 圖]+)\)$/)) {
           // 確認題目結尾存在對應課程章節
           // ex: (1-1-1)
-          field.reference = field.subject.match(/\(([\d\-圖.]+)\)$/)?.[1]
-          field.subject = field.subject.replace(/\(([\d\-圖.]+)\)$/, '')
-        } else if (field.subject?.match(/CH\d+ ?P\.\d+$/)) {
+          field.reference = field.subject.match(/\(([\d\-. 圖]+)\)$/)?.[1]
+          field.subject = field.subject.replace(/\(([\d\-. 圖]+)\)$/, '').trim()
+        } else if (field.subject.match(/CH\d+ ?P\.\d+$/)) {
           // 確認題目結尾存在對應課程章節
           // ex: CH1 P.1
           field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
-          field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '')
-        } else if (field.subject?.match(/\((P\.[\d\-圖.]+)\)$/)) {
+          field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+        } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
           // 確認題目結尾存在對應課程章節
           // ex: (P.1圖1-1)
-          field.reference = field.subject.match(/\((P\.[\d\-圖.]+)\)$/)?.[1]
-          field.subject = field.subject.replace(/\((P\.[\d\-圖.]+)\)$/, '')
-        } else if (field.subject?.match(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d\-圖.]+)?\)$/)) {
+          field.reference = field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)?.[1]
+          field.subject = field.subject.replace(/\((P\.[\d\-. 圖]+)\)$/, '').trim()
+        } else if (field.subject.match(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/)) {
           // 確認題目結尾存在對應課程章節
-          // ex: (教科書第15、17頁)
-          // ex: (教科書第15、17頁；媒體教材1-2-3)
-          field.reference = field.subject.match(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d\-圖.]+)?\)$/)?.[0]
-          field.subject = field.subject.replace(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d\-圖.]+)?\)$/, '')
+          // ex: (教科書第 15、17 頁)
+          // ex: (教科書第 15、17 頁；媒體教材 1-2-3)
+          field.reference = field.subject.match(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/)?.[0]
+          field.subject = field.subject.replace(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/, '').trim()
         }
 
         const section = blocks[blocks.length - 1] as Section
@@ -216,11 +216,11 @@ export function parseExam(content: string) {
           field.answer = line
         }
 
-        if (field.answer.match(/P\.[\d\-圖.]+$/)) {
+        if (field.answer.match(/P\.[\d\-. 圖]+$/)) {
           // 確認答案存在對應課程章節
-          // ex: P.1圖1-1
-          field.reference = field.answer.match(/P\.[\d\-圖.]+$/)?.[0]
-          field.answer = field.answer.replace(/P\.[\d\-圖.]+$/, '')
+          // ex: P.1 圖1-1
+          field.reference = field.answer.match(/P\.[\d\-. 圖]+$/)?.[0]
+          field.answer = field.answer.replace(/P\.[\d\-. 圖]+$/, '')
         }
 
         section.children[section.children.length - 1] = field
@@ -237,27 +237,27 @@ export function parseExam(content: string) {
         reference: undefined,
       }
 
-      if (field.subject?.match(/\(([\d\-圖.]+)\)$/)) {
+      if (field.subject.match(/\(([\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: (1-1-1)
-        field.reference = field.subject.match(/\(([\d\-圖.]+)\)$/)?.[1]
-        field.subject = field.subject.replace(/\(([\d\-圖.]+)\)$/, '')
-      } else if (field.subject?.match(/CH\d+ ?P\.\d+$/)) {
+        field.reference = field.subject.match(/\(([\d\-. 圖]+)\)$/)?.[1]
+        field.subject = field.subject.replace(/\(([\d\-. 圖]+)\)$/, '').trim()
+      } else if (field.subject.match(/CH\d+ ?P\.\d+$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: CH1 P.1
         field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
-        field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '')
-      } else if (field.subject?.match(/\((P\.[\d\-圖.]+)\)$/)) {
+        field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+      } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
-        // ex: (P.1圖1-1)
-        field.reference = field.subject.match(/\((P\.[\d\-圖.]+)\)$/)?.[1]
-        field.subject = field.subject.replace(/\((P\.[\d\-圖.]+)\)$/, '')
-      } else if (field.subject?.match(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d\-圖.]+)?\)$/)) {
+        // ex: (P.1 圖1-1)
+        field.reference = field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)?.[1]
+        field.subject = field.subject.replace(/\((P\.[\d\-. 圖]+)\)$/, '').trim()
+      } else if (field.subject.match(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/)) {
         // 確認題目結尾存在對應課程章節
-        // ex: (教科書第15、17頁)
-        // ex: (教科書第15、17頁；媒體教材1-2-3)
-        field.reference = field.subject.match(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d\-圖.]+)?\)$/)?.[0]
-        field.subject = field.subject.replace(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d\-圖.]+)?\)$/, '')
+        // ex: (教科書第 15、17 頁)
+        // ex: (教科書第 15、17 頁；媒體教材 1-2-3)
+        field.reference = field.subject.match(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/)?.[0]
+        field.subject = field.subject.replace(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/, '').trim()
       }
 
       const section = blocks[blocks.length - 1] as Section

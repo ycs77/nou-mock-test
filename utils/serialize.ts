@@ -9,22 +9,22 @@ import stringWidth from 'string-width'
 export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number = 2) {
   let prevY = null as number | null
 
-  const content = pdfData
+  const texts = pdfData
     .pages
     .reduce<PDFExtractText[]>((texts, page) => [...texts, ...page.content], [])
-    .filter(text => text.str.trim() !== '')
-    .reduce<string>((content, text) => {
-      let breakline = ''
 
-      // 和上一個元素不同行，因此輸出換行符號
-      if (typeof prevY === 'number' && Math.abs(text.y - prevY) > lineDeviation) {
-        breakline = `\n`
-      }
+  const content = texts.reduce<string>((content, text) => {
+    let breakline = ''
 
-      prevY = text.y
+    // 和上一個元素不同行，因此輸出換行符號
+    if (typeof prevY === 'number' && Math.abs(text.y - prevY) > lineDeviation) {
+      breakline = `\n`
+    }
 
-      return `${content}${breakline}${text.str}`
-    }, '')
+    prevY = text.y
+
+    return `${content}${breakline}${text.str}`
+  }, '')
 
   return content
 }
@@ -37,6 +37,12 @@ export function getMaxLineWidth(content: string) {
 
 export function serializePdfStringToParagraphs(content: string) {
   const maxWidth = getMaxLineWidth(content)
+
+  // ignores
+  const ignores = [
+    '其他符號作答不計分',
+    '說明：請按題號依序作答，並標示題號。',
+  ]
 
   let newContent = ''
   let sectionTitle = null as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題' | null
@@ -53,12 +59,7 @@ export function serializePdfStringToParagraphs(content: string) {
     .filter(line => line.trim() !== '')
 
   for (const line of lines) {
-    // ignores
-    const ignores = [
-      '其他符號作答不計分',
-      '說明：請按題號依序作答，並標示題號。',
-    ]
-    if (ignores.some(pattern => pattern.includes(line))) continue
+    if (ignores.some(text => line.includes(text))) continue
 
     // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
     if (line.match(/^國立空中大學 ?\d+ ?學年度[上下]學期期[中末]考試題/)) {
@@ -79,7 +80,7 @@ export function serializePdfStringToParagraphs(content: string) {
     if (line === '背面尚有試題') continue
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
-    const sectionTitleMatchs = line.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、?(是非題|選擇題|簡答題|問答題|申論題)/)
+    const sectionTitleMatchs = line.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾][、 ]?(是非題|選擇題|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
       newContent = newContent.replace(/\n$/, '')
       newContent += `\n${line}\n`
@@ -107,7 +108,7 @@ export function serializePdfStringToParagraphs(content: string) {
 
     // 解析選擇題
     else if (sectionTitle === '選擇題') {
-      if (line.match(/^[A-E](?:或[A-E])? ?\d+\./)) {
+      if (line.match(/^[A-E](?: 或 [A-E])? ?\d+\./)) {
         // ex: A 1.
         // ex: A1.
         // ex: A 或 C 1.
@@ -201,6 +202,10 @@ export function serializePdfStringToParagraphs(content: string) {
       continue
     }
   }
+
+  // 清除更正文字
+  // ex: 113.4.23 更正
+  newContent = newContent.replace(/ *\d+\.\d+\.\d+ 更正/g, '')
 
   return newContent.replace(/\n$/, '')
 }

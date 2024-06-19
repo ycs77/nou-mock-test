@@ -1,7 +1,7 @@
 [
   {
     "type": "title",
-    "subject": "國立空中大學112學年度下學期期中考試題"
+    "subject": "國立空中大學 112 學年度下學期期中考試題"
   },
   {
     "type": "section",
@@ -11,19 +11,19 @@
     "children": [
       {
         "type": "radio",
-        "subject": "1.下列敘述何者有誤？",
+        "subject": "1. 下列敘述何者有誤？",
         "options": [
           "(A) Ubuntu 作業系統無提供圖形化使用者介面",
-          "(B) Linux作業系統可以安裝在個人電腦或大型電腦上",
-          "(C) Ubuntu官方網站提供下載的檔案格式是「ISO」檔",
-          "(D) Ubuntu Desktop是可以安裝在個人電腦上的Ubuntu版本"
+          "(B) Linux 作業系統可以安裝在個人電腦或大型電腦上",
+          "(C) Ubuntu 官方網站提供下載的檔案格式是「ISO」檔",
+          "(D) Ubuntu Desktop 是可以安裝在個人電腦上的 Ubuntu 版本"
         ],
         "answer": "A",
         "reference": "2-1"
       },
       {
         "type": "radio",
-        "subject": "2.在 Linux作業系統裡要以文字介面來進行簡單作業，如複製檔案或管理目錄，可以使用下列哪一個程式? ",
+        "subject": "2. 在 Linux 作業系統裡要以文字介面來進行簡單作業，如複製檔案或管理目錄，可以使用下列哪一個程式? ",
         "options": [
           "(A) Firefox",
           "(B) Impress",
@@ -35,7 +35,7 @@
       },
       {
         "type": "radio",
-        "subject": "3.下列何者是在 VirtualBox虛擬機器軟體上安裝Ubuntu 的好處? ",
+        "subject": "3. 下列何者是在 VirtualBox 虛擬機器軟體上安裝 Ubuntu 的好處? ",
         "options": [
           "(A) 不必再另外準備一台電腦",
           "(B) 可在一台電腦上安裝多個版本作業系統",
@@ -47,7 +47,7 @@
       },
       {
         "type": "radio",
-        "subject": "4.下列何者是作業系統功能裡記憶體的管理範圍? ",
+        "subject": "4. 下列何者是作業系統功能裡記憶體的管理範圍? ",
         "options": [
           "(A) 滑鼠",
           "(B) 執行中的程式與資料",
@@ -59,7 +59,7 @@
       },
       {
         "type": "radio",
-        "subject": "5.以下關於自由軟體(Freeware)的敘述，何者錯誤? ",
+        "subject": "5. 以下關於自由軟體(Freeware)的敘述，何者錯誤? ",
         "options": [
           "(A) 一般公用授權是免費的",
           "(B) 允許使用者修改和重新分發軟體的權利",
@@ -71,7 +71,7 @@
       },
       {
         "type": "radio",
-        "subject": "6.要 Ubuntu系統裡要調整桌面風格或佈景主題時，可在”設定值”裡選擇哪一個選項進行? ",
+        "subject": "6. 要 Ubuntu 系統裡要調整桌面風格或佈景主題時，可在”設定值”裡選擇哪一個選項進行? ",
         "options": [
           "(A) 鍵盤",
           "(B) 電源",
@@ -83,7 +83,7 @@
       },
       {
         "type": "radio",
-        "subject": "7.下列哪一個是使用者登入 Ubuntu系統後，內定(預設)的工作目錄？",
+        "subject": "7. 下列哪一個是使用者登入 Ubuntu 系統後，內定(預設)的工作目錄？",
         "options": [
           "(A) 根目前",
           "(B) 家目錄",
@@ -95,9 +95,9 @@
       },
       {
         "type": "radio",
-        "subject": "8.在 Ubuntu系統裡，下列哪一個功能或指令不是用來管理或安裝套件的? ",
+        "subject": "8. 在 Ubuntu 系統裡，下列哪一個功能或指令不是用來管理或安裝套件的? ",
         "options": [
-          "(A) Ubuntu軟體中心",
+          "(A) Ubuntu 軟體中心",
           "(B) apt",
           "(C) synaptic",
           "(D) cd"
@@ -107,7 +107,7 @@
       },
       {
         "type": "radio",
-        "subject": "9.下列何者不是與檔案與目錄管理相關的指令? ",
+        "subject": "9. 下列何者不是與檔案與目錄管理相關的指令? ",
         "options": [
           "(A) ps",
           "(B) cd",
@@ -119,7 +119,7 @@
       },
       {
         "type": "radio",
-        "subject": "10.下列哪 Ubuntu目錄是用來存放Linux 核心及開機程式? ",
+        "subject": "10.下列哪 Ubuntu 目錄是用來存放 Linux 核心及開機程式? ",
         "options": [
           "(A) /bin",
           "(B) /root",
@@ -139,30 +139,30 @@
     "children": [
       {
         "type": "textarea",
-        "subject": "1.請寫出作業系統的四大功能。",
+        "subject": "1. 請寫出作業系統的四大功能。",
         "answer": "處理器的管理、記憶體的管理、檔案的管理、裝置的管理",
         "reference": "1-2-1"
       },
       {
         "type": "textarea",
-        "subject": "2.安裝Ubuntu作業系統有一種方式稱作「Live CD」，請問何謂「Live CD」? ",
+        "subject": "2. 安裝 Ubuntu 作業系統有一種方式稱作「Live CD」，請問何謂「Live CD」?",
         "reference": "1-4"
       },
       {
         "type": "textarea",
-        "subject": "3.請簡述Linux作業系統的優點與用途。",
+        "subject": "3. 請簡述 Linux 作業系統的優點與用途。",
         "answer": "穩定性、輕巧靈活、免費、多人多工的使用環境、硬體規格需求不高、多樣化圖形介面的加入",
         "reference": "1-1-4"
       },
       {
         "type": "textarea",
-        "subject": "4.請列出圖形化使用者介面的五項組成要素。",
+        "subject": "4. 請列出圖形化使用者介面的五項組成要素。",
         "answer": "桌面、視窗、選單、圖示、按鈕",
         "reference": "3-1-1"
       },
       {
         "type": "textarea",
-        "subject": "5.請列出至少四個與目錄或檔案相關的Linux指令，並簡單說明其指令功能。",
+        "subject": "5. 請列出至少四個與目錄或檔案相關的 Linux 指令，並簡單說明其指令功能。",
         "answer": "pwd、cd、mkdir、rmdir、ls、cp、rm、mv",
         "reference": "3-3"
       }

@@ -1,11 +1,11 @@
 [
   {
     "type": "title",
-    "subject": "國立空中大學104學年度下學期期中考試題"
+    "subject": "國立空中大學 104 學年度下學期期中考試題"
   },
   {
     "type": "subtitle",
-    "subject": "科目：Linux作業系統管理"
+    "subject": "科目：Linux 作業系統管理"
   },
   {
     "type": "section",
@@ -15,7 +15,7 @@
     "children": [
       {
         "type": "radio",
-        "subject": "1.Linux作業系統通常要在大型主機上使用，一般的個人電腦無法安裝使用。",
+        "subject": "1. Linux 作業系統通常要在大型主機上使用，一般的個人電腦無法安裝使用。",
         "options": [
           "O",
           "X"
@@ -25,7 +25,7 @@
       },
       {
         "type": "radio",
-        "subject": "2.網站提供的Ubuntu下載檔案格式為「ISO」，ISO格式的檔案可以直接燒錄到光碟上。",
+        "subject": "2. 網站提供的 Ubuntu 下載檔案格式為「ISO」， ISO 格式的檔案可以直接燒錄到光碟上。",
         "options": [
           "O",
           "X"
@@ -35,7 +35,7 @@
       },
       {
         "type": "radio",
-        "subject": "3.Linux作業系統並不支援圖形化的使用者介面(graphical user interface)，所以這一部分的功能跟微軟公司的視窗作業系統不同。",
+        "subject": "3. Linux 作業系統並不支援圖形化的使用者介面(graphical user interface)，所以這一部分的功能跟微軟公司的視窗作業系統不同。",
         "options": [
           "O",
           "X"
@@ -45,7 +45,7 @@
       },
       {
         "type": "radio",
-        "subject": "4.IE(Internet Explorer)是Ubuntu系統提供的網際網路瀏覽程式。",
+        "subject": "4. IE(Internet Explorer)是 Ubuntu 系統提供的網際網路瀏覽程式。",
         "options": [
           "O",
           "X"
@@ -55,7 +55,7 @@
       },
       {
         "type": "radio",
-        "subject": "5.find指令會直接存取硬碟，比較耗費系統資源。",
+        "subject": "5. find 指令會直接存取硬碟，比較耗費系統資源。",
         "options": [
           "O",
           "X"
@@ -73,7 +73,7 @@
     "children": [
       {
         "type": "radio",
-        "subject": "1.Linux中硬碟通常對應到下列哪一種儲存裝置代號？",
+        "subject": "1. Linux 中硬碟通常對應到下列哪一種儲存裝置代號？ ",
         "options": [
           "(a) /dev/fd0",
           "(b) /dev/sda",
@@ -84,7 +84,7 @@
       },
       {
         "type": "radio",
-        "subject": "2.Linux作業系統採用過下列哪一種檔案系統格式？",
+        "subject": "2. Linux 作業系統採用過下列哪一種檔案系統格式？ ",
         "options": [
           "(a) FAT32",
           "(b) NTFS",
@@ -95,7 +95,7 @@
       },
       {
         "type": "radio",
-        "subject": "3.Ubuntu利用apt-get及apt-cache兩個指令的變化來進行下列哪一項操作？",
+        "subject": "3. Ubuntu 利用 apt-get 及 apt-cache 兩個指令的變化來進行下列哪一項操作？ ",
         "options": [
           "(a) 儲存裝置管理",
           "(b) 套件管理",
@@ -106,7 +106,7 @@
       },
       {
         "type": "radio",
-        "subject": "4.假如要改變螢幕的解析度，在Ubuntu的「系統設定」中要選擇哪一項選項進行設定？",
+        "subject": "4. 假如要改變螢幕的解析度，在 Ubuntu 的「系統設定」中要選擇哪一項選項進行設定？ ",
         "options": [
           "(a) 螢幕",
           "(b) 外觀",
@@ -118,7 +118,7 @@
       },
       {
         "type": "radio",
-        "subject": "5.Ubuntu中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？",
+        "subject": "5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？ ",
         "options": [
           "(a) apt-getautoremove",
           "(b) apt-get remove",
@@ -129,7 +129,7 @@
       },
       {
         "type": "radio",
-        "subject": "6.使用者登入系統之後，內定的工作目錄稱之為？",
+        "subject": "6. 使用者登入系統之後，內定的工作目錄稱之為？ ",
         "options": [
           "(a) 本目錄",
           "(b) 家目錄",
@@ -140,7 +140,7 @@
       },
       {
         "type": "radio",
-        "subject": "7.下列有關bash的敘述何者錯誤？",
+        "subject": "7. 下列有關 bash 的敘述何者錯誤？ ",
         "options": [
           "(a) 支援萬用字元",
           "(b) 具有設定指令別名的功能",
@@ -151,7 +151,7 @@
       },
       {
         "type": "radio",
-        "subject": "8.下列哪一個指令會顯示伺服器上佔用CPU的任務資訊，並且每5秒鐘刷新一次？",
+        "subject": "8. 下列哪一個指令會顯示伺服器上佔用 CPU 的任務資訊，並且每 5 秒鐘刷新一次？ ",
         "options": [
           "(a) uptime",
           "(b) vmstat",
@@ -162,7 +162,7 @@
       },
       {
         "type": "radio",
-        "subject": "9.下列哪一個指令與系統中的程序無關？",
+        "subject": "9. 下列哪一個指令與系統中的程序無關？ ",
         "options": [
           "(a) pstree",
           "(b) ps",
@@ -173,7 +173,7 @@
       },
       {
         "type": "radio",
-        "subject": "10.下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？",
+        "subject": "10. 下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？ ",
         "options": [
           "(a) much",
           "(b) less",
@@ -192,27 +192,27 @@
     "children": [
       {
         "type": "textarea",
-        "subject": "1.何謂「Live CD」？",
+        "subject": "1. 何謂「Live CD」？",
         "reference": "1-4-1"
       },
       {
         "type": "textarea",
-        "subject": "2.Linux作業系統與微軟Windows作業系統有什麼相似的地方？",
+        "subject": "2. Linux 作業系統與微軟 Windows 作業系統有什麼相似的地方？",
         "reference": "1-4-4"
       },
       {
         "type": "textarea",
-        "subject": "3.Ubuntu作業系統中使用不同的軟體來安裝軟體，會不會造成管理上的問題？",
+        "subject": "3. Ubuntu 作業系統中使用不同的軟體來安裝軟體，會不會造成管理上的問題？",
         "reference": "2-3-7"
       },
       {
         "type": "textarea",
-        "subject": "4.Ubuntu作業系統中網際網路瀏覽程式需要做哪些設定才能正常使用？",
+        "subject": "4. Ubuntu 作業系統中網際網路瀏覽程式需要做哪些設定才能正常使用？",
         "reference": "2-4-5"
       },
       {
         "type": "textarea",
-        "subject": "5.圖形介面組成要素包含哪五部分？",
+        "subject": "5. 圖形介面組成要素包含哪五部分？",
         "reference": "3-1-1"
       }
     ]
