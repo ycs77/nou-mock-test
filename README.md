@@ -22,3 +22,15 @@ yarn dev
 ```bash
 yarn build
 ```
+
+## 測試
+
+```bash
+yarn test
+```
+
+重新產生 fixtures：
+
+```bash
+yarn generate:2-loaded-from-pdf
+```

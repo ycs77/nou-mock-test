@@ -1,4 +1,3 @@
-import fs from 'node:fs'
 import path from 'node:path'
 import { expect, it } from 'vitest'
 
@@ -31,8 +30,6 @@ it.each([
   let content = pdfDataToString(pdfData)
 
   content = serializePdfStringToParagraphs(content)
-
-  // fs.writeFileSync(path.resolve(__dirname, `fixtures/${filename}__2_loaded_from_pdf.txt`), content)
 
   expect(content).matchSnapshot()
 })
