@@ -61,12 +61,12 @@ export function serializePdfStringToParagraphs(content: string) {
     if (ignores.some(pattern => pattern.includes(line))) continue
 
     // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
-    if (line.match(/^國立空中大學 ?\d+ ?學年度下學期期中考試題/)) {
+    if (line.match(/^國立空中大學 ?\d+ ?學年度[上下]學期期[中末]考試題/)) {
       newContent += `${line}\n`
       continue
     }
 
-    // ex: 科目：Linux 作業系統管理      一律橫式作答  頁
+    // ex: 科目：Linux 作業系統管理  一律橫式作答2-2頁
     if (line.startsWith('科目：')) {
       newContent += `${line}\n`
       continue
@@ -74,6 +74,9 @@ export function serializePdfStringToParagraphs(content: string) {
 
     // ex: 作答結束
     if (line === '作答結束') continue
+
+    // ex: 背面尚有試題
+    if (line === '背面尚有試題') continue
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
     const sectionTitleMatchs = line.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、?(是非題|選擇題|簡答題|問答題|申論題)/)
@@ -143,8 +146,9 @@ export function serializePdfStringToParagraphs(content: string) {
           // 確認題目結尾存在對應課程章節
           // ex: CH1 P.1
           currentQuestionComplete = true
-        } else if (currentQuestion.match(/\(教科書第[\d\-、]+頁；媒體教材[\d-]+\)$/)) {
+        } else if (currentQuestion.match(/\(教科書第[\d\-、]+頁(?:；媒體教材[\d-]+)?\)$/)) {
           // 確認題目結尾存在對應課程章節
+          // ex: (教科書第15、17頁)
           // ex: (教科書第15、17頁；媒體教材1-2-3)
           currentQuestionComplete = true
         }

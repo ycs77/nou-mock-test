@@ -9,6 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "generate:2-loaded-from-pdf": "tsx test/scripts/2-loaded-from-pdf.ts",
+    "generate:3-parsed-exam-data": "tsx test/scripts/3-parsed-exam-data.ts",
     "lint": "eslint .",
     "test": "vitest",
     "postinstall": "nuxt prepare"

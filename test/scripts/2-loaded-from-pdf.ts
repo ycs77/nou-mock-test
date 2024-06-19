@@ -19,5 +19,8 @@ const __dirname = path.dirname(__filename)
 
   content = serializePdfStringToParagraphs(content)
 
-  fs.writeFileSync(path.resolve(__dirname, `../fixtures/${filename}__2_loaded_from_pdf.txt`), content)
+  fs.writeFileSync(
+    path.resolve(__dirname, `../fixtures/${filename}__2_loaded_from_pdf.txt`),
+    content
+  )
 })

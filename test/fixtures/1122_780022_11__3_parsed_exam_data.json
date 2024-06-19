@@ -1,0 +1,217 @@
+[
+  {
+    "type": "title",
+    "subject": "國立空中大學112學年度下學期期中考試題"
+  },
+  {
+    "type": "subtitle",
+    "subject": "科目：性別、健康與多元文化"
+  },
+  {
+    "type": "section",
+    "subject": "一、是非題",
+    "scoreOfItem": 4,
+    "scoreTotal": 40,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1.性別運動的目的在於消除性別歧視，讓性別認同、性別特質、外表與裝扮能有多元的流動空間。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH1 P.17"
+      },
+      {
+        "type": "radio",
+        "subject": "2.胸痛是冠狀動脈心臟病男女兩性最常見的症狀。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH5 P.131"
+      },
+      {
+        "type": "radio",
+        "subject": "3.女性主義理論重視性別角色與認知發展的成熟度。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "CH1 P.8"
+      },
+      {
+        "type": "radio",
+        "subject": "4.本門課的學習目的為能了解性別、健康與多元文化的關係，學習與不同性別者的合作與接納。序",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O"
+      },
+      {
+        "type": "radio",
+        "subject": "5.媽祖繞境透過網路直播讓全世界認識台灣宗教文化，可視為是全球化改變了文化傳遞的方式。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH2 P.43"
+      },
+      {
+        "type": "radio",
+        "subject": "6.CEDAW的全名是消除對男女一切形式歧視公約。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "CH3 P.55"
+      },
+      {
+        "type": "radio",
+        "subject": "7.實施性別影響評估可以處理性別不平等的議題。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH4 P.87"
+      },
+      {
+        "type": "radio",
+        "subject": "8.一般而言，女性骨折的風險較男性高。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH5 P.137"
+      },
+      {
+        "type": "radio",
+        "subject": "9.性別主流化要求公部門須將性別觀點納入政策規劃與執行及管考。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH3 P.57"
+      },
+      {
+        "type": "radio",
+        "subject": "10.本書討論性別觀點可用性別天生一詞以蔽之。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "CH1 P.4"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "二、選擇題",
+    "scoreOfItem": 4,
+    "scoreTotal": 40,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1.2024巴黎奧運主題之一為性別平等，也是首屆男女選手比例達50%。請問此一進步最直接符合性別主流化哪一項工作？A性別意識培力B性別預算C性別統計CH3 P.61113.4.23更正",
+        "options": [],
+        "answer": [
+          "A",
+          "C"
+        ]
+      },
+      {
+        "type": "radio",
+        "subject": "2.承上題巴黎奧運也符合CEDAW重視的A機會平等B支持平等C優惠平等",
+        "options": [],
+        "answer": "A",
+        "reference": "CH3 P.74"
+      },
+      {
+        "type": "radio",
+        "subject": "3.台灣原住民族正名運動及相關文化復興的運動，是透過何種權利的爭取而讓原住民族得到應有的尊嚴？A政治權B文化權C自治權",
+        "options": [],
+        "answer": "B",
+        "reference": "CH2 P.30"
+      },
+      {
+        "type": "radio",
+        "subject": "4.科技工程領域中性別不平等之處，進行性別分析，利用分析結果納入研發科技以利創新，藉以達到減少性別偏差，改善性別關係，促進性別平等。此稱?A性別統計B性別創新C性別意識培力",
+        "options": [],
+        "answer": "B",
+        "reference": "CH5 P.135"
+      },
+      {
+        "type": "radio",
+        "subject": "5.亞洲非吸菸女性的肺癌環境因子暴露研究指出？A烹飪油煙是重要危險因子B吸菸行為C工廠環境暴露",
+        "options": [],
+        "answer": "A",
+        "reference": "CH5 P.147"
+      },
+      {
+        "type": "radio",
+        "subject": "6.性別影響評估的目的，何者正確？A譴責不平等之處B瞭解不平等的原因C否認性別差異",
+        "options": [],
+        "answer": "B",
+        "reference": "CH4 P.87"
+      },
+      {
+        "type": "radio",
+        "subject": "7.下列關於第三波女性主義的敘述，何者為非？A重視性別多元B反對酷兒運動C重視論述與權力關係",
+        "options": [],
+        "answer": "B",
+        "reference": "CH1 P.14"
+      },
+      {
+        "type": "radio",
+        "subject": "8.從兩性關係到性別關係的敘述何者正確？A重視性別二分B重視性別規範C重視性別多元",
+        "options": [],
+        "answer": "C",
+        "reference": "CH2 P.40"
+      },
+      {
+        "type": "radio",
+        "subject": "9.韓式炸雞近來風靡一時，韓國炸雞店也如雨後春筍般來台成立，但據報載辣度口味亦調整成台灣人可接受程度，請問此為？A全球在地化B經濟全球化C食物全球化",
+        "options": [],
+        "answer": "A",
+        "reference": "CH2 P.44"
+      },
+      {
+        "type": "radio",
+        "subject": "10.探討新生兒性別比例差異的社會文化原因，此為？A性別分析B性別統計C性別影響評估",
+        "options": [],
+        "answer": "A",
+        "reference": "CH4P.107"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "三、簡答題",
+    "scoreOfItem": 10,
+    "scoreTotal": 20,
+    "children": [
+      {
+        "type": "textarea",
+        "subject": "1.很多人認為醫療是中性的，事實上很多健康議題有其性別差異或是僅以單一性別為主的醫療研究，請舉一例說明性別觀點對於醫療健康議題的重要性。",
+        "answer": "答:作答者需舉例說明並呈現性別觀點對於醫療健康的重要性方可得分。",
+        "reference": "CH5 P.129"
+      },
+      {
+        "type": "textarea",
+        "subject": "2.為何多元文化主義的核心內涵之一為「消除歧視與不平等對待」?請說明你的看法。",
+        "answer": "答:平等對待不同文化及族群團體成為民主國家核心的價值。多元文化的平等概念，除了消除歧視、更強調政治、社會歧視與不平等的消除，包括反對透過同化政策，進行政治社會及經濟權利的壟斷，同時給予弱勢族群較多的資源與權利保障，改善因歧視而導致的不平等。\n作答者的回答只要能切合上述內容或言之成理亦可得分。",
+        "reference": "CH2 P.30"
+      }
+    ]
+  }
+]

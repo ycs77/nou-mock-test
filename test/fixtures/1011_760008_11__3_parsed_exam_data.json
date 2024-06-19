@@ -1,0 +1,188 @@
+[
+  {
+    "type": "title",
+    "subject": "國立空中大學101學年度上學期期中考試題"
+  },
+  {
+    "type": "subtitle",
+    "subject": "科目：Linux作業系統管理"
+  },
+  {
+    "type": "section",
+    "subject": "一、是非題",
+    "scoreOfItem": 4,
+    "scoreTotal": 20,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1. Linux作業系統是屬於開放原始碼且為免費的自由軟體，其軟體無任何授權限制。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "P.3"
+      },
+      {
+        "type": "radio",
+        "subject": "2. Linux作業系統具有多人多工的優點。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "P.9"
+      },
+      {
+        "type": "radio",
+        "subject": "3. Ubuntu作業系統的正體中文官網提供了最新版本作業系統軟體下載，其網址為http://www.ubuntu-tw.com ",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "P.13"
+      },
+      {
+        "type": "radio",
+        "subject": "4. Linux作業系統的目錄結構為樹狀結構，其根目錄為/root。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "P.20"
+      },
+      {
+        "type": "radio",
+        "subject": "5. Ubuntu中執行apt-get指令時，必須啟動管理者權限。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "P.89"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "二、選擇題",
+    "scoreOfItem": 4,
+    "scoreTotal": 20,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1.下列何者為Linux作業系統正確的USB隨身碟的裝置代號[範圍]? ",
+        "options": [
+          "(A) /dev/hd[a-z]",
+          "(B) /dev/sd[a-z]",
+          "(C) /dev/fd[a-z]",
+          "(D) /dev/ud[a-z]"
+        ],
+        "answer": "B",
+        "reference": "P.18"
+      },
+      {
+        "type": "radio",
+        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為",
+        "options": [
+          "(A) IPod",
+          "(B) IPus",
+          "(C) IPad",
+          "(D) IBus"
+        ],
+        "answer": "D",
+        "reference": "P.56圖2-11"
+      },
+      {
+        "type": "radio",
+        "subject": "3.開啟Ubuntu中的終端機時，若出現的前導字為「ubuntu@HP-600:~$」，下列敘述何者為「非」? ",
+        "options": [
+          "(A) ~代表的是「家目錄」",
+          "(B) HP-600為主機名稱",
+          "(C) $為一般使用者提示字元",
+          "(D) ubuntu為root帳號"
+        ],
+        "answer": "D",
+        "reference": "P.114"
+      },
+      {
+        "type": "radio",
+        "subject": "4.下列何者指令與顯示檔案內容無關? ",
+        "options": [
+          "(A) cat",
+          "(B) more",
+          "(C) tac",
+          "(D) top"
+        ],
+        "answer": "D",
+        "reference": "P.131"
+      },
+      {
+        "type": "radio",
+        "subject": "5.若某一執行程序之nice值為0，若要將其執行優先順序調高，則應將nice值調為? ",
+        "options": [
+          "(A) 10",
+          "(B) 15",
+          "(C) -15",
+          "(D) -25"
+        ],
+        "answer": "C",
+        "reference": "P.167"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "三、簡答題",
+    "scoreOfItem": 10,
+    "scoreTotal": 30,
+    "children": [
+      {
+        "type": "textarea",
+        "subject": "1.請列出三種Linux發佈的版本。",
+        "answer": "答：參見課本",
+        "reference": "P.6-7"
+      },
+      {
+        "type": "textarea",
+        "subject": "2.請列出Ubuntu中的任三種型態的網路連線設定。",
+        "answer": "答：參見課本\n(有線網路、無線網路、行動寬頻、VPN、DSL )",
+        "reference": "P.64圖2-23"
+      },
+      {
+        "type": "textarea",
+        "subject": "3.在文件搜尋的指令中有find、whereis與locate，請簡述在搜尋速度上有何差異?。",
+        "answer": "答：參見課本\nfind:速度慢，硬碟存取頻繁，比較耗資源\nwhereis與locate:利用資訊庫搜尋，速度快",
+        "reference": "P.139"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "四、問答題",
+    "scoreOfItem": 10,
+    "scoreTotal": 30,
+    "children": [
+      {
+        "type": "textarea",
+        "subject": "1.安裝Ubuntu作業系統可以選擇一種稱作「Live CD」的方式，何謂「Live CD」?",
+        "answer": "答：參見課本",
+        "reference": "P.14-15"
+      },
+      {
+        "type": "textarea",
+        "subject": "2.何謂命令殼層(shell)?",
+        "answer": "答：參見課本",
+        "reference": "P.115"
+      },
+      {
+        "type": "textarea",
+        "subject": "3.請說明在終端機內指令: $ cpfile1./subdir1/file2./subdir2之意義為何?",
+        "answer": "答：參見課本",
+        "reference": "P.128"
+      }
+    ]
+  }
+]
