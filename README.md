@@ -7,7 +7,8 @@
 安裝依賴套件：
 
 ```bash
-yarn install
+corepack enable
+yarn
 ```
 
 啟動本地開發伺服器 `http://localhost:3000`：
