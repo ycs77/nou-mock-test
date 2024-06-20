@@ -3,6 +3,7 @@ import type { PDFExtractResult, PDFExtractText } from 'pdf.js-extract'
 import stringWidth from 'string-width'
 
 /**
+ * 將 PDF 檔案資料轉換為文字內容
  * @param pdfData PDF 檔案資料
  * @param lineDeviation 計算同一行的文字允許的誤差值
  */
@@ -35,6 +36,9 @@ export function getMaxLineWidth(content: string) {
     .reduce((maxWidth, line) => Math.max(maxWidth, stringWidth(line)), 0)
 }
 
+/**
+ * 將 PDF 字串內容轉換為正確的文字段落
+ */
 export function serializePdfStringToParagraphs(content: string) {
   const maxWidth = getMaxLineWidth(content)
 

@@ -1,5 +1,8 @@
-import type { Block, Radio, Section, Textarea } from '../types/exam'
+import type { Block, Radio, Section, Textarea } from '~/types/exam'
 
+/**
+ * 解析考試題目內容成 JSON 格式
+ */
 export function parseExam(content: string) {
   let sectionTitle = null as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題' | null
 
