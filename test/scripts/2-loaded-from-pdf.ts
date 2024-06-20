@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { loadPdf } from '@/utils/pdf'
-import { pdfDataToString, serializePdfStringToParagraphs } from '@/utils/serialize'
+import { loadPdf } from '@/logic/pdf'
+import { pdfDataToString, serializePdfStringToParagraphs } from '@/logic/serialize'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
