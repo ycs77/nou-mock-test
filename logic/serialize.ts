@@ -165,7 +165,9 @@ export function serializePdfStringToParagraphs(content: string) {
         // ex: 答：
         newContent = newContent.replace(/\n$/, '')
         newContent += `\n${line}`
+        // 只要出現答案段落，就表示當前題目已經輸出完畢
         currentQuestion = ''
+        // 且可以換行
         currentAnswerCanBreakLine = true
       } else {
         newContent += line

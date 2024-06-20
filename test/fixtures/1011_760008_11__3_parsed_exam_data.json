@@ -73,7 +73,7 @@
     "children": [
       {
         "type": "radio",
-        "subject": "1.下列何者為Linux作業系統正確的USB隨身碟的裝置代號[範圍]? ",
+        "subject": "1.下列何者為Linux作業系統正確的USB隨身碟的裝置代號[範圍]?",
         "options": [
           "(A) /dev/hd[a-z]",
           "(B) /dev/sd[a-z]",
@@ -85,7 +85,7 @@
       },
       {
         "type": "radio",
-        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為 ",
+        "subject": "2.在Ubuntu中，其輸入法的設定工具名稱為",
         "options": [
           "(A) IPod",
           "(B) IPus",
@@ -97,7 +97,7 @@
       },
       {
         "type": "radio",
-        "subject": "3.開啟Ubuntu中的終端機時，若出現的前導字為「ubuntu@HP-600:~$」，下列敘述何者為「非」? ",
+        "subject": "3.開啟Ubuntu中的終端機時，若出現的前導字為「ubuntu@HP-600:~$」，下列敘述何者為「非」?",
         "options": [
           "(A) ~代表的是「家目錄」",
           "(B) HP-600為主機名稱",
@@ -109,7 +109,7 @@
       },
       {
         "type": "radio",
-        "subject": "4.下列何者指令與顯示檔案內容無關? ",
+        "subject": "4.下列何者指令與顯示檔案內容無關?",
         "options": [
           "(A) cat",
           "(B) more",
@@ -121,7 +121,7 @@
       },
       {
         "type": "radio",
-        "subject": "5.若某一執行程序之nice值為0，若要將其執行優先順序調高，則應將nice值調為? ",
+        "subject": "5.若某一執行程序之nice值為0，若要將其執行優先順序調高，則應將nice值調為?",
         "options": [
           "(A) 10",
           "(B) 15",

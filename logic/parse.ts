@@ -121,11 +121,8 @@ export function parseExam(content: string) {
       // ex: A 或 C 1.
       const matches = field.subject.match(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?\d+\./i)
       if (matches) {
-        if (matches[2]) {
-          field.answer = matches.slice(1, 3)
-        } else {
-          field.answer = matches[1]
-        }
+        field.answer = matches.slice(1, matches.length).filter(Boolean)
+        if (field.answer.length === 1) field.answer = field.answer[0]
         field.subject = field.subject.replace(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?/i, '').trim()
       }
 
@@ -148,18 +145,33 @@ export function parseExam(content: string) {
         field.subject = field.subject.replace(/\((P\.[\d\-. 圖]+)\)$/, '').trim()
       }
 
-      // ex: (A)... (B)... (C)... (D)...
-      if (field.subject.match(/\(A\)/i)) {
-        const matches = field.subject.match(/^(.+)(\(A\).+)$/i)
-        field.subject = matches?.[1] ?? ''
+      // ex: (A) ... (B) ... (C) ... (D) ...
+      if (field.subject.match(/^(.+)(\(A\).+)$/i)) {
+        const matches = field.subject.match(/^(.+)(\(A\).+)$/i)!
+        field.subject = matches[1].trim()
 
-        const optionsStr = matches?.[2] ?? ''
+        const optionsStr = matches[2]
         field.options = optionsStr.match(/\([A-E]\)[^(]+/gi)!
           .map(option => option.replace(/(\([A-E]\)) ?/i, '$1 ').trim())
 
         if (field.options[0] && !field.options[0].endsWith('。')) {
           field.options[field.options.length - 1] = field.options[field.options.length - 1].replace(/。$/, '')
         }
+      }
+
+      // ex: A ... B ... C ... D ...
+      else if (field.subject.match(/^(.+[ ？?] ?)(A .+) (B .+) (C .+)/)) {
+        let matches = field.subject.match(/^(.+[ ？?] ?)(A .+) (B .+) (C .+)$/)!
+        const matches4 = field.subject.match(/^(.+[ ？?] ?)(A .+) (B .+) (C .+) (D .+)$/)
+        const matches5 = field.subject.match(/^(.+[ ？?] ?)(A .+) (B .+) (C .+) (D .+) (E .+)$/)
+        if (matches5) matches = matches5
+        else if (matches4) matches = matches4
+
+        field.subject = matches[1].trim()
+        field.options = matches
+          .slice(2, matches.length)
+          .filter(Boolean)
+          .map(option => option.trim())
       }
 
       const section = blocks[blocks.length - 1] as Section

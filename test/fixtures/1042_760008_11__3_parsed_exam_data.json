@@ -73,7 +73,7 @@
     "children": [
       {
         "type": "radio",
-        "subject": "1. Linux 中硬碟通常對應到下列哪一種儲存裝置代號？ ",
+        "subject": "1. Linux 中硬碟通常對應到下列哪一種儲存裝置代號？",
         "options": [
           "(a) /dev/fd0",
           "(b) /dev/sda",
@@ -84,7 +84,7 @@
       },
       {
         "type": "radio",
-        "subject": "2. Linux 作業系統採用過下列哪一種檔案系統格式？ ",
+        "subject": "2. Linux 作業系統採用過下列哪一種檔案系統格式？",
         "options": [
           "(a) FAT32",
           "(b) NTFS",
@@ -95,7 +95,7 @@
       },
       {
         "type": "radio",
-        "subject": "3. Ubuntu 利用 apt-get 及 apt-cache 兩個指令的變化來進行下列哪一項操作？ ",
+        "subject": "3. Ubuntu 利用 apt-get 及 apt-cache 兩個指令的變化來進行下列哪一項操作？",
         "options": [
           "(a) 儲存裝置管理",
           "(b) 套件管理",
@@ -106,7 +106,7 @@
       },
       {
         "type": "radio",
-        "subject": "4. 假如要改變螢幕的解析度，在 Ubuntu 的「系統設定」中要選擇哪一項選項進行設定？ ",
+        "subject": "4. 假如要改變螢幕的解析度，在 Ubuntu 的「系統設定」中要選擇哪一項選項進行設定？",
         "options": [
           "(a) 螢幕",
           "(b) 外觀",
@@ -118,7 +118,7 @@
       },
       {
         "type": "radio",
-        "subject": "5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？ ",
+        "subject": "5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？",
         "options": [
           "(a) apt-getautoremove",
           "(b) apt-get remove",
@@ -129,7 +129,7 @@
       },
       {
         "type": "radio",
-        "subject": "6. 使用者登入系統之後，內定的工作目錄稱之為？ ",
+        "subject": "6. 使用者登入系統之後，內定的工作目錄稱之為？",
         "options": [
           "(a) 本目錄",
           "(b) 家目錄",
@@ -140,7 +140,7 @@
       },
       {
         "type": "radio",
-        "subject": "7. 下列有關 bash 的敘述何者錯誤？ ",
+        "subject": "7. 下列有關 bash 的敘述何者錯誤？",
         "options": [
           "(a) 支援萬用字元",
           "(b) 具有設定指令別名的功能",
@@ -151,7 +151,7 @@
       },
       {
         "type": "radio",
-        "subject": "8. 下列哪一個指令會顯示伺服器上佔用 CPU 的任務資訊，並且每 5 秒鐘刷新一次？ ",
+        "subject": "8. 下列哪一個指令會顯示伺服器上佔用 CPU 的任務資訊，並且每 5 秒鐘刷新一次？",
         "options": [
           "(a) uptime",
           "(b) vmstat",
@@ -162,7 +162,7 @@
       },
       {
         "type": "radio",
-        "subject": "9. 下列哪一個指令與系統中的程序無關？ ",
+        "subject": "9. 下列哪一個指令與系統中的程序無關？",
         "options": [
           "(a) pstree",
           "(b) ps",
@@ -173,7 +173,7 @@
       },
       {
         "type": "radio",
-        "subject": "10. 下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？ ",
+        "subject": "10. 下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？",
         "options": [
           "(a) much",
           "(b) less",
