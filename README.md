@@ -7,7 +7,6 @@
 安裝依賴套件：
 
 ```bash
-corepack enable
 yarn
 ```
 
