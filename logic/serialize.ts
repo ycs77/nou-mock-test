@@ -1,4 +1,3 @@
-/* eslint-disable style/brace-style */
 import type { PDFExtractResult, PDFExtractText } from 'pdf.js-extract'
 import stringWidth from 'string-width'
 
