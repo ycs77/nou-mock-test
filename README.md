@@ -11,7 +11,7 @@ corepack enable
 yarn
 ```
 
-啟動本地開發伺服器 `http://localhost:3000`：
+啟動本地開發伺服器 http://localhost:3000：
 
 ```bash
 yarn dev
@@ -33,4 +33,10 @@ yarn test
 
 ```bash
 yarn generate:2-loaded-from-pdf
+```
+
+重新解析考卷內容：
+
+```bash
+yarn generate:3-parsed-exam-data
 ```
