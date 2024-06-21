@@ -13,6 +13,10 @@ export interface Section extends Block {
 export interface Field extends Block {
   answer?: string | string[]
   reference?: string
+
+  // User answer
+  userAnswer?: string
+  userAnswerCorrect?: boolean
 }
 
 export interface Radio extends Field {
@@ -23,4 +27,9 @@ export interface Radio extends Field {
 export interface Textarea extends Field {
   type: 'textarea'
   answer?: string
+}
+
+export interface Store {
+  blocks: Block[]
+  score?: number
 }

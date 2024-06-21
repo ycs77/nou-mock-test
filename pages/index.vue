@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Announcement />
+
     <div class="container max-w-[480px] mx-auto px-2 py-4">
       <h1 class="text-center text-2xl sm:text-3xl font-bold">
         空中大學考古題 線上模擬表單
@@ -7,23 +9,35 @@
 
       <div class="mt-32">
         <form @submit.prevent="submit">
-          <input ref="fileEl" type="file" class="form-input w-full">
-          <div v-if="error" class="mt-1 text-sm text-red-500">
-            {{ error }}
+          <div>
+            <input ref="fileEl" type="file" class="w-full form-input rounded-md">
+            <div v-if="error" class="mt-1 text-sm text-red-500">
+              {{ error }}
+            </div>
           </div>
 
-          <button class="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            上傳
+          <button class="mt-4 w-full bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-md">
+            模擬考開始
           </button>
         </form>
       </div>
     </div>
+
+    <Footer class="mt-32" />
   </div>
 </template>
 
 <script setup lang="ts">
+import type { Store } from '~/types/exam'
+
+const router = useRouter()
+
 const fileEl = ref<HTMLInputElement | null>(null)
 const error = ref<string | null>(null)
+
+if (typeof localStorage !== 'undefined') {
+  localStorage.removeItem('nou-mock-exam')
+}
 
 async function submit() {
   if (!fileEl.value) return
@@ -41,8 +55,13 @@ async function submit() {
   })
 
   if (res.status === 200) {
-    // eslint-disable-next-line no-console
-    console.log(res.blocks)
+    const store = {
+      blocks: res.blocks,
+    } satisfies Store
+
+    localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+
+    router.push('/exam')
   } else if (res.status >= 400 && res.status < 500) {
     error.value = res.message
   }
