@@ -91,7 +91,7 @@ exports[`serialize pdf string to paragraphs - 1042_760008_11 1`] = `
 2. Linux 作業系統採用過下列哪一種檔案系統格式？ (a) FAT32 (b) NTFS (c) ex t4 (c，1-5-2-2)
 3. Ubuntu 利用 apt-get 及 apt-cache 兩個指令的變化來進行下列哪一項操作？ (a) 儲存裝置管理(b) 套件管理 (c) 印表機的管理 (b，2-3)
 4. 假如要改變螢幕的解析度，在 Ubuntu 的「系統設定」中要選擇哪一項選項進行設定？ (a) 螢幕 (b) 外觀 (c) 主選單 (d) 印表機 (a，2-1-2)
-5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？ (a) apt-getautoremove (b) apt-get remove (c) apt-get --purge remove (a，2-3-4)
+5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？ (a) apt-get autoremove (b) apt-get remove (c) apt-get --purge remove (a，2-3-4)
 6. 使用者登入系統之後，內定的工作目錄稱之為？ (a) 本目錄 (b) 家目錄 (c) 主目錄 (b，3-2)
 7. 下列有關 bash 的敘述何者錯誤？ (a) 支援萬用字元 (b) 具有設定指令別名的功能 (c) 不可回溯已執行的指令 (c，3-2)
 8. 下列哪一個指令會顯示伺服器上佔用 CPU 的任務資訊，並且每 5 秒鐘刷新一次？ (a) uptime (b)vmstat (c) top (c，3-5)

@@ -103,6 +103,11 @@ export function serializePdfStringToParagraphs(content: string) {
       } else {
         // 取消上行結尾的換行，因為不是段落中第一行
         newContent = newContent.replace(/\n$/, '')
+
+        // 如果上行結尾和當前行開頭都是英文小寫字母的話，則加上空格
+        if (newContent.match(/[a-z]$/) && line.match(/^[a-z]/)) {
+          newContent += ' '
+        }
       }
 
       newContent += `${line}\n`
@@ -122,6 +127,11 @@ export function serializePdfStringToParagraphs(content: string) {
       } else {
         // 取消上行結尾的換行，因為不是段落中第一行
         newContent = newContent.replace(/\n$/, '')
+
+        // 如果上行結尾和當前行開頭都是英文小寫字母的話，則加上空格
+        if (newContent.match(/[a-z]$/) && line.match(/^[a-z]/)) {
+          newContent += ' '
+        }
       }
 
       newContent += `${line}\n`
