@@ -15,11 +15,11 @@
         <label
           class="inline-block px-3.5 py-1 rounded-md select-none"
           :class="{
-            'bg-gray-100 hover:bg-blue-100 has-[:checked]:bg-blue-400 has-[:checked]:text-white': !answerMode,
-            'ring-2 ring-green-400 ring-offset-2': answerMode && answer === option.value,
-            'bg-blue-400 text-white': answerMode && modelValue === option.value && modelValue === answer,
-            'bg-gray-100': answerMode && modelValue !== option.value,
-            'bg-red-400 text-white': answerMode && modelValue === option.value && modelValue !== answer,
+            'bg-gray-100 hover:bg-blue-100 dark:bg-gray-800 dark:hover:bg-gray-700 has-[:checked]:bg-blue-500 has-[:checked]:text-white dark:has-[:checked]:bg-blue-500': !answerMode,
+            'ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900': answerMode && answer === option.value,
+            'bg-blue-500 text-white': answerMode && modelValue === option.value && modelValue === answer,
+            'bg-gray-100 dark:bg-gray-800': answerMode && modelValue !== option.value,
+            'bg-red-500 text-white': answerMode && modelValue === option.value && modelValue !== answer,
           }"
         >
           <input

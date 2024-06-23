@@ -1,5 +1,4 @@
 import { resolve } from 'pathe'
-
 import Copy from 'rollup-plugin-copy'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -12,10 +11,13 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    '@nuxt/ui',
     '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
     '@nuxt/test-utils/module',
   ],
+  ui: {
+    global: true,
+  },
   hooks: {
     'nitro:init': nitro => {
       nitro.options.rollupConfig!.plugins =

@@ -10,8 +10,8 @@
         >
           <template #footer>
             <div class="mt-8 flex justify-center gap-6">
-              <NuxtLink to="/" class="px-4 py-1.5 hover:bg-blue-500 text-blue-500 hover:text-white border border-blue-500 hover:border-blue-500 rounded-md">返回</NuxtLink>
-              <button type="button" class="px-4 py-1.5 bg-blue-400 hover:bg-blue-500 text-white border border-blue-400 hover:border-blue-500 rounded-md" @click="submit">作答完成</button>
+              <UButton to="/" variant="outline">返回</UButton>
+              <UButton type="button" @click="submit">作答完成</UButton>
             </div>
           </template>
         </Exam>

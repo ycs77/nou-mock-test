@@ -1,9 +1,9 @@
 <template>
-  <h2 class="mt-4 text-gray-700 text-center text-xl sm:text-2xl font-bold">
+  <h2 class="mt-4 text-gray-700 dark:text-gray-400 text-center text-xl sm:text-2xl font-bold">
     {{ subject }}
   </h2>
 
-  <div v-if="typeof score === 'number'" class="mt-4 text-5xl text-center font-bold text-blue-500">
+  <div v-if="typeof score === 'number'" class="mt-4 text-5xl text-center font-bold text-blue-500 dark:text-blue-400">
     {{ score }}分
   </div>
 </template>

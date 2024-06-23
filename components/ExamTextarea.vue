@@ -1,8 +1,8 @@
 <template>
   <ExamField v-bind="$props">
-    <textarea
+    <UTextarea
       v-model="modelValue"
-      class="mt-2 w-full h-24 form-textarea rounded-md focus:ring-blue-500 focus:border-blue-500"
+      class="mt-2"
       :disabled="answerMode"
     />
   </ExamField>

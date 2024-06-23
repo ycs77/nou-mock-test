@@ -8,21 +8,15 @@
       </h1>
 
       <div class="mt-32">
-        <form @submit.prevent="submit">
-          <div>
-            <input ref="fileEl" type="file" class="w-full form-input rounded-md">
-            <div v-if="error" class="mt-1 text-sm text-red-500">
-              {{ error }}
-            </div>
-          </div>
+        <UForm ref="form" :state="{}" @submit="submit">
+          <UFormGroup label="選擇考古題 PDF 檔" name="file">
+            <UInput type="file" size="lg" icon="i-heroicons-folder" class="w-full" @change="selectFile" />
+          </UFormGroup>
 
-          <button
-            class="mt-4 w-full bg-blue-400 enabled:hover:bg-blue-500 disabled:bg-blue-300 text-white font-bold py-2 px-4 rounded-md"
-            :disabled="loading"
-          >
+          <UButton class="mt-4" type="submit" block :loading="loading">
             模擬考開始
-          </button>
-        </form>
+          </UButton>
+        </UForm>
       </div>
     </div>
 
@@ -31,28 +25,34 @@
 </template>
 
 <script setup lang="ts">
+import type { Form } from '#ui/types'
 import type { Store } from '~/types/exam'
 
 const router = useRouter()
 
+const form = ref<Form<any>>(undefined!)
+const file = ref<File | null>(null)
+
 const loading = ref(false)
-const fileEl = ref<HTMLInputElement | null>(null)
-const error = ref<string | null>(null)
 
 if (typeof localStorage !== 'undefined') {
   localStorage.removeItem('nou-mock-exam')
 }
 
+function selectFile(files: FileList) {
+  file.value = files[0] ?? null
+}
+
 async function submit() {
-  if (!fileEl.value) return
+  form.value.clear()
 
   const formData = new FormData()
-  Array.from(fileEl.value.files ?? []).forEach(file => {
-    formData.append('pdf', file)
-  })
+
+  if (file.value) {
+    formData.append('pdf', file.value)
+  }
 
   loading.value = true
-  error.value = null
 
   const res = await $fetch('/api/exam', {
     method: 'POST',
@@ -70,7 +70,12 @@ async function submit() {
 
     router.push('/exam')
   } else if (res.status >= 400 && res.status < 500) {
-    error.value = res.message
+    form.value.setErrors([
+      {
+        path: 'file',
+        message: res.message,
+      },
+    ])
   }
 }
 </script>

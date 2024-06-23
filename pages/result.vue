@@ -12,8 +12,8 @@
         >
           <template #footer>
             <div class="mt-8 flex justify-center gap-6">
-              <button type="button" class=" px-4 py-1.5 hover:bg-blue-500 text-blue-500 hover:text-white border border-blue-500 hover:border-blue-500 rounded-md" @click="restart">重新答題</button>
-              <NuxtLink to="/" class="px-4 py-1.5 bg-blue-400 hover:bg-blue-500 text-white border border-blue-400 hover:border-blue-500 rounded-md">上傳新考卷</NuxtLink>
+              <UButton type="button" variant="outline" @click="restart">重新答題</UButton>
+              <UButton to="/">上傳新考卷</UButton>
             </div>
           </template>
         </Exam>
