@@ -16,7 +16,10 @@
             </div>
           </div>
 
-          <button class="mt-4 w-full bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-md">
+          <button
+            class="mt-4 w-full bg-blue-400 enabled:hover:bg-blue-500 disabled:bg-blue-300 text-white font-bold py-2 px-4 rounded-md"
+            :disabled="loading"
+          >
             模擬考開始
           </button>
         </form>
@@ -32,6 +35,7 @@ import type { Store } from '~/types/exam'
 
 const router = useRouter()
 
+const loading = ref(false)
 const fileEl = ref<HTMLInputElement | null>(null)
 const error = ref<string | null>(null)
 
@@ -47,12 +51,15 @@ async function submit() {
     formData.append('pdf', file)
   })
 
+  loading.value = true
   error.value = null
 
   const res = await $fetch('/api/exam', {
     method: 'POST',
     body: formData,
   })
+
+  loading.value = false
 
   if (res.status === 200) {
     const store = {
