@@ -18,6 +18,8 @@
           </template>
         </Exam>
       </div>
+
+      <ExamDataEditorModal v-model:value="editorValue" />
     </ClientOnly>
   </div>
 </template>
@@ -39,15 +41,32 @@ if (typeof store.score === 'undefined') {
 
 const blocks = ref(store.blocks) as Ref<Block[]>
 const answers = ref<Record<string, string | undefined>>({})
-const score = store.score ?? 0
+const score = ref(store.score ?? 0)
 
-blocks.value.forEach(block => {
-  if (isSection(block)) {
-    block.children.forEach(child => {
-      // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-      answers.value[`${cyrb53(child.subject)}`] = child.userAnswer
-    })
+const editorValue = ref(JSON.stringify(blocks.value, null, 2))
+
+watch(blocks, () => {
+  blocks.value.forEach(block => {
+    if (isSection(block)) {
+      block.children.forEach(child => {
+        // 使用 cyrb53 雜湊題目文字作為 key，避免重複
+        answers.value[`${cyrb53(child.subject)}`] = child.userAnswer
+      })
+    }
+  })
+}, { immediate: true })
+
+watch(blocks, () => {
+  const store = calculateExam(blocks.value, answers.value)
+  if (store.score) {
+    score.value = store.score
   }
+})
+
+watch(editorValue, () => {
+  blocks.value = JSON.parse(editorValue.value)
+  store.blocks = blocks.value
+  localStorage.setItem('nou-mock-exam', JSON.stringify(store))
 })
 
 function restart() {
@@ -55,7 +74,6 @@ function restart() {
     if (isSection(block)) {
       block.children = block.children.map(field => {
         delete field.userAnswer
-        delete field.userAnswerCorrect
         return field
       })
     }

@@ -9,9 +9,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Textarea } from '~/types/exam'
+import type { Block, Textarea } from '~/types/exam'
 
 interface ExamTextareaProps extends Textarea {
+  section: Block
   answerMode?: boolean
 }
 

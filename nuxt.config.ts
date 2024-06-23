@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@vueuse/nuxt',
+    'nuxt-monaco-editor',
     '@nuxt/test-utils/module',
   ],
   ui: {

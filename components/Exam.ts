@@ -20,25 +20,25 @@ type ExamEvents = {
 const Exam: FunctionalComponent<ExamProps, ExamEvents> = (props, { slots, emit }) => {
   return h('div', [
     ...props.blocks.map((block, index) => {
-      const attrs = {
+      const blockProps = {
         key: block.subject,
       }
 
       if (block.type === 'title') {
         return h(ExamTitle as unknown as DefineComponent<typeof block>, {
           ...block,
-          ...attrs,
+          ...blockProps,
         })
       } else if (block.type === 'subtitle') {
         return h(ExamSubtitle as unknown as DefineComponent<typeof block>, {
           ...block,
-          ...attrs,
+          ...blockProps,
           score: props.score,
         })
       } else if (isSection(block)) {
         return h(ExamSection, {
           ...block,
-          ...attrs,
+          ...blockProps,
           index: `${index + 1}`,
           answers: props.answers,
           'onUpdate:answers': (answers: Record<string, string | undefined>) => {

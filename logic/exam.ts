@@ -1,4 +1,23 @@
-import type { Block, Store } from '~/types/exam'
+import type { Block, Field, Store } from '~/types/exam'
+
+export function checkField(section: Block, field: Field): boolean {
+  if (section.subject.includes('是非題') || section.subject.includes('選擇題')) {
+    // 是非題或選擇題，檢查答案是否正確
+    if (typeof field.userAnswer === 'string' && (
+      (typeof field.answer === 'string' && field.userAnswer === field.answer) ||
+      (Array.isArray(field.answer) && field.answer.includes(field.userAnswer))
+    )) {
+      return true
+    }
+  } else {
+    // 簡答題或問答題，檢查是否有填寫答案
+    if (typeof field.userAnswer === 'string' && field.userAnswer.trim() !== '') {
+      return true
+    }
+  }
+
+  return false
+}
 
 export function calculateExam(blocks: Block[], answers: Record<string, string | undefined>) {
   let score = 0
@@ -10,33 +29,18 @@ export function calculateExam(blocks: Block[], answers: Record<string, string | 
         children: block.children.map(field => {
           // 使用 cyrb53 雜湊題目文字作為 key，避免重複
           const userAnswer = answers[`${cyrb53(field.subject)}`]
-          let userAnswerCorrect = false
 
-          if (block.subject.includes('是非題') || block.subject.includes('選擇題')) {
-            // 是非題或選擇題，檢查答案是否正確
-            if (typeof userAnswer === 'string' && (
-              (typeof field.answer === 'string' && userAnswer === field.answer) ||
-              (Array.isArray(field.answer) && field.answer.includes(userAnswer))
-            )) {
-              userAnswerCorrect = true
-            }
-          } else {
-            // 簡答題或問答題，檢查是否有填寫答案
-            if (typeof userAnswer === 'string' && userAnswer.trim() !== '') {
-              userAnswerCorrect = true
-            }
+          const newField = {
+            ...field,
+            userAnswer,
           }
 
           // 計算分數
-          if (userAnswerCorrect) {
+          if (checkField(block, newField)) {
             score += block.scoreOfItem
           }
 
-          return {
-            ...field,
-            userAnswer,
-            userAnswerCorrect,
-          }
+          return newField
         }),
       }
     }

@@ -16,6 +16,8 @@
           </template>
         </Exam>
       </div>
+
+      <ExamDataEditorModal v-model:value="editorValue" />
     </ClientOnly>
   </div>
 </template>
@@ -38,13 +40,23 @@ if (typeof store.score !== 'undefined') {
 const blocks = ref(store.blocks) as Ref<Block[]>
 const answers = ref<Record<string, string | undefined>>({})
 
-blocks.value.forEach(block => {
-  if (isSection(block)) {
-    block.children.forEach(field => {
-      // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-      answers.value[`${cyrb53(field.subject)}`] = undefined
-    })
-  }
+const editorValue = ref(JSON.stringify(blocks.value, null, 2))
+
+watch(blocks, () => {
+  blocks.value.forEach(block => {
+    if (isSection(block)) {
+      block.children.forEach(field => {
+        // 使用 cyrb53 雜湊題目文字作為 key，避免重複
+        answers.value[`${cyrb53(field.subject)}`] = undefined
+      })
+    }
+  })
+}, { immediate: true })
+
+watch(editorValue, () => {
+  blocks.value = JSON.parse(editorValue.value)
+  store.blocks = blocks.value
+  localStorage.setItem('nou-mock-exam', JSON.stringify(store))
 })
 
 function submit() {

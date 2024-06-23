@@ -16,7 +16,6 @@ export interface Field extends Block {
 
   // User answer
   userAnswer?: string
-  userAnswerCorrect?: boolean
 }
 
 export interface Radio extends Field {

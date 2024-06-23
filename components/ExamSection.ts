@@ -22,37 +22,34 @@ const ExamSection: FunctionalComponent<ExamSectionProps, ExamSectionEvents> = (p
     ]),
 
     ...props.children.map(field => {
-      const attrs = {
-        key: field.subject,
-        answerMode: props.answerMode,
-      }
-
       // 使用 cyrb53 雜湊題目文字作為 key，避免重複
       const modelValueKey = `${cyrb53(field.subject)}`
+
+      const fieldProps = {
+        key: field.subject,
+        section: {
+          type: props.type,
+          subject: props.subject,
+        },
+        answerMode: props.answerMode,
+        modelValue: props.answers[modelValueKey],
+        'onUpdate:modelValue': (modelValue: string | undefined) => {
+          emit('update:answers', {
+            ...props.answers,
+            [modelValueKey]: modelValue,
+          })
+        },
+      }
 
       if (isRadio(field)) {
         return h(ExamRadio as unknown as DefineComponent<typeof field>, {
           ...field,
-          ...attrs,
-          modelValue: props.answers[modelValueKey],
-          'onUpdate:modelValue': (modelValue: string | undefined) => {
-            emit('update:answers', {
-              ...props.answers,
-              [modelValueKey]: modelValue,
-            })
-          },
+          ...fieldProps,
         })
       } else if (isTextarea(field)) {
         return h(ExamTextarea as unknown as DefineComponent<typeof field>, {
           ...field,
-          ...attrs,
-          modelValue: props.answers[modelValueKey],
-          'onUpdate:modelValue': (modelValue: string | undefined) => {
-            emit('update:answers', {
-              ...props.answers,
-              [modelValueKey]: modelValue,
-            })
-          },
+          ...fieldProps,
         })
       } else {
         return null

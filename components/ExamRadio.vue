@@ -36,9 +36,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Radio } from '~/types/exam'
+import type { Block, Radio } from '~/types/exam'
 
 interface ExamRadioProps extends Radio {
+  section: Block
   answerMode?: boolean
 }
 
