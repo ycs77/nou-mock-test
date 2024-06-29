@@ -5,11 +5,7 @@ import { pdfDataToString, serializePdfStringToParagraphs } from '~/logic/seriali
 import type { Block } from '~/types/exam'
 
 function response(status: number, message: string, blocks: Block[] = []) {
-  return {
-    status,
-    message,
-    blocks,
-  }
+  return { status, message, blocks }
 }
 
 export default defineEventHandler(async event => {
@@ -20,15 +16,15 @@ export default defineEventHandler(async event => {
   const file = files.pdf?.[0]
 
   if (!file) {
-    return response(422, 'No file uploaded')
+    return response(422, '缺少上傳文件')
   }
 
   if (!file.originalFilename?.endsWith('.pdf') || file.mimetype !== 'application/pdf') {
-    return response(422, 'Invalid file format')
+    return response(422, '無效文件格式')
   }
 
   if (file.size > 1024 * 1024) {
-    return response(422, 'File size too large')
+    return response(422, '文件大小不能超過 1MB')
   }
 
   const pdfData = await loadPdf(file.filepath)
@@ -38,5 +34,5 @@ export default defineEventHandler(async event => {
 
   const blocks = parseExam(content)
 
-  return response(200, 'File uploaded', blocks)
+  return response(200, '文件上傳完成', blocks)
 })
