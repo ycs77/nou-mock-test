@@ -1,27 +1,26 @@
 <template>
-  <div>
-    <Announcement />
+  <UContainer
+    :ui="{
+      padding: 'py-4',
+      constrained: 'max-w-[480px]',
+    }"
+  >
+    <h1 class="text-center text-2xl sm:text-3xl font-bold">
+      空中大學考古題 線上模擬表單
+    </h1>
 
-    <div class="container max-w-[480px] mx-auto px-2 py-4">
-      <h1 class="text-center text-2xl sm:text-3xl font-bold">
-        空中大學考古題 線上模擬表單
-      </h1>
+    <div class="mt-32">
+      <UForm ref="form" :state="{}" @submit="submit">
+        <UFormGroup label="選擇考古題 PDF 檔" name="file">
+          <UInput type="file" size="lg" icon="i-heroicons-folder" class="w-full" @change="selectFile" />
+        </UFormGroup>
 
-      <div class="mt-32">
-        <UForm ref="form" :state="{}" @submit="submit">
-          <UFormGroup label="選擇考古題 PDF 檔" name="file">
-            <UInput type="file" size="lg" icon="i-heroicons-folder" class="w-full" @change="selectFile" />
-          </UFormGroup>
-
-          <UButton class="mt-4" type="submit" block :loading="loading">
-            模擬考開始
-          </UButton>
-        </UForm>
-      </div>
+        <UButton class="mt-4" type="submit" block :loading="loading">
+          模擬考開始
+        </UButton>
+      </UForm>
     </div>
-
-    <Footer class="mt-32" />
-  </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">

@@ -4,7 +4,7 @@
       :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
       color="gray"
       variant="ghost"
-      aria-label="Theme"
+      :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
       @click="isDark = !isDark"
     />
     <template #fallback>

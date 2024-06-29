@@ -42,7 +42,9 @@ interface ExamFieldProps extends Field {
   answerMode?: boolean
 }
 
-defineOptions({ inheritAttrs: false })
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = defineProps<ExamFieldProps>()
 

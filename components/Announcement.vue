@@ -6,5 +6,7 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({ inheritAttrs: false })
+defineOptions({
+  inheritAttrs: false,
+})
 </script>

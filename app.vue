@@ -2,6 +2,13 @@
   <div>
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
-    <NuxtPage />
+
+    <Announcement />
+
+    <AppHeader />
+
+    <main>
+      <NuxtPage />
+    </main>
   </div>
 </template>

@@ -1,27 +1,23 @@
 <template>
-  <div>
-    <Announcement />
-
+  <UContainer :ui="{ padding: 'py-12' }">
     <ClientOnly>
-      <div class="container mx-auto px-2 pt-4 pb-12">
-        <Exam
-          v-model:answers="answers"
-          :blocks="blocks"
-          answer-mode
-          :score="score"
-        >
-          <template #footer>
-            <div class="mt-8 flex justify-center gap-6">
-              <UButton type="button" variant="outline" @click="restart">重新答題</UButton>
-              <UButton to="/">上傳新考卷</UButton>
-            </div>
-          </template>
-        </Exam>
-      </div>
+      <Exam
+        v-model:answers="answers"
+        :blocks="blocks"
+        answer-mode
+        :score="score"
+      >
+        <template #footer>
+          <div class="mt-8 flex justify-center gap-6">
+            <UButton to="/" variant="outline">上傳新考卷</UButton>
+            <UButton type="button" @click="restart">重新答題</UButton>
+          </div>
+        </template>
+      </Exam>
 
       <ExamDataEditorModal v-model:value="editorValue" />
     </ClientOnly>
-  </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">

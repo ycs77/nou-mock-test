@@ -1,5 +1,8 @@
 <template>
-  <UModal v-model="isOpen" :ui="{ width: 'sm:max-w-2xl' }">
+  <UModal
+    v-model="isOpen"
+    :ui="{ width: 'sm:max-w-3xl' }"
+  >
     <UCard
       :ui="{
         ring: '',
@@ -25,7 +28,7 @@
         </div>
       </template>
 
-      <div class="h-96 [&>div]:h-full">
+      <div class="h-[24rem] [&>div]:h-full">
         <MonacoEditor
           v-model="localValue"
           lang="json"
@@ -54,6 +57,8 @@
 </template>
 
 <script setup lang="ts">
+import type * as Monaco from 'monaco-editor'
+
 const isOpen = defineModel<boolean>('show', { default: false })
 const value = defineModel<string>('value', { required: true })
 
@@ -64,7 +69,13 @@ const localValue = ref(value.value)
 
 const editorOptions = computed(() => ({
   theme: colorMode.value === 'dark' ? 'vs-dark' : 'vs-light',
-}))
+  stickyScroll: {
+    enabled: false,
+  },
+  minimap: {
+    enabled: false,
+  },
+} satisfies Monaco.editor.IStandaloneEditorConstructionOptions))
 
 monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
   validate: true,
