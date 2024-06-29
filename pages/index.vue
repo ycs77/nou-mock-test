@@ -12,7 +12,14 @@
     <div class="mt-32">
       <UForm ref="form" :state="{}" @submit="submit">
         <UFormGroup label="選擇考古題 PDF 檔" name="file">
-          <UInput type="file" size="lg" icon="i-heroicons-folder" class="w-full" @change="selectFile" />
+          <UInput
+            type="file"
+            size="lg"
+            icon="i-heroicons-folder"
+            accept=".pdf"
+            class="w-full"
+            @change="selectFile"
+          />
         </UFormGroup>
 
         <UButton class="mt-4" type="submit" block :loading="loading">

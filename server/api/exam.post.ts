@@ -1,4 +1,5 @@
 import { readFiles } from 'h3-formidable'
+import type { PDFExtractResult } from 'pdf.js-extract'
 import { parseExam } from '~/logic/parse'
 import { loadPdf } from '~/logic/pdf'
 import { pdfDataToString, serializePdfStringToParagraphs } from '~/logic/serialize'
@@ -27,12 +28,23 @@ export default defineEventHandler(async event => {
     return response(422, '文件大小不能超過 1MB')
   }
 
-  const pdfData = await loadPdf(file.filepath)
+  let pdfData: PDFExtractResult
+  try {
+    pdfData = await loadPdf(file.filepath)
+  } catch (error) {
+    return response(422, (error as Error).message)
+  }
 
   let content = pdfDataToString(pdfData)
   content = serializePdfStringToParagraphs(content)
 
   const blocks = parseExam(content)
+
+  if (!blocks.some(block => block.type === 'title')) {
+    return response(422, '缺少空中大學考卷標題')
+  } else if (!blocks.some(block => block.type === 'subtitle')) {
+    return response(422, '缺少空中大學考卷副標題')
+  }
 
   return response(200, '文件上傳完成', blocks)
 })
