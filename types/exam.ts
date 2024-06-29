@@ -28,7 +28,7 @@ export interface Textarea extends Field {
   answer?: string
 }
 
-export interface Store {
+export interface ExamStore {
   blocks: Block[]
   score?: number
 }

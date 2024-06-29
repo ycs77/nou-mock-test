@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import type { Form } from '#ui/types'
-import type { Store } from '~/types/exam'
+import type { ExamStore } from '~/types/exam'
 
 const router = useRouter()
 
@@ -70,7 +70,7 @@ async function submit() {
   if (res.status === 200) {
     const store = {
       blocks: res.blocks,
-    } satisfies Store
+    } satisfies ExamStore
 
     localStorage.setItem('nou-mock-exam', JSON.stringify(store))
 

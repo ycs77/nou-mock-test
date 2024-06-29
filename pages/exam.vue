@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, Store } from '~/types/exam'
+import type { Block, ExamStore } from '~/types/exam'
 
 const router = useRouter()
 
@@ -28,7 +28,7 @@ if (!examData) {
   router.push('/')
 }
 
-const store: Store = JSON.parse(examData ?? '{"blocks":[]}')
+const store: ExamStore = JSON.parse(examData ?? '{"blocks":[]}')
 if (typeof store.score !== 'undefined') {
   router.push('/result')
 }

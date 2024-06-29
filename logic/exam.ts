@@ -1,4 +1,4 @@
-import type { Block, Field, Store } from '~/types/exam'
+import type { Block, ExamStore, Field } from '~/types/exam'
 
 export function checkField(section: Block, field: Field): boolean {
   if (section.subject.includes('是非題') || section.subject.includes('選擇題')) {
@@ -50,5 +50,5 @@ export function calculateExam(blocks: Block[], answers: Record<string, string | 
   return {
     blocks: newBlocks,
     score,
-  } satisfies Store as Store
+  } satisfies ExamStore as ExamStore
 }
