@@ -10,5 +10,7 @@
     <main>
       <NuxtPage />
     </main>
+
+    <UModals />
   </div>
 </template>

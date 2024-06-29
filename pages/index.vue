@@ -1,7 +1,7 @@
 <template>
   <UContainer
     :ui="{
-      padding: 'py-4',
+      padding: 'py-16',
       constrained: 'max-w-[480px]',
     }"
   >
@@ -9,7 +9,7 @@
       空中大學考古題 線上模擬表單
     </h1>
 
-    <div class="mt-32">
+    <div class="mt-12 sm:mt-20">
       <UForm ref="form" :state="{}" @submit="submit">
         <UFormGroup label="選擇考古題 PDF 檔" name="file">
           <UInput

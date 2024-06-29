@@ -19,9 +19,11 @@
 </template>
 
 <script setup lang="ts">
+import { ExamConfirmModal } from '#components'
 import type { Block, ExamStore } from '~/types/exam'
 
 const router = useRouter()
+const modal = useModal()
 
 const examData = typeof localStorage !== 'undefined' ? localStorage.getItem('nou-mock-exam') : null
 if (!examData) {
@@ -56,12 +58,14 @@ watch(editorValue, () => {
 })
 
 function submit() {
-  if (confirm('確定要提交作答結果嗎？')) {
-    const store = calculateExam(blocks.value, answers.value)
+  modal.open(ExamConfirmModal, {
+    onSuccess() {
+      const store = calculateExam(blocks.value, answers.value)
 
-    localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+      localStorage.setItem('nou-mock-exam', JSON.stringify(store))
 
-    router.push('/result')
-  }
+      router.push('/result')
+    },
+  })
 }
 </script>

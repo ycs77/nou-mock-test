@@ -11,8 +11,6 @@ export default ycs77({
   .append({
     files: [GLOB_TS, GLOB_VUE],
     rules: {
-      'no-alert': 'off',
-
       'style/brace-style': 'off',
       'style/quote-props': 'off',
     },

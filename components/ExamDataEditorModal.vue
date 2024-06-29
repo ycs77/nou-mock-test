@@ -59,7 +59,7 @@
 <script setup lang="ts">
 import type * as Monaco from 'monaco-editor'
 
-const isOpen = defineModel<boolean>('show', { default: false })
+const isOpen = defineModel<boolean>({ default: false })
 const value = defineModel<string>('value', { required: true })
 
 const colorMode = useColorMode()
