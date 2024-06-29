@@ -1,12 +1,13 @@
 <template>
-  <UModal
-    v-model="isOpen"
-    :ui="{ width: 'sm:max-w-3xl' }"
-  >
+  <UModal v-model="isOpen" fullscreen>
     <UCard
       :ui="{
+        base: 'flex flex-col min-h-full',
         ring: '',
         divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+        body: {
+          base: 'grow min-h-0',
+        },
         header: {
           padding: 'py-4',
         },
@@ -28,7 +29,7 @@
         </div>
       </template>
 
-      <div class="h-[24rem] [&>div]:h-full">
+      <div class="h-full min-h-[24rem] [&>div]:h-full">
         <MonacoEditor
           v-model="localValue"
           lang="json"
