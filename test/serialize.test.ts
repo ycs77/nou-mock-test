@@ -14,7 +14,7 @@ it('calculate max line width', () => {
     3.你看過沈國仁的水彩畫作嗎? 水彩是最簡易的繪圖工具，但運用得好，並
     不容易。以你的經驗為例，請說明你駕馭水彩的過程以及從中獲得的成功或
     失敗的經驗。(參閱 1-1)
-  `.split('\n').map(line => line.trim()).filter(line => line !== '').join('\n'))
+  `.split('\n').map(line => line.trim()).filter(Boolean).join('\n'))
 
   expect(maxWidth).toBe(66)
 })
