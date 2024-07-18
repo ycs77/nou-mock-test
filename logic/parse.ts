@@ -24,7 +24,7 @@ export function parseExam(content: string) {
     }
 
     // ex: 科目：Linux 作業系統管理  一律橫式作答 2-2 頁
-    const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)? ?一律橫式作答 (?:\d+-)?(\d+) ?頁/)
+    const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)? ?一律橫式作答 (?:\d+-)?(\d+)? ?頁/)
     if (subtitleMatchs) {
       const page = Number.parseInt(subtitleMatchs[2] ?? '1')
       if (page === 1) {

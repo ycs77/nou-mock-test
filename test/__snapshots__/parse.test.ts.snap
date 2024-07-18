@@ -312,7 +312,7 @@ exports[`parse pdf string to exam data - 1042_760008_11 1`] = `
       {
         "answer": "a",
         "options": [
-          "(a) apt-getautoremove",
+          "(a) apt-get autoremove",
           "(b) apt-get remove",
           "(c) apt-get --purge remove",
         ],
@@ -427,6 +427,10 @@ exports[`parse pdf string to exam data - 1122_760008_11 1`] = `
   {
     "subject": "國立空中大學 112 學年度下學期期中考試題",
     "type": "title",
+  },
+  {
+    "subject": "科目：Linux 作業系統管理",
+    "type": "subtitle",
   },
   {
     "children": [
