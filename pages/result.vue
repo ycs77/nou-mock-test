@@ -15,7 +15,7 @@
         </template>
       </Exam>
 
-      <ExamDataEditorModal v-model:value="editorValue" />
+      <ExamSchemaEditorModal v-model:value="editorValue" />
     </ClientOnly>
   </UContainer>
 </template>

@@ -31,7 +31,7 @@
 
       <div class="h-full min-h-[24rem] [&>div]:h-full">
         <MonacoEditor
-          v-model="localValue"
+          v-model="value"
           lang="json"
           :options="editorOptions"
         />
@@ -60,13 +60,20 @@
 <script setup lang="ts">
 import type * as Monaco from 'monaco-editor'
 
+const props = defineProps<{
+  value: string
+}>()
+
+const emit = defineEmits<{
+  'update:value': [value: string]
+}>()
+
 const isOpen = defineModel<boolean>({ default: false })
-const value = defineModel<string>('value', { required: true })
 
 const colorMode = useColorMode()
 const monaco = useMonaco()!
 
-const localValue = ref(value.value)
+const value = ref(props.value)
 
 const editorOptions = computed(() => ({
   theme: colorMode.value === 'dark' ? 'vs-dark' : 'vs-light',
@@ -180,12 +187,12 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
   ],
 })
 
-watch(localValue, cache => {
+watch(value, value => {
   try {
     // 如果 JSON 解析失敗，就會拋出 Error，不更新編輯器內容
-    JSON.parse(cache)
+    JSON.parse(value)
 
-    value.value = cache
+    emit('update:value', value)
   } catch (error) {}
 })
 </script>
