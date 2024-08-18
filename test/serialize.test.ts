@@ -2,7 +2,7 @@ import path from 'node:path'
 import { expect, it } from 'vitest'
 
 it('parse pdf data to string', async () => {
-  const pdfData = await loadPdf(path.resolve(__dirname, 'fixtures/1122_760008_11.pdf'))
+  const pdfData = await loadPdf(path.resolve(__dirname, 'fixtures/104-2-linux-1ra-2tx.pdf'))
 
   const content = pdfDataToString(pdfData)
 
@@ -20,11 +20,11 @@ it('calculate max line width', () => {
 })
 
 it.each([
-  '1011_760008_11',
-  '1122_760008_11',
-  '1122_780022_11',
-  '1122_780051_11',
-  '1042_760008_11',
+  '101-1-linux-1ch-2ra-3tx',
+  '104-2-linux-1ra-2tx',
+  '112-2-linux-1ch-2ra-3tx',
+  '112-2-gender-1ch-2ra-3tx',
+  '112-2-couplet-1tx',
 ])('serialize pdf string to paragraphs - %s', async filename => {
   const pdfData = await loadPdf(path.resolve(__dirname, `fixtures/${filename}.pdf`))
   let content = pdfDataToString(pdfData)
