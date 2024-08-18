@@ -10,7 +10,7 @@
     </h1>
 
     <div class="mt-12 sm:mt-20">
-      <UForm ref="form" :state="{}" @submit="submit">
+      <UForm ref="form" :state="{}">
         <UFormGroup label="選擇考古題 PDF 檔" name="file">
           <UInput
             type="file"
@@ -21,10 +21,6 @@
             @change="selectFile"
           />
         </UFormGroup>
-
-        <UButton class="mt-4" type="submit" block :loading="loading">
-          模擬考開始
-        </UButton>
       </UForm>
     </div>
   </UContainer>
@@ -47,6 +43,8 @@ if (typeof localStorage !== 'undefined') {
 
 function selectFile(files: FileList) {
   file.value = files[0] ?? null
+
+  submit()
 }
 
 async function submit() {
