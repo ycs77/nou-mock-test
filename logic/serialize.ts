@@ -65,7 +65,8 @@ export function serializePdfStringToParagraphs(content: string) {
     if (ignores.some(text => line.includes(text))) continue
 
     // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
-    if (line.match(/^國立空中大學 ?\d+ ?學年度[上下]學期期[中末]考試題/)) {
+    // ex: 國立空中大學 106 學年度暑期期末考試題【正參】03
+    if (line.match(/^國立空中大學 ?\d+ ?學年度(?:上學期|下學期|暑期)期[中末]考試題/)) {
       newContent += `${line}\n`
       continue
     }
