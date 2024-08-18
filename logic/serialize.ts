@@ -84,10 +84,11 @@ export function serializePdfStringToParagraphs(content: string) {
     if (line === '背面尚有試題') continue
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
-    const sectionTitleMatchs = line.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾][、 ]?(是非題|選擇題|簡答題|問答題|申論題)/)
+    const titleLine = line.replace(/(?<=[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、? ?)單選題/, '選擇題')
+    const sectionTitleMatchs = titleLine.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、? ?(是非題|選擇題|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
       newContent = newContent.replace(/\n$/, '')
-      newContent += `\n${line}\n`
+      newContent += `\n${titleLine}\n`
       sectionTitle = sectionTitleMatchs[1] as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題'
       continue
     }

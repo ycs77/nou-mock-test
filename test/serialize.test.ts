@@ -26,5 +26,7 @@ it.each(pdfFiles)('serialize pdf string to paragraphs - %s', async filename => {
 
   content = serializePdfStringToParagraphs(content)
 
+  // console.log(content)
+
   expect(content).matchSnapshot()
 })

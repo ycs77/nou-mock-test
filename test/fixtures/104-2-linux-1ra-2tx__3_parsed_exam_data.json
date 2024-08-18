@@ -144,8 +144,8 @@
       {
         "type": "textarea",
         "subject": "1. 請寫出作業系統的四大功能。",
-        "answer": "處理器的管理、記憶體的管理、檔案的管理、裝置的管理",
-        "reference": "1-2-1"
+        "reference": "1-2-1",
+        "answer": "處理器的管理、記憶體的管理、檔案的管理、裝置的管理"
       },
       {
         "type": "textarea",
@@ -155,20 +155,20 @@
       {
         "type": "textarea",
         "subject": "3. 請簡述 Linux 作業系統的優點與用途。",
-        "answer": "穩定性、輕巧靈活、免費、多人多工的使用環境、硬體規格需求不高、多樣化圖形介面的加入",
-        "reference": "1-1-4"
+        "reference": "1-1-4",
+        "answer": "穩定性、輕巧靈活、免費、多人多工的使用環境、硬體規格需求不高、多樣化圖形介面的加入"
       },
       {
         "type": "textarea",
         "subject": "4. 請列出圖形化使用者介面的五項組成要素。",
-        "answer": "桌面、視窗、選單、圖示、按鈕",
-        "reference": "3-1-1"
+        "reference": "3-1-1",
+        "answer": "桌面、視窗、選單、圖示、按鈕"
       },
       {
         "type": "textarea",
         "subject": "5. 請列出至少四個與目錄或檔案相關的 Linux 指令，並簡單說明其指令功能。",
-        "answer": "pwd、cd、mkdir、rmdir、ls、cp、rm、mv",
-        "reference": "3-3"
+        "reference": "3-3",
+        "answer": "pwd、cd、mkdir、rmdir、ls、cp、rm、mv"
       }
     ]
   }

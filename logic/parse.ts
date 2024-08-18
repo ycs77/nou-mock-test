@@ -38,7 +38,7 @@ export function parseExam(content: string) {
     }
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
-    const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])[、 ]?(是非題|選擇題|簡答題|問答題|申論題)/)
+    const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])、? ?(是非題|選擇題|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
       const count = sectionTitleMatchs[1]
       sectionTitle = sectionTitleMatchs[2] as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題'
@@ -55,9 +55,9 @@ export function parseExam(content: string) {
         section.scoreOfItem = Number.parseInt(line.match(/每題 ?(\d+) ?分/)?.[1] ?? '0')
       }
 
-      if (line.match(/共 ?\d+ ?分/)) {
+      if (line.match(/共計? ?\d+ ?分/)) {
         // ex: 共50分
-        section.scoreTotal = Number.parseInt(line.match(/共 ?(\d+) ?分/)?.[1] ?? '0')
+        section.scoreTotal = Number.parseInt(line.match(/共計? ?(\d+) ?分/)?.[1] ?? '0')
       } else if (line.match(/\d{1,2}%/)) {
         // ex: (50%)
         section.scoreTotal = Number.parseInt(line.match(/(\d{1,2})%/)?.[1] ?? '0')
@@ -73,8 +73,6 @@ export function parseExam(content: string) {
         type: 'radio',
         subject: line,
         options: ['O', 'X'],
-        answer: undefined,
-        reference: undefined,
       }
 
       // ex: X 1.
@@ -112,12 +110,37 @@ export function parseExam(content: string) {
 
     // 解析選擇題
     else if (sectionTitle === '選擇題') {
+      // 解析答案文字串
+      // ex: 1.D 2.B 3.B 4.A 5.C 6.D 7.A 8.B 9.D 10.D
+      if (line && line.trim() === line.trim().match(/\d+\.[A-E]{1,3} ?/g)?.join('')) {
+        const answers = line.match(/\d+\.[A-E]{1,3}(?= )/g)!.map(answerItem => {
+          const m = answerItem.match(/(\d+)\.(.+)/)!
+          const number = m[1]
+          let answer: string | string[] = m[2].trim()
+          if (answer.length > 1) {
+            answer = answer.split('')
+          }
+          return { number, answer }
+        })
+
+        const section = blocks[blocks.length - 1] as Section
+        if (section.type === 'section') {
+          section.children.forEach(field => {
+            if (field.type === 'radio') {
+              const answer = answers.find(answer => field.subject.startsWith(`${answer.number}.`))?.answer
+              if (answer)
+                field.answer = answer
+            }
+          })
+        }
+
+        continue
+      }
+
       const field: Radio = {
         type: 'radio',
         subject: line,
         options: [],
-        answer: undefined,
-        reference: undefined,
       }
 
       // ex: A 1.
@@ -126,7 +149,8 @@ export function parseExam(content: string) {
       const matches = field.subject.match(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?\d+\./i)
       if (matches) {
         field.answer = matches.slice(1, matches.length).filter(Boolean)
-        if (field.answer.length === 1) field.answer = field.answer[0]
+        if (field.answer.length === 1)
+          field.answer = field.answer[0]
         field.subject = field.subject.replace(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?/i, '').trim()
       }
 
@@ -191,8 +215,6 @@ export function parseExam(content: string) {
         const field: Textarea = {
           type: 'textarea',
           subject: line,
-          answer: undefined,
-          reference: undefined,
         }
 
         if (field.subject.match(/\(([\d\-. 圖]+)\)$/)) {
@@ -224,8 +246,23 @@ export function parseExam(content: string) {
         }
       } else {
         const section = blocks[blocks.length - 1] as Section
-        const field = section.children[section.children.length - 1] as Textarea
+        let field = section.children[section.children.length - 1] as Textarea | undefined
+        if (!field) {
+          // 若題目不存在，基本上是因為考卷中沒有可解析的小題目，
+          // 而是直接給一整段的題目文字，這時候就增加一個新的文字輸入框題目。
+          field = {
+            type: 'textarea',
+            subject: line,
+          } satisfies Textarea
 
+          const section = blocks[blocks.length - 1] as Section
+          if (section.type === 'section') {
+            section.children.push(field)
+          }
+          continue
+        }
+
+        // 解析答案行
         if (field.answer) {
           field.answer += `\n${line}`
         } else {
@@ -249,8 +286,6 @@ export function parseExam(content: string) {
       const field: Textarea = {
         type: 'textarea',
         subject: line,
-        answer: undefined,
-        reference: undefined,
       }
 
       if (field.subject.match(/\(([\d\-. 圖]+)\)$/)) {
