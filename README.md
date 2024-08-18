@@ -22,6 +22,18 @@ yarn dev
 yarn build
 ```
 
+## CLI
+
+```bash
+# 在 nou-mock-test 中執行
+node ./bin/2-loaded-from-pdf.js "C:/Users/User/Downloads/file.pdf"
+node ./bin/3-parsed-exam-data.js "C:/Users/User/Downloads/file.pdf"
+
+# 在目的目錄下執行
+node /d/dev/testing/nou-mock-test/bin/2-loaded-from-pdf.js file.pdf
+node /d/dev/testing/nou-mock-test/bin/3-parsed-exam-data.js file.pdf
+```
+
 ## 測試
 
 ```bash

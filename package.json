@@ -7,6 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "cli:build": "tsup --config cli/tsup.config.ts",
     "generate:2-loaded-from-pdf": "tsx test/scripts/2-loaded-from-pdf.ts",
     "generate:3-parsed-exam-data": "tsx test/scripts/3-parsed-exam-data.ts",
     "lint": "eslint .",
@@ -33,6 +34,7 @@
     "nuxt": "^3.12.2",
     "nuxt-monaco-editor": "^1.2.9",
     "rollup-plugin-copy": "^3.5.0",
+    "tsup": "^8.2.4",
     "tsx": "^4.15.6",
     "typescript": "~5.4.0",
     "vitest": "^1.6.0"

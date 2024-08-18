@@ -4,6 +4,7 @@ export default ycs77({
   vue: true,
   typescript: true,
   ignores: [
+    'bin',
     'test/fixtures',
     'test/__snapshots__',
   ],
