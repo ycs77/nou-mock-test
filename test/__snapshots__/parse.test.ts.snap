@@ -379,6 +379,10 @@ exports[`parse pdf string to exam data - 106-3-physics-1ra-2tx 1`] = `
     "type": "title",
   },
   {
+    "subject": "科目：生活中無所不在的物理",
+    "type": "subtitle",
+  },
+  {
     "children": [
       {
         "answer": "D",
@@ -732,6 +736,10 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
   {
     "subject": "國立空中大學 109 學年度暑期期末考試題",
     "type": "title",
+  },
+  {
+    "subject": "科目：生活中無所不在的物理",
+    "type": "subtitle",
   },
   {
     "children": [

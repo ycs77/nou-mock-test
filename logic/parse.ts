@@ -25,10 +25,18 @@ export function parseExam(content: string) {
     }
 
     // ex: 科目：Linux 作業系統管理  一律橫式作答 2-2 頁
-    const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)? ?一律橫式作答 (?:\d+-)?(\d+)? ?頁/)
+    const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)? ?一律橫式作答 (?:共 )?((?:\d+-)?\d+)? ?頁/)
     if (subtitleMatchs) {
-      const page = Number.parseInt(subtitleMatchs[2] ?? '1')
-      if (page === 1) {
+      const subject = subtitleMatchs[1]
+      const pageStr = subtitleMatchs[2] ?? ''
+      const page: string | undefined = pageStr.split('-')[1]
+      if (subject && (
+        // 不是 `2-1 頁` 格式
+        !page ||
+
+        // 是 `2-1 頁` 格式，且是第1頁
+        Number.parseInt(page) === 1
+      )) {
         blocks.push({
           type: 'subtitle',
           subject: subtitleMatchs[1].trim(),
