@@ -127,8 +127,8 @@ export function parseExam(content: string) {
 
         // ex: 1.D 2.B 3.B 4.A 5.C 6.D 7.A 8.B 9.D 10.D
         const lineParts = line.trim().split(' ')
-        if (lineParts.length && lineParts.every(text => text.match(/^\d+\.[A-E]{1,3}/))) {
-          answers = line.match(/\d+\.[A-E]{1,3}(?= )/g)!.map(answerItem => {
+        if (lineParts.length && lineParts.every(text => text.match(/^\d+\.[A-E]{1,3}$/))) {
+          answers = line.match(/\d+\.[A-E]{1,3}/g)!.map(answerItem => {
             const m = answerItem.match(/(\d+)\.(.+)/)!
             const number = m[1]
             let answer: string | string[] = m[2].trim()

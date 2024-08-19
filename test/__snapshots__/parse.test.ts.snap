@@ -484,6 +484,7 @@ exports[`parse pdf string to exam data - 106-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "D",
         "options": [
           "(A) 溫度下降",
           "(B) 由氣態凝結成液態",
@@ -590,6 +591,7 @@ exports[`parse pdf string to exam data - 106-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "A",
         "options": [
           "(A) 虹吸作用",
           "(B) 連通管原理",
@@ -701,6 +703,7 @@ exports[`parse pdf string to exam data - 106-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "C",
         "options": [
           "(A) 音色",
           "(B) 音量",
