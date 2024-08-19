@@ -119,30 +119,54 @@ export function parseExam(content: string) {
     // 解析選擇題
     else if (sectionTitle === '選擇題') {
       // 解析答案文字串
-      // ex: 1.D 2.B 3.B 4.A 5.C 6.D 7.A 8.B 9.D 10.D
-      if (line && line.trim() === line.trim().match(/\d+\.[A-E]{1,3} ?/g)?.join('')) {
-        const answers = line.match(/\d+\.[A-E]{1,3}(?= )/g)!.map(answerItem => {
-          const m = answerItem.match(/(\d+)\.(.+)/)!
-          const number = m[1]
-          let answer: string | string[] = m[2].trim()
-          if (answer.length > 1) {
-            answer = answer.split('')
-          }
-          return { number, answer }
-        })
+      if (line) {
+        let answers: {
+          number: string
+          answer: string | string[]
+        }[] = []
 
-        const section = blocks[blocks.length - 1] as Section
-        if (section.type === 'section') {
-          section.children.forEach(field => {
-            if (field.type === 'radio') {
-              const answer = answers.find(answer => field.subject.startsWith(`${answer.number}.`))?.answer
-              if (answer)
-                field.answer = answer
+        // ex: 1.D 2.B 3.B 4.A 5.C 6.D 7.A 8.B 9.D 10.D
+        const lineParts = line.trim().split(' ')
+        if (lineParts.length && lineParts.every(text => text.match(/^\d+\.[A-E]{1,3}/))) {
+          answers = line.match(/\d+\.[A-E]{1,3}(?= )/g)!.map(answerItem => {
+            const m = answerItem.match(/(\d+)\.(.+)/)!
+            const number = m[1]
+            let answer: string | string[] = m[2].trim()
+            if (answer.length > 1) {
+              answer = answer.split('')
             }
+            return { number, answer }
           })
         }
 
-        continue
+        // ex: 1. 2. 3. 4. 5. 6. 7. 8. 9. 10.C B B A B C D B C A
+        const matches = line.trim().match(/^((?:\d+\. ?)+)((?:[A-E] ?)+)$/)
+        const answerNumParts = matches?.[1].split('.').filter(Boolean).map(num => num?.trim()).map(num => Number.parseInt(num)) ?? []
+        const answerOptionParts = matches?.[2].split(' ').filter(Boolean) ?? []
+        if (answerNumParts.length &&
+            answerOptionParts.length &&
+            answerNumParts.length === answerOptionParts.length
+        ) {
+          answers = answerNumParts.map((num, index) => ({
+            number: num.toString(),
+            answer: answerOptionParts[index],
+          }))
+        }
+
+        if (answers.length) {
+          const section = blocks[blocks.length - 1] as Section
+          if (section.type === 'section') {
+            section.children.forEach(field => {
+              if (field.type === 'radio') {
+                const answer = answers.find(answer => field.subject.startsWith(`${answer.number}.`))?.answer
+                if (answer)
+                  field.answer = answer
+              }
+            })
+          }
+
+          continue
+        }
       }
 
       const field: Radio = {

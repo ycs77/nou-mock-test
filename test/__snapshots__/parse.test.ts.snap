@@ -744,6 +744,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
   {
     "children": [
       {
+        "answer": "C",
         "options": [
           "(A) 盲點",
           "(B) 焦點",
@@ -754,6 +755,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 週期為 2 秒的單擺擺長",
           "(B) 公尺原器的長度",
@@ -763,6 +765,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 阿基米得原理",
           "(B) 虹吸原理",
@@ -772,6 +775,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "A",
         "options": [
           "(A) 物流業的卡車運送熱能去，空車回",
           "(B) 會飛行的小錢幣，每個錢幣都是小小熱能",
@@ -781,6 +785,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 紅外線",
           "(B) 紫外線",
@@ -791,6 +796,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "C",
         "options": [
           "(A) 山上的地面富含水氣，遇到山下來的空氣，水蒸汽容易凝結。",
           "(B) 山上太陽光較弱，水蒸汽容易凝結。",
@@ -800,6 +806,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "D",
         "options": [
           "(A) 衣料是否降低熱對流散熱。",
           "(B) 衣料是否熱傳導係數低。",
@@ -810,6 +817,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 1/20",
           "(B) 1/10",
@@ -820,6 +828,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "C",
         "options": [
           "(A) 甲",
           "(B) 乙",
@@ -829,6 +838,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "A",
         "options": [
           "(A) 甲",
           "(B) 乙",
@@ -838,6 +848,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "A",
         "options": [
           "(A) 從溫度高的物體流向溫度低的物體",
           "(B) 從熱量高的物體流向熱量低的物體",
@@ -847,6 +858,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "A",
         "options": [
           "(A) 黑色鐵板",
           "(B) 白色鐵板",
@@ -856,6 +868,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 吹風機送出的熱風，溫度可能高於 100 度C",
           "(B) 家用冷氣機出風口的溫度低於 0 度 C",
@@ -865,6 +878,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 米蘭",
           "(B) 芝加哥",
@@ -875,6 +889,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "C",
         "options": [
           "(A) 盲點",
           "(B) 焦點",
@@ -885,6 +900,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "B",
         "options": [
           "(A) 39 度C",
           "(B) 43 度 C",
@@ -894,6 +910,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "D",
         "options": [
           "(A) 加熱 50 秒時，水溫 45 度 C",
           "(B) 加熱 30 秒時，水溫 35 度 C",
@@ -904,6 +921,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "D",
         "options": [
           "(A) 該國總人口數",
           "(B) 購買實體卷的人口比例",
@@ -914,6 +932,7 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "A",
         "options": [
           "(A) 12 次",
           "(B) 10 次",
@@ -923,22 +942,13 @@ exports[`parse pdf string to exam data - 109-3-physics-1ra-2tx 1`] = `
         "type": "radio",
       },
       {
+        "answer": "C",
         "options": [
           "(A) 主頻率",
           "(B) 主頻率以及波形",
           "(C) 波形",
         ],
         "subject": "20. 當我們吹奏卡祖笛時，我們哼歌，薄膜振動，聽起來聲音與原來的哼聲不同，類似薩克斯風的聲音，是因為此過程中，卡祖笛薄膜改變了聲音的哪些特性？",
-        "type": "radio",
-      },
-      {
-        "options": [],
-        "subject": "1. 2. 3. 4. 5. 6. 7. 8. 9. 10.C B B A B C D B C A",
-        "type": "radio",
-      },
-      {
-        "options": [],
-        "subject": "11. 12. 13. 14. 15. 16. 17. 18. 19. 20.A A B B C B D D A C",
         "type": "radio",
       },
     ],
