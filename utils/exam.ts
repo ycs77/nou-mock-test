@@ -1,4 +1,4 @@
-import type { Block, Field, Radio, Section, Textarea } from '~/types/exam'
+import type { Block, Checkbox, Field, Radio, Section, Textarea } from '~/types/exam'
 
 export function isSection(block: Block): block is Section {
   return block.type === 'section'
@@ -6,6 +6,10 @@ export function isSection(block: Block): block is Section {
 
 export function isRadio(field: Field): field is Radio {
   return field.type === 'radio'
+}
+
+export function isCheckbox(field: Field): field is Checkbox {
+  return field.type === 'checkbox'
 }
 
 export function isTextarea(field: Field): field is Textarea {

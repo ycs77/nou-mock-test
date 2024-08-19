@@ -1,18 +1,19 @@
 import { h } from 'vue'
 import type { DefineComponent, FunctionalComponent, PropType } from 'vue'
 import ExamRadio from './ExamRadio.vue'
+import ExamCheckbox from './ExamCheckbox.vue'
 import ExamTextarea from './ExamTextarea.vue'
-import type { Section } from '~/types/exam'
+import type { Field, Section } from '~/types/exam'
 
 interface ExamSectionProps extends Section {
   index: string
-  answers: Record<string, string | undefined>
+  answers: Record<string, Field['userAnswer']>
   answerMode?: boolean
 }
 
 // eslint-disable-next-line ts/consistent-type-definitions
 type ExamSectionEvents = {
-  'update:answers': (answers: Record<string, string | undefined>) => void
+  'update:answers': (answers: Record<string, Field['userAnswer']>) => void
 }
 
 const ExamSection: FunctionalComponent<ExamSectionProps, ExamSectionEvents> = (props, { emit }) => {
@@ -33,7 +34,7 @@ const ExamSection: FunctionalComponent<ExamSectionProps, ExamSectionEvents> = (p
         },
         answerMode: props.answerMode,
         modelValue: props.answers[modelValueKey],
-        'onUpdate:modelValue': (modelValue: string | undefined) => {
+        'onUpdate:modelValue': (modelValue: Field['userAnswer']) => {
           emit('update:answers', {
             ...props.answers,
             [modelValueKey]: modelValue,
@@ -48,6 +49,11 @@ const ExamSection: FunctionalComponent<ExamSectionProps, ExamSectionEvents> = (p
         })
       } else if (isTextarea(field)) {
         return h(ExamTextarea as unknown as DefineComponent<typeof field>, {
+          ...field,
+          ...fieldProps,
+        })
+      } else if (isCheckbox(field)) {
+        return h(ExamCheckbox as unknown as DefineComponent<typeof field>, {
           ...field,
           ...fieldProps,
         })

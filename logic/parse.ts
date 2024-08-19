@@ -1,4 +1,4 @@
-import type { Block, Radio, Section, Textarea } from '~/types/exam'
+import type { Block, Checkbox, Field, Radio, Section, Textarea } from '~/types/exam'
 
 /**
  * 解析考試題目內容成 JSON 格式
@@ -122,7 +122,7 @@ export function parseExam(content: string) {
       if (line) {
         let answers: {
           number: string
-          answer: string | string[]
+          answer: Exclude<Field['answer'], undefined>
         }[] = []
 
         // ex: 1.D 2.B 3.B 4.A 5.C 6.D 7.A 8.B 9.D 10.D
@@ -131,7 +131,7 @@ export function parseExam(content: string) {
           answers = line.match(/\d+\.[A-E]{1,3}/g)!.map(answerItem => {
             const m = answerItem.match(/(\d+)\.(.+)/)!
             const number = m[1]
-            let answer: string | string[] = m[2].trim()
+            let answer: Exclude<Field['answer'], undefined> = m[2].trim()
             if (answer.length > 1) {
               answer = answer.split('')
             }
@@ -140,9 +140,9 @@ export function parseExam(content: string) {
         }
 
         // ex: 1. 2. 3. 4. 5. 6. 7. 8. 9. 10.C B B A B C D B C A
-        const matches = line.trim().match(/^((?:\d+\. ?)+)((?:[A-E] ?)+)$/)
-        const answerNumParts = matches?.[1].split('.').filter(Boolean).map(num => num?.trim()).map(num => Number.parseInt(num)) ?? []
-        const answerOptionParts = matches?.[2].split(' ').filter(Boolean) ?? []
+        const m = line.trim().match(/^((?:\d+\. ?)+)((?:[A-E] ?)+)$/)
+        const answerNumParts = m?.[1].split('.').filter(Boolean).map(num => num?.trim()).map(num => Number.parseInt(num)) ?? []
+        const answerOptionParts = m?.[2].split(' ').filter(Boolean) ?? []
         if (answerNumParts.length &&
             answerOptionParts.length &&
             answerNumParts.length === answerOptionParts.length
@@ -157,7 +157,7 @@ export function parseExam(content: string) {
           const section = blocks[blocks.length - 1] as Section
           if (section.type === 'section') {
             section.children.forEach(field => {
-              if (field.type === 'radio') {
+              if (field.type === 'radio' || field.type === 'checkbox') {
                 const answer = answers.find(answer => field.subject.startsWith(`${answer.number}.`))?.answer
                 if (answer)
                   field.answer = answer
@@ -169,18 +169,26 @@ export function parseExam(content: string) {
         }
       }
 
-      const field: Radio = {
+      let field: Radio | Checkbox = {
         type: 'radio',
         subject: line,
         options: [],
       }
 
+      if (field.subject.includes('（兩個答案）')) {
+        field = {
+          type: 'checkbox',
+          subject: field.subject,
+          options: [],
+        }
+      }
+
       // ex: A 1.
       // ex: (A) 1.
       // ex: A 或 C 1.
-      const matches = field.subject.match(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?\d+\./i)
-      if (matches) {
-        field.answer = matches.slice(1, matches.length).filter(Boolean)
+      const m = field.subject.match(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?\d+\./i)
+      if (m) {
+        field.answer = m.slice(1, m.length).filter(Boolean)
         if (field.answer.length === 1)
           field.answer = field.answer[0]
         field.subject = field.subject.replace(/^\(?([A-E])(?: 或 ([A-E]))?\)? ?/i, '').trim()
@@ -207,10 +215,10 @@ export function parseExam(content: string) {
 
       // ex: (A) ... (B) ... (C) ... (D) ...
       if (field.subject.match(/^(.+)(\(A\).+)$/i)) {
-        const matches = field.subject.match(/^(.+)(\(A\).+)$/i)!
-        field.subject = matches[1].trim()
+        const m = field.subject.match(/^(.+)(\(A\).+)$/i)!
+        field.subject = m[1].trim()
 
-        const optionsStr = matches[2]
+        const optionsStr = m[2]
         field.options = optionsStr.match(/\([A-E]\)[^(]+/gi)!
           .map(option => option.replace(/(\([A-E]\)) ?/i, '$1 ').trim())
 

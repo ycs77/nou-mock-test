@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, ExamStore } from '~/types/exam'
+import type { Block, ExamStore, Field } from '~/types/exam'
 
 const router = useRouter()
 
@@ -41,7 +41,7 @@ if (typeof store.score === 'undefined') {
 }
 
 const blocks = ref(store.blocks) as Ref<Block[]>
-const answers = ref<Record<string, string | undefined>>({})
+const answers = ref<Record<string, Field['userAnswer']>>({})
 const score = ref(store.score ?? 0)
 
 const editorValue = ref(JSON.stringify(blocks.value, null, 2))
@@ -49,9 +49,9 @@ const editorValue = ref(JSON.stringify(blocks.value, null, 2))
 watch(blocks, () => {
   blocks.value.forEach(block => {
     if (isSection(block)) {
-      block.children.forEach(child => {
+      block.children.forEach(field => {
         // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-        answers.value[`${cyrb53(child.subject)}`] = child.userAnswer
+        answers.value[`${cyrb53(field.subject)}`] = field.userAnswer
       })
     }
   })

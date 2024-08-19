@@ -16,15 +16,15 @@
           class="inline-block px-3.5 py-1 rounded-md select-none"
           :class="{
             'bg-gray-100 hover:bg-blue-100 dark:bg-gray-800 dark:hover:bg-gray-700 has-[:checked]:bg-blue-500 has-[:checked]:text-white dark:has-[:checked]:bg-blue-500': !answerMode,
-            'ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900': answerMode && answer === option.value,
-            'bg-blue-500 text-white': answerMode && modelValue === option.value && modelValue === answer,
-            'bg-gray-100 dark:bg-gray-800': answerMode && modelValue !== option.value,
-            'bg-red-500 text-white': answerMode && modelValue === option.value && modelValue !== answer,
+            'ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900': answerMode && answers.includes(option.value),
+            'bg-blue-500 text-white': answerMode && modelValue.includes(option.value) && modelValue.some(option => answers.includes(option)),
+            'bg-gray-100 dark:bg-gray-800': answerMode && !modelValue.includes(option.value),
+            'bg-red-500 text-white': answerMode && modelValue.includes(option.value) && !modelValue.some(option => answers.includes(option)),
           }"
         >
           <input
             v-model="modelValue"
-            type="radio"
+            type="checkbox"
             :value="option.value"
             :disabled="answerMode"
           >
@@ -36,16 +36,22 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, Radio } from '~/types/exam'
+import type { Block, Checkbox } from '~/types/exam'
 
-interface ExamRadioProps extends Radio {
+interface ExamCheckboxProps extends Checkbox {
   section: Block
   answerMode?: boolean
 }
 
-const props = defineProps<ExamRadioProps>()
+const props = defineProps<ExamCheckboxProps>()
 
-const modelValue = defineModel<Radio['userAnswer'] | undefined>({ required: true })
+const modelValue = defineModel<Exclude<Checkbox['userAnswer'], undefined>>({ required: true })
+
+const answers = computed(() => {
+  if (typeof props.answer === 'undefined') return []
+  if (Array.isArray(props.answer)) return props.answer
+  return [props.answer]
+})
 
 const formattedOptions = computed(() => {
   return props.options.map(option => {

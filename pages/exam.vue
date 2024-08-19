@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { ExamConfirmModal } from '#components'
-import type { Block, ExamStore } from '~/types/exam'
+import type { Block, ExamStore, Field } from '~/types/exam'
 
 const router = useRouter()
 const modal = useModal()
@@ -41,18 +41,20 @@ if (typeof store.score !== 'undefined') {
 }
 
 const blocks = ref(store.blocks) as Ref<Block[]>
-const answers = ref<Record<string, string | undefined>>({})
+const answers = ref<Record<string, Field['userAnswer']>>({})
 
 const editorValue = ref(JSON.stringify(blocks.value, null, 2))
 
 watch(blocks, blocks => {
-  const newAnswers: Record<string, string | undefined> = {}
+  const newAnswers: Record<string, Field['userAnswer']> = {}
 
   blocks.forEach(block => {
     if (isSection(block)) {
       block.children.forEach(field => {
         // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-        newAnswers[`${cyrb53(field.subject)}`] = answers.value[`${cyrb53(field.subject)}`] ?? undefined
+        newAnswers[`${cyrb53(field.subject)}`] = answers.value[`${cyrb53(field.subject)}`] ?? (
+          field.type === 'checkbox' ? [] : undefined
+        )
       })
     }
   })

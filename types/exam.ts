@@ -15,17 +15,25 @@ export interface Field extends Block {
   reference?: string
 
   // User answer
-  userAnswer?: string
+  userAnswer?: string | string[]
 }
 
 export interface Radio extends Field {
   type: 'radio'
   options: string[]
+  userAnswer?: string
+}
+
+export interface Checkbox extends Field {
+  type: 'checkbox'
+  options: string[]
+  userAnswer?: string[]
 }
 
 export interface Textarea extends Field {
   type: 'textarea'
   answer?: string
+  userAnswer?: string
 }
 
 export interface ExamStore {

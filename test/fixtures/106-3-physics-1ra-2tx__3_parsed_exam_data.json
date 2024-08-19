@@ -253,7 +253,7 @@
         "answer": "D"
       },
       {
-        "type": "radio",
+        "type": "checkbox",
         "subject": "23. 以下哪一個不是塵爆必要的條件（兩個答案）",
         "options": [
           "(A) 夠高的可燃粉塵",

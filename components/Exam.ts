@@ -3,18 +3,18 @@ import type { DefineComponent, FunctionalComponent } from 'vue'
 import ExamTitle from './ExamTitle.vue'
 import ExamSubtitle from './ExamSubtitle.vue'
 import ExamSection from './ExamSection'
-import type { Block } from '~/types/exam'
+import type { Block, Field } from '~/types/exam'
 
 interface ExamProps {
   blocks: Block[]
-  answers: Record<string, string | undefined>
+  answers: Record<string, Field['userAnswer']>
   answerMode?: boolean
   score?: number
 }
 
 // eslint-disable-next-line ts/consistent-type-definitions
 type ExamEvents = {
-  'update:answers': (answers: Record<string, string | undefined>) => void
+  'update:answers': (answers: Record<string, Field['userAnswer']>) => void
 }
 
 const Exam: FunctionalComponent<ExamProps, ExamEvents> = (props, { slots, emit }) => {
@@ -41,7 +41,7 @@ const Exam: FunctionalComponent<ExamProps, ExamEvents> = (props, { slots, emit }
           ...blockProps,
           index: `${index + 1}`,
           answers: props.answers,
-          'onUpdate:answers': (answers: Record<string, string | undefined>) => {
+          'onUpdate:answers': (answers: Record<string, Field['userAnswer']>) => {
             emit('update:answers', answers)
           },
           answerMode: props.answerMode,

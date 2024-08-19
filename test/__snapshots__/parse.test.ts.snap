@@ -635,7 +635,7 @@ exports[`parse pdf string to exam data - 106-3-physics-1ra-2tx 1`] = `
           "(D) 流動的空氣",
         ],
         "subject": "23. 以下哪一個不是塵爆必要的條件（兩個答案）",
-        "type": "radio",
+        "type": "checkbox",
       },
       {
         "answer": "C",

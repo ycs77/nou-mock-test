@@ -12,6 +12,8 @@ pdfFiles.forEach(async filename => {
 
   const blocks = parseExam(content)
 
+  // console.log(require('node:util').inspect(blocks, false, null, true))
+
   fs.writeFileSync(
     path.resolve(__dirname, `../fixtures/${filename}__3_parsed_exam_data.json`),
     JSON.stringify(blocks, null, 2)

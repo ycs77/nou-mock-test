@@ -118,7 +118,7 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
                 properties: {
                   type: {
                     type: 'string',
-                    enum: ['radio', 'textarea'],
+                    enum: ['radio', 'checkbox', 'textarea'],
                   },
                   subject: {
                     type: 'string',
@@ -140,7 +140,17 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
                     type: 'string',
                   },
                   userAnswer: {
-                    type: 'string',
+                    oneOff: [
+                      {
+                        type: 'string',
+                      },
+                      {
+                        type: 'array',
+                        items: {
+                          type: 'string',
+                        },
+                      },
+                    ],
                   },
                   options: {
                     type: 'array',
@@ -162,6 +172,29 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
                           type: 'string',
                         },
                       },
+                      userAnswer: {
+                        type: 'string',
+                      },
+                    },
+                  },
+                  {
+                    required: ['type', 'subject', 'options'],
+                    properties: {
+                      type: {
+                        const: 'checkbox',
+                      },
+                      options: {
+                        type: 'array',
+                        items: {
+                          type: 'string',
+                        },
+                      },
+                      userAnswer: {
+                        type: 'array',
+                        items: {
+                          type: 'string',
+                        },
+                      },
                     },
                   },
                   {
@@ -171,6 +204,9 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
                         const: 'textarea',
                       },
                       answer: {
+                        type: 'string',
+                      },
+                      userAnswer: {
                         type: 'string',
                       },
                     },

@@ -3,10 +3,15 @@ import type { Block, ExamStore, Field } from '~/types/exam'
 export function checkField(section: Block, field: Field): boolean {
   if (section.subject.includes('是非題') || section.subject.includes('選擇題')) {
     // 是非題或選擇題，檢查答案是否正確
-    if (typeof field.userAnswer === 'string' && (
-      (typeof field.answer === 'string' && field.userAnswer === field.answer) ||
-      (Array.isArray(field.answer) && field.answer.includes(field.userAnswer))
-    )) {
+    if (typeof field.userAnswer === 'string' &&
+        (Array.isArray(field.answer) ? field.answer : typeof field.answer === 'undefined' ? [] : [field.answer])
+          .includes(field.userAnswer)
+    ) {
+      return true
+    } else if (Array.isArray(field.userAnswer) &&
+        (Array.isArray(field.answer) ? field.answer : typeof field.answer === 'undefined' ? [] : [field.answer])
+          .every(answer => (field.userAnswer as string[]).includes(answer))
+    ) {
       return true
     }
   } else {
@@ -19,7 +24,7 @@ export function checkField(section: Block, field: Field): boolean {
   return false
 }
 
-export function calculateExam(blocks: Block[], answers: Record<string, string | undefined>) {
+export function calculateExam(blocks: Block[], answers: Record<string, Field['userAnswer']>) {
   let score = 0
 
   const newBlocks = blocks.map(block => {

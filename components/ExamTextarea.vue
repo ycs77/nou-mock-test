@@ -18,5 +18,5 @@ interface ExamTextareaProps extends Textarea {
 
 defineProps<ExamTextareaProps>()
 
-const modelValue = defineModel<string | undefined>({ required: true })
+const modelValue = defineModel<Textarea['userAnswer'] | undefined>({ required: true })
 </script>
