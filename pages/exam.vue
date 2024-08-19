@@ -1,5 +1,10 @@
 <template>
-  <UContainer :ui="{ padding: 'py-12' }">
+  <UContainer
+    :ui="{
+      padding: 'py-12',
+      constrained: 'max-w-[840px]',
+    }"
+  >
     <ClientOnly>
       <Exam
         v-model:answers="answers"
