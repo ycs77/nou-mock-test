@@ -45,15 +45,19 @@ const answers = ref<Record<string, string | undefined>>({})
 
 const editorValue = ref(JSON.stringify(blocks.value, null, 2))
 
-watch(blocks, () => {
-  blocks.value.forEach(block => {
+watch(blocks, blocks => {
+  const newAnswers: Record<string, string | undefined> = {}
+
+  blocks.forEach(block => {
     if (isSection(block)) {
       block.children.forEach(field => {
         // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-        answers.value[`${cyrb53(field.subject)}`] = undefined
+        newAnswers[`${cyrb53(field.subject)}`] = answers.value[`${cyrb53(field.subject)}`] ?? undefined
       })
     }
   })
+
+  answers.value = newAnswers
 }, { immediate: true })
 
 watch(editorValue, () => {
