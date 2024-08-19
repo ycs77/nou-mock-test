@@ -18,6 +18,8 @@
             icon="i-heroicons-folder"
             accept=".pdf"
             class="w-full"
+            :loading="loading"
+            :disabled="loading"
             @change="selectFile"
           />
         </UFormGroup>
