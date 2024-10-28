@@ -49,7 +49,7 @@ function selectFile(files: FileList) {
   submit()
 }
 
-async function submit() {
+function submit() {
   form.value.clear()
 
   const formData = new FormData()
@@ -60,28 +60,39 @@ async function submit() {
 
   loading.value = true
 
-  const res = await $fetch('/api/exam', {
+  $fetch('/api/exam', {
     method: 'POST',
     body: formData,
+  }).then(res => {
+    loading.value = false
+
+    if (res.status === 200) {
+      const store = {
+        blocks: res.blocks,
+      } satisfies ExamStore
+
+      localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+
+      router.push('/exam')
+    } else if (res.status >= 400 && res.status < 500) {
+      form.value.setErrors([
+        {
+          path: 'file',
+          message: res.message,
+        },
+      ])
+    }
+  }).catch(error => {
+    loading.value = false
+
+    if (error instanceof Error) {
+      form.value.setErrors([
+        {
+          path: 'file',
+          message: error.message,
+        },
+      ])
+    }
   })
-
-  loading.value = false
-
-  if (res.status === 200) {
-    const store = {
-      blocks: res.blocks,
-    } satisfies ExamStore
-
-    localStorage.setItem('nou-mock-exam', JSON.stringify(store))
-
-    router.push('/exam')
-  } else if (res.status >= 400 && res.status < 500) {
-    form.value.setErrors([
-      {
-        path: 'file',
-        message: res.message,
-      },
-    ])
-  }
 }
 </script>
