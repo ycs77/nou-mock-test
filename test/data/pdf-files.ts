@@ -7,4 +7,5 @@ export const pdfFiles = [
   '106-3-physics-1ra-2tx',
   '109-3-physics-1ra-2tx',
   '112-1-new-media-marketing-1ra-2tx-3tx',
+  '112-2-new-media-marketing-1ra-2tx',
 ]

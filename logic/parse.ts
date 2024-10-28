@@ -310,6 +310,14 @@ export function parseExam(content: string) {
           field.subject = field.subject.replace(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/, '').trim()
         }
 
+        // ex. (10 分)
+        if (field.subject.match(/\((\d+) ?分\)$/)) {
+          const m = field.subject.match(/\((\d+) ?分\)$/)
+          if (m) {
+            field.score = Number.parseInt(m[1])
+          }
+        }
+
         const section = blocks[blocks.length - 1] as Section
         if (section.type === 'section') {
           section.children.push(field)

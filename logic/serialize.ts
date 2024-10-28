@@ -111,6 +111,10 @@ export function serializePdfStringToParagraphs(content: string) {
         if (newContent.match(/[a-z]$/) && line.match(/^[a-z]/)) {
           newContent += ' '
         }
+        // 如果上行結尾沒有空格，且當前行開頭是 B. C. D. E. 的話，則加上空格
+        else if (!newContent.endsWith(' ') && line.match(/^[B-E]\./)) {
+          newContent += ' '
+        }
       }
 
       newContent += `${line}\n`
@@ -133,6 +137,10 @@ export function serializePdfStringToParagraphs(content: string) {
 
         // 如果上行結尾和當前行開頭都是英文小寫字母的話，則加上空格
         if (newContent.match(/[a-z]$/) && line.match(/^[a-z]/)) {
+          newContent += ' '
+        }
+        // 如果上行結尾沒有空格，且當前行開頭是 B. C. D. E. 的話，則加上空格
+        else if (!newContent.endsWith(' ') && line.match(/^[B-E]\./)) {
           newContent += ' '
         }
       }

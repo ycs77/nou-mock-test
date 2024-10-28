@@ -136,6 +136,9 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
                       },
                     ],
                   },
+                  score: {
+                    type: 'number',
+                  },
                   reference: {
                     type: 'string',
                   },

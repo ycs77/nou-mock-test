@@ -14,6 +14,7 @@ export interface Section extends Block {
 
 export interface Field extends Block {
   answer?: string | string[]
+  score?: number
   reference?: string
 
   // User answer

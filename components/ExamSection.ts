@@ -19,7 +19,7 @@ type ExamSectionEvents = {
 const ExamSection: FunctionalComponent<ExamSectionProps, ExamSectionEvents> = (props, { emit }) => {
   return h('div', [
     h('h3', { class: 'mt-8 text-lg sm:text-xl font-bold' }, [
-      `${props.subject}（每題 ${props.scoreOfItem} 分，共 ${props.scoreTotal} 分）`,
+      `${props.subject}（${props.scoreOfItem ? `每題 ${props.scoreOfItem} 分，` : ''}共 ${props.scoreTotal} 分）`,
     ]),
 
     ...props.children.map(field => {

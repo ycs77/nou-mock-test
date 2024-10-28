@@ -1,0 +1,164 @@
+[
+  {
+    "type": "title",
+    "subject": "國立空中大學 112 學年度下學期期中考試題"
+  },
+  {
+    "type": "subtitle",
+    "subject": "科目：新媒體行銷"
+  },
+  {
+    "type": "section",
+    "subject": "一、選擇題",
+    "scoreOfItem": 5,
+    "scoreTotal": 50,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1. 三種行銷模式的演進下列何者正確：",
+        "options": [
+          "A.傳統行銷模式->網路行銷模式->社群行銷模式",
+          "B.傳統行銷模式->社群行銷模式->網路行銷模式",
+          "C.網路行銷模式->社群行銷模式->傳統行銷模式",
+          "D.社群行銷模式->傳統行銷模式->網路行銷模式"
+        ],
+        "answer": "A",
+        "reference": "ch1-p4~5"
+      },
+      {
+        "type": "radio",
+        "subject": "2. Cost Per Click (CPC)是指：",
+        "options": [
+          "A.每次觀看成本",
+          "B.每次點擊成本",
+          "C.曝光次數",
+          "D.點擊率"
+        ],
+        "answer": "B",
+        "reference": "ch1-p23"
+      },
+      {
+        "type": "radio",
+        "subject": "3. 下列何者不是網路行銷的四大目標之一?",
+        "options": [
+          "A.蒐集名單",
+          "B.分散客群",
+          "C.建立品牌",
+          "D.刺激銷售"
+        ],
+        "answer": "B",
+        "reference": "ch2-p33"
+      },
+      {
+        "type": "radio",
+        "subject": "4. 下列何者屬於網路行銷的範疇?",
+        "options": [
+          "A. KOL 網紅行銷",
+          "B.內容行銷",
+          "C.搜尋引擎優化行銷",
+          "D.以上皆是"
+        ],
+        "answer": "D",
+        "reference": "ch2-p34"
+      },
+      {
+        "type": "radio",
+        "subject": "5. 下列何者是目前最主流的網路流量分析工具?",
+        "options": [
+          "A. SEO",
+          "B. IG",
+          "C. GA",
+          "D. Youtube"
+        ],
+        "answer": "C",
+        "reference": "ch2-p45"
+      },
+      {
+        "type": "radio",
+        "subject": "6. 下列哪一個社群平台的使用者年齡是比較偏向全客群?",
+        "options": [
+          "A. LINE",
+          "B. Instagram",
+          "C. Facebook",
+          "D. Mobile01"
+        ],
+        "answer": "A",
+        "reference": "ch3-p57"
+      },
+      {
+        "type": "radio",
+        "subject": "7. 下列何者不是經營企業粉絲團的十大訣竅之一?",
+        "options": [
+          "A.命名正確",
+          "B.角色投入",
+          "C.多用第二人稱",
+          "D.發文時間"
+        ],
+        "answer": "C",
+        "reference": "ch4-p105"
+      },
+      {
+        "type": "radio",
+        "subject": "8. 下列何者不是臉書廣告投放失敗的原因之一?",
+        "options": [
+          "A.目標對象(TA)設定不夠精準",
+          "B.你的 FB 廣告價格太高",
+          "C.產品競爭力本質不夠",
+          "D.會分析 FB 提供的數據結果"
+        ],
+        "answer": "D",
+        "reference": "ch4-p123~124"
+      },
+      {
+        "type": "radio",
+        "subject": "9. 下列何者不是 IG 的社群特性?",
+        "options": [
+          "A.低封閉性",
+          "B.高封閉性",
+          "C.新型態互動版位的普及",
+          "D.限時動態增加雙向互動親密度"
+        ],
+        "answer": "A",
+        "reference": "ch5-p162"
+      },
+      {
+        "type": "radio",
+        "subject": "10. 下列哪一個不是打造 IG 廣告的密技?",
+        "options": [
+          "A.廣告內容",
+          "B.廣告後台",
+          "C.廣告製作",
+          "D.廣告格式"
+        ],
+        "answer": "B",
+        "reference": "ch5-p166~167"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "二、簡答題",
+    "scoreOfItem": 0,
+    "scoreTotal": 50,
+    "children": [
+      {
+        "type": "textarea",
+        "subject": "1. 何謂 Click Through Rate (CTR)?",
+        "reference": "ch1-p23",
+        "score": 10
+      },
+      {
+        "type": "textarea",
+        "subject": "2. 網路流量有哪四種來源?",
+        "reference": "ch2-p45",
+        "score": 20
+      },
+      {
+        "type": "textarea",
+        "subject": "3. 經營社群粉絲團的四層引導流程為何?",
+        "reference": "ch3-p73~74",
+        "score": 20
+      }
+    ]
+  }
+]

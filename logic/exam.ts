@@ -42,7 +42,7 @@ export function calculateExam(blocks: Block[], answers: Record<string, Field['us
 
           // 計算分數
           if (checkField(block, newField)) {
-            score += block.scoreOfItem
+            score += newField.score ?? block.scoreOfItem
           }
 
           return newField
