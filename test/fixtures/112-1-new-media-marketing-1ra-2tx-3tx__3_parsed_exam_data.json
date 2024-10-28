@@ -1,0 +1,174 @@
+[
+  {
+    "type": "title",
+    "subject": "國立空中大學 112 學年度上學期期中考試題"
+  },
+  {
+    "type": "subtitle",
+    "subject": "科目：新媒體行銷"
+  },
+  {
+    "type": "section",
+    "subject": "一、選擇題",
+    "scoreOfItem": 5,
+    "scoreTotal": 50,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1. 以現代化數位科技媒體，包括網際網路(Internet)、手機(Mobile)、平板電腦(iPad)及電話(Telephone)等主要科技工具作為廠商與消費者間的溝通媒介稱之：",
+        "options": [
+          "A.數位行銷",
+          "B.媒體行銷",
+          "C.個人行銷",
+          "D.體驗行銷"
+        ],
+        "answer": "A",
+        "reference": "ch1-p2"
+      },
+      {
+        "type": "radio",
+        "subject": "2. 傳統行銷與數位行銷的差異：",
+        "options": [
+          "A.廣宣工具不同",
+          "B.大眾與分眾",
+          "C.適合消費群不同",
+          "D.以上皆是"
+        ],
+        "answer": "D",
+        "reference": "ch1-p6"
+      },
+      {
+        "type": "radio",
+        "subject": "3. 企業對企業的網路交易過程稱之：",
+        "options": [
+          "A. B2C",
+          "B. B2B",
+          "C. C2C",
+          "D. O2O"
+        ],
+        "answer": "B",
+        "reference": "ch2-p30"
+      },
+      {
+        "type": "radio",
+        "subject": "4. 網路流量的四種來源，下列何者有誤：",
+        "options": [
+          "A.自然搜尋流量",
+          "B.付費搜尋流量",
+          "C.間接流量",
+          "D.社群流量"
+        ],
+        "answer": "C",
+        "reference": "ch2-p45"
+      },
+      {
+        "type": "radio",
+        "subject": "5. 以圖像溝通為主的新興年輕社群是指：",
+        "options": [
+          "A. IG",
+          "B. FB",
+          "C. Line",
+          "D. YouTube"
+        ],
+        "answer": "A",
+        "reference": "ch2-p50"
+      },
+      {
+        "type": "radio",
+        "subject": "6. 下列哪一個社群網站屬於利基型社群網站?",
+        "options": [
+          "A. FB",
+          "B. IG",
+          "C. Mobile01",
+          "D. LINE"
+        ],
+        "answer": "C",
+        "reference": "ch3-p58"
+      },
+      {
+        "type": "radio",
+        "subject": "7. 下列何者不是社群粉絲團的四層引導流程?",
+        "options": [
+          "A.接觸",
+          "B.提升黏著度",
+          "C.撰寫網站",
+          "D.互動"
+        ],
+        "answer": "C",
+        "reference": "ch3-p73~74"
+      },
+      {
+        "type": "radio",
+        "subject": "8. 下列何者不是臉書設計發文策略?",
+        "options": [
+          "A.短文的力量",
+          "B.先弄清楚正確的發文觀念",
+          "C.內容設計策略",
+          "D.長文的力量"
+        ],
+        "answer": "D",
+        "reference": "ch4-p112~113"
+      },
+      {
+        "type": "radio",
+        "subject": "9. 下列何者不是 IG 應用在商業原因?",
+        "options": [
+          "A.使用人數成長",
+          "B.完整呈現",
+          "C.傳遞資訊量更多",
+          "D.非主題標籤"
+        ],
+        "answer": "D",
+        "reference": "ch5-p156"
+      },
+      {
+        "type": "radio",
+        "subject": "10. 統一超商 7-11 的 IG 行銷主力是什麼?",
+        "options": [
+          "A.產品訊息",
+          "B.促銷優惠訊息",
+          "C.產品訊息及促銷優惠訊息",
+          "D.以上皆非"
+        ],
+        "answer": "C",
+        "reference": "ch5-p159"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "二、解釋名詞",
+    "scoreOfItem": 10,
+    "scoreTotal": 20,
+    "children": [
+      {
+        "type": "textarea",
+        "subject": "1. Page View (PV)",
+        "reference": "ch1-p22"
+      },
+      {
+        "type": "textarea",
+        "subject": "2. Click Through Rate (CTR)",
+        "reference": "ch1-p23"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "三、簡答題",
+    "scoreOfItem": 15,
+    "scoreTotal": 30,
+    "children": [
+      {
+        "type": "textarea",
+        "subject": "1. 請問社群行銷模式 SIPS 分別代表什麼?",
+        "reference": "ch1-p5"
+      },
+      {
+        "type": "textarea",
+        "subject": "2. 粉絲專業經營要訣有哪 3 點 (3 個 C)?",
+        "reference": "ch4-p103"
+      }
+    ]
+  }
+]

@@ -1,3 +1,5 @@
+export type SectionType = '是非題' | '選擇題' | '解釋名詞' | '簡答題' | '問答題' | '申論題'
+
 export interface Block {
   type: string
   subject: string

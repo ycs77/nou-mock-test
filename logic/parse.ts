@@ -1,10 +1,10 @@
-import type { Block, Checkbox, Field, Radio, Section, Textarea } from '~/types/exam'
+import type { Block, Checkbox, Field, Radio, Section, SectionType, Textarea } from '~/types/exam'
 
 /**
  * 解析考試題目內容成 JSON 格式
  */
 export function parseExam(content: string) {
-  let sectionTitle = null as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題' | null
+  let sectionTitle = null as SectionType | null
 
   const blocks: Block[] = []
 
@@ -46,10 +46,10 @@ export function parseExam(content: string) {
     }
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
-    const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])、? ?(是非題|選擇題|簡答題|問答題|申論題)/)
+    const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])、? ?(是非題|選擇題|解釋名詞|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
       const count = sectionTitleMatchs[1]
-      sectionTitle = sectionTitleMatchs[2] as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題'
+      sectionTitle = sectionTitleMatchs[2] as SectionType
       const section: Section = {
         type: 'section',
         subject: `${count}、${sectionTitle}`,
@@ -102,6 +102,11 @@ export function parseExam(content: string) {
         // ex: CH1 P.1
         field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
         field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+      } else if (field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)) {
+        // 確認題目結尾存在對應課程章節
+        // ex: (ch3-p73~74)
+        field.reference = field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)?.[1]
+        field.subject = field.subject.replace(/\((ch\d+-p\d+(?:~\d+)?)\)/, '').trim()
       } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: (P.1圖1-1)
@@ -206,6 +211,11 @@ export function parseExam(content: string) {
         // ex: CH1 P.1
         field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
         field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+      } else if (field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)) {
+        // 確認題目結尾存在對應課程章節
+        // ex: (ch3-p73~74)
+        field.reference = field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)?.[1]
+        field.subject = field.subject.replace(/\((ch\d+-p\d+(?:~\d+)?)\)/, '').trim()
       } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: (P.1 圖1-1)
@@ -242,6 +252,21 @@ export function parseExam(content: string) {
           .map(option => option.trim())
       }
 
+      // ex: A.XXX B.XXX C.XXX D.XXX
+      else if (field.subject.match(/^(.+[ ？?] ?)(A\..+) (B\..+) (C\..+)/)) {
+        let matches = field.subject.match(/^(.+[ ？?] ?)(A\..+) (B\..+) (C\..+)$/)!
+        const matches4 = field.subject.match(/^(.+[ ？?] ?)(A\..+) (B\..+) (C\..+) (D\..+)$/)
+        const matches5 = field.subject.match(/^(.+[ ？?] ?)(A\..+) (B\..+) (C\..+) (D\..+) (E\..+)$/)
+        if (matches5) matches = matches5
+        else if (matches4) matches = matches4
+
+        field.subject = matches[1].trim()
+        field.options = matches
+          .slice(2, matches.length)
+          .filter(Boolean)
+          .map(option => option.trim())
+      }
+
       const section = blocks[blocks.length - 1] as Section
       if (section.type === 'section') {
         section.children.push(field)
@@ -249,8 +274,8 @@ export function parseExam(content: string) {
       continue
     }
 
-    // 解析簡答題 or 問答題
-    else if (sectionTitle === '簡答題' || sectionTitle === '問答題') {
+    // 解析解釋名詞 or 簡答題 or 問答題
+    else if (sectionTitle === '解釋名詞' || sectionTitle === '簡答題' || sectionTitle === '問答題') {
       if (line.match(/^(?:\d+\.|[一二三四五六七八九十]、)/)) {
         const field: Textarea = {
           type: 'textarea',
@@ -272,6 +297,11 @@ export function parseExam(content: string) {
           // ex: (P.1圖1-1)
           field.reference = field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)?.[1]
           field.subject = field.subject.replace(/\((P\.[\d\-. 圖]+)\)$/, '').trim()
+        } else if (field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)) {
+          // 確認題目結尾存在對應課程章節
+          // ex: (ch3-p73~74)
+          field.reference = field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)?.[1]
+          field.subject = field.subject.replace(/\((ch\d+-p\d+(?:~\d+)?)\)/, '').trim()
         } else if (field.subject.match(/\(教科書第 [\d\-、]+ 頁(?:；媒體教材 [\d\-.]+)?\)$/)) {
           // 確認題目結尾存在對應課程章節
           // ex: (教科書第 15、17 頁)
@@ -338,6 +368,11 @@ export function parseExam(content: string) {
         // ex: CH1 P.1
         field.reference = field.subject.match(/CH\d+ ?P\.\d+$/)?.[0]
         field.subject = field.subject.replace(/CH\d+ ?P\.\d+$/, '').trim()
+      } else if (field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)) {
+        // 確認題目結尾存在對應課程章節
+        // ex: (ch3-p73~74)
+        field.reference = field.subject.match(/\((ch\d+-p\d+(?:~\d+)?)\)/)?.[1]
+        field.subject = field.subject.replace(/\((ch\d+-p\d+(?:~\d+)?)\)/, '').trim()
       } else if (field.subject.match(/\((P\.[\d\-. 圖]+)\)$/)) {
         // 確認題目結尾存在對應課程章節
         // ex: (P.1 圖1-1)

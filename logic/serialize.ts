@@ -1,5 +1,6 @@
 import type { PDFExtractResult, PDFExtractText } from 'pdf.js-extract'
 import stringWidth from 'string-width'
+import type { SectionType } from '~/types/exam'
 
 /**
  * 將 PDF 檔案資料轉換為文字內容
@@ -48,7 +49,7 @@ export function serializePdfStringToParagraphs(content: string) {
   ]
 
   let newContent = ''
-  let sectionTitle = null as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題' | null
+  let sectionTitle = null as SectionType | null
 
   // 當前題目
   let currentQuestion = '' as string
@@ -85,11 +86,11 @@ export function serializePdfStringToParagraphs(content: string) {
 
     // ex: 一、選擇題（每題 5 分，共 50 分）
     const titleLine = line.replace(/(?<=[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、? ?)單選題/, '選擇題')
-    const sectionTitleMatchs = titleLine.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、? ?(是非題|選擇題|簡答題|問答題|申論題)/)
+    const sectionTitleMatchs = titleLine.match(/^[一二三四五六七八九十壹貳參肆伍陸柒捌玖拾]、? ?(是非題|選擇題|解釋名詞|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
       newContent = newContent.replace(/\n$/, '')
       newContent += `\n${titleLine}\n`
-      sectionTitle = sectionTitleMatchs[1] as '是非題' | '選擇題' | '簡答題' | '問答題' | '申論題'
+      sectionTitle = sectionTitleMatchs[1] as SectionType
       continue
     }
 
@@ -140,8 +141,8 @@ export function serializePdfStringToParagraphs(content: string) {
       continue
     }
 
-    // 解析簡答題 or 問答題
-    else if (sectionTitle === '簡答題' || sectionTitle === '問答題') {
+    // 解析解釋名詞 or 簡答題 or 問答題
+    else if (sectionTitle === '解釋名詞' || sectionTitle === '簡答題' || sectionTitle === '問答題') {
       if (line.match(/^(?:\d+\.|[一二三四五六七八九十]、)/)) {
         // 確認當前行是題目的開始
         // ex: 1.
