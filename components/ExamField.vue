@@ -13,10 +13,10 @@
 
       <slot />
 
-      <div v-if="answerMode && reference" class="mt-4">
-        <div class="inline-block px-2.5 py-1 bg-amber-100 dark:bg-amber-900 text-sm text-amber-500 dark:text-amber-400 border border-amber-400 dark:border-amber-500 rounded-md">
+      <div v-if="answerMode && reference" class="mt-5">
+        <div class="block px-2.5 py-1 bg-amber-100 dark:bg-amber-900 text-sm text-amber-500 dark:text-amber-400 border border-amber-400 dark:border-amber-500 rounded-md">
           <UIcon name="i-heroicons-information-circle-20-solid" class="inline-block align-middle -mt-1 size-5" />
-          {{ reference }}
+          參考：{{ reference }}
         </div>
       </div>
     </div>
