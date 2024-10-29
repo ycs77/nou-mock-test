@@ -143,19 +143,19 @@
     "children": [
       {
         "type": "textarea",
-        "subject": "1. 何謂 Click Through Rate (CTR)?",
+        "subject": "1. 何謂 Click Through Rate (CTR)? (10 分)",
         "reference": "ch1-p23",
         "score": 10
       },
       {
         "type": "textarea",
-        "subject": "2. 網路流量有哪四種來源?",
+        "subject": "2. 網路流量有哪四種來源? (20 分)",
         "reference": "ch2-p45",
         "score": 20
       },
       {
         "type": "textarea",
-        "subject": "3. 經營社群粉絲團的四層引導流程為何?",
+        "subject": "3. 經營社群粉絲團的四層引導流程為何? (20 分)",
         "reference": "ch3-p73~74",
         "score": 20
       }

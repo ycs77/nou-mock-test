@@ -1844,19 +1844,19 @@ exports[`parse pdf string to exam data - 112-2-new-media-marketing-1ra-2tx 1`] =
       {
         "reference": "ch1-p23",
         "score": 10,
-        "subject": "1. 何謂 Click Through Rate (CTR)?",
+        "subject": "1. 何謂 Click Through Rate (CTR)? (10 分)",
         "type": "textarea",
       },
       {
         "reference": "ch2-p45",
         "score": 20,
-        "subject": "2. 網路流量有哪四種來源?",
+        "subject": "2. 網路流量有哪四種來源? (20 分)",
         "type": "textarea",
       },
       {
         "reference": "ch3-p73~74",
         "score": 20,
-        "subject": "3. 經營社群粉絲團的四層引導流程為何?",
+        "subject": "3. 經營社群粉絲團的四層引導流程為何? (20 分)",
         "type": "textarea",
       },
     ],
