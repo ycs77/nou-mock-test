@@ -10,7 +10,7 @@
     </h1>
 
     <div class="mt-12 sm:mt-20">
-      <UForm ref="form" :state="{}">
+      <UForm ref="form" :state="{}" :validate-on="[]">
         <UFormGroup label="選擇考古題 PDF 檔" name="file">
           <UInput
             type="file"
