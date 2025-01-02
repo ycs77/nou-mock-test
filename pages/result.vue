@@ -14,7 +14,7 @@
       >
         <template #footer>
           <div class="mt-8 flex justify-center gap-6">
-            <UButton to="/" variant="outline">新考題</UButton>
+            <UButton to="/" variant="outline">回首頁</UButton>
             <UButton type="button" @click="restart">重新答題</UButton>
           </div>
         </template>
