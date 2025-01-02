@@ -1,7 +1,7 @@
 import { resolve } from 'pathe'
 import Copy from 'rollup-plugin-copy'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/api/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
