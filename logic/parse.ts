@@ -13,6 +13,7 @@ export function parseExam(content: string) {
     .filter(line => line.trim() !== '')
 
   for (const line of lines) {
+    // 解析考卷標題
     // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
     // ex: 國立空中大學 106 學年度暑期期末考試題【正參】03
     const titleMatchs = line.match(/^國立空中大學 ?\d+ ?學年度(?:上學期|下學期|暑期)期[中末]考試題/)
@@ -24,6 +25,7 @@ export function parseExam(content: string) {
       continue
     }
 
+    // 解析科目名稱
     // ex: 科目：Linux 作業系統管理  一律橫式作答 2-2 頁
     const subtitleMatchs = line.match(/^(科目：[^【一]+)(?:【[^】]+】)? ?一律橫式作答 (?:共 )?((?:\d+-)?\d+)? ?頁/)
     if (subtitleMatchs) {
@@ -45,30 +47,31 @@ export function parseExam(content: string) {
       continue
     }
 
+    // 解析章節標題
     // ex: 一、選擇題（每題 5 分，共 50 分）
     const sectionTitleMatchs = line.match(/^([一二三四五六七八九十壹貳參肆伍陸柒捌玖拾])、? ?(是非題|選擇題|解釋名詞|簡答題|問答題|申論題)/)
     if (sectionTitleMatchs) {
-      const count = sectionTitleMatchs[1]
+      const sectionNum = sectionTitleMatchs[1]
       sectionTitle = sectionTitleMatchs[2] as SectionType
       const section: Section = {
         type: 'section',
-        subject: `${count}、${sectionTitle}`,
+        subject: `${sectionNum}、${sectionTitle}`,
         scoreOfItem: 0,
         scoreTotal: 0,
         children: [],
       }
 
       // ex: 每題5分
-      if (line.match(/每題 ?\d+ ?分/)) {
+      if (line.match(/每題 ?(\d+) ?分/)) {
         section.scoreOfItem = Number.parseInt(line.match(/每題 ?(\d+) ?分/)?.[1] ?? '0')
       }
 
-      if (line.match(/共計? ?\d+ ?分/)) {
+      if (line.match(/共計? ?(\d+) ?分/)) {
         // ex: 共50分
         section.scoreTotal = Number.parseInt(line.match(/共計? ?(\d+) ?分/)?.[1] ?? '0')
-      } else if (line.match(/\d{1,2}%/)) {
+      } else if (line.match(/(\d{1,3})%/)) {
         // ex: (50%)
-        section.scoreTotal = Number.parseInt(line.match(/(\d{1,2})%/)?.[1] ?? '0')
+        section.scoreTotal = Number.parseInt(line.match(/(\d{1,3})%/)?.[1] ?? '0')
       }
 
       blocks.push(section)
@@ -313,6 +316,14 @@ export function parseExam(content: string) {
         // ex. (10 分)
         if (field.subject.match(/\((\d+) ?分\)$/)) {
           const m = field.subject.match(/\((\d+) ?分\)$/)
+          if (m) {
+            field.score = Number.parseInt(m[1])
+          }
+        }
+
+        // ex. (10%)
+        else if (field.subject.match(/\((\d+)%\)$/)) {
+          const m = field.subject.match(/\((\d+)%\)$/)
           if (m) {
             field.score = Number.parseInt(m[1])
           }
