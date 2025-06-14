@@ -10,7 +10,7 @@
 yarn
 ```
 
-啟動本地開發伺服器 http://localhost:3000：
+啟動本地開發伺服器：
 
 ```bash
 yarn dev
