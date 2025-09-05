@@ -2,18 +2,20 @@
   <UContainer
     :ui="{
       padding: 'py-12',
-      constrained: 'max-w-[840px]',
+      constrained: 'max-w-[960px]',
     }"
   >
     <ClientOnly>
       <Exam
         v-model:answers="answers"
-        :blocks="blocks"
+        :blocks
+        answer-mode
+        :score
       >
         <template #footer>
           <div class="mt-8 flex justify-center gap-6">
-            <UButton to="/" variant="outline">返回</UButton>
-            <UButton type="button" @click="submit">作答完成</UButton>
+            <UButton to="/" variant="outline">回首頁</UButton>
+            <UButton type="button" @click="restart">重新答題</UButton>
           </div>
         </template>
       </Exam>
@@ -24,43 +26,41 @@
 </template>
 
 <script setup lang="ts">
-import { ExamConfirmModal } from '#components'
-import type { Block, ExamStore, Field } from '~/types/exam'
-
 const router = useRouter()
-const modal = useModal()
 
 const examData = typeof localStorage !== 'undefined' ? localStorage.getItem('nou-mock-exam') : null
 if (!examData) {
   router.push('/')
 }
 
-const store: ExamStore = JSON.parse(examData ?? '{"blocks":[]}')
-if (typeof store.score !== 'undefined') {
-  router.push('/result')
+const store: ExamStore = JSON.parse(examData ?? '{"blocks":[],"score":0}')
+if (typeof store.score === 'undefined') {
+  router.push('/')
 }
 
 const blocks = ref(store.blocks) as Ref<Block[]>
 const answers = ref<Record<string, Field['userAnswer']>>({})
+const score = ref(store.score ?? 0)
 
 const editorValue = ref(JSON.stringify(blocks.value, null, 2))
 
-watch(blocks, blocks => {
-  const newAnswers: Record<string, Field['userAnswer']> = {}
-
-  blocks.forEach(block => {
+watch(blocks, () => {
+  blocks.value.forEach(block => {
     if (isSection(block)) {
       block.children.forEach(field => {
         // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-        newAnswers[`${cyrb53(field.subject)}`] = answers.value[`${cyrb53(field.subject)}`] ?? (
-          field.type === 'checkbox' ? [] : undefined
-        )
+        answers.value[`${cyrb53(field.subject)}`] = field.userAnswer
       })
     }
   })
-
-  answers.value = newAnswers
 }, { immediate: true })
+
+watch(blocks, () => {
+  const store = calculateExam(blocks.value, answers.value)
+  if (store.score) {
+    score.value = store.score
+  }
+})
 
 watch(editorValue, () => {
   blocks.value = JSON.parse(editorValue.value)
@@ -68,15 +68,20 @@ watch(editorValue, () => {
   localStorage.setItem('nou-mock-exam', JSON.stringify(store))
 })
 
-function submit() {
-  modal.open(ExamConfirmModal, {
-    onSuccess() {
-      const store = calculateExam(blocks.value, answers.value)
-
-      localStorage.setItem('nou-mock-exam', JSON.stringify(store))
-
-      router.push('/result')
-    },
+function restart() {
+  store.blocks = store.blocks.map(block => {
+    if (isSection(block)) {
+      block.children = block.children.map(field => {
+        delete field.userAnswer
+        return field
+      })
+    }
+    return block
   })
+  delete store.score
+
+  localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+
+  router.push('/exam')
 }
 </script>

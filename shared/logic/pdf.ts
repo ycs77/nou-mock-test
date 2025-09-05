@@ -1,5 +1,5 @@
-import { PDFExtract } from 'pdf.js-extract'
 import type { PDFExtractOptions, PDFExtractResult } from 'pdf.js-extract'
+import { PDFExtract } from 'pdf.js-extract'
 
 export function loadPdf(filename: string, options: PDFExtractOptions = {}) {
   const pdfExtract = new PDFExtract()

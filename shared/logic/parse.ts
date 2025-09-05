@@ -1,4 +1,4 @@
-import type { Block, Checkbox, Field, Radio, Section, SectionType, Textarea } from '~/types/exam'
+import type { Block, Checkbox, Field, Radio, Section, SectionType, Textarea } from '../types/exam'
 
 /**
  * 解析考試題目內容成 JSON 格式
@@ -41,7 +41,7 @@ export function parseExam(content: string) {
       )) {
         blocks.push({
           type: 'subtitle',
-          subject: subtitleMatchs[1].trim(),
+          subject: subject.trim(),
         })
       }
       continue
@@ -138,8 +138,8 @@ export function parseExam(content: string) {
         if (lineParts.length && lineParts.every(text => text.match(/^\d+\.[A-E]{1,3}$/))) {
           answers = line.match(/\d+\.[A-E]{1,3}/g)!.map(answerItem => {
             const m = answerItem.match(/(\d+)\.(.+)/)!
-            const number = m[1]
-            let answer: Exclude<Field['answer'], undefined> = m[2].trim()
+            const number = m[1] || ''
+            let answer: Exclude<Field['answer'], undefined> = (m[2] || '').trim()
             if (answer.length > 1) {
               answer = answer.split('')
             }
@@ -149,15 +149,15 @@ export function parseExam(content: string) {
 
         // ex: 1. 2. 3. 4. 5. 6. 7. 8. 9. 10.C B B A B C D B C A
         const m = line.trim().match(/^((?:\d+\. ?)+)((?:[A-E] ?)+)$/)
-        const answerNumParts = m?.[1].split('.').filter(Boolean).map(num => num?.trim()).map(num => Number.parseInt(num)) ?? []
-        const answerOptionParts = m?.[2].split(' ').filter(Boolean) ?? []
+        const answerNumParts = (m?.[1] || '').split('.').filter(Boolean).map(num => num?.trim()).map(num => Number.parseInt(num)) ?? []
+        const answerOptionParts = (m?.[2] || '').split(' ').filter(Boolean) ?? []
         if (answerNumParts.length &&
             answerOptionParts.length &&
             answerNumParts.length === answerOptionParts.length
         ) {
           answers = answerNumParts.map((num, index) => ({
             number: num.toString(),
-            answer: answerOptionParts[index],
+            answer: answerOptionParts[index]!,
           }))
         }
 
@@ -229,14 +229,13 @@ export function parseExam(content: string) {
       // ex: (A) ... (B) ... (C) ... (D) ...
       if (field.subject.match(/^(.+)(\(A\).+)$/i)) {
         const m = field.subject.match(/^(.+)(\(A\).+)$/i)!
-        field.subject = m[1].trim()
+        field.subject = (m[1] || '').trim()
 
-        const optionsStr = m[2]
-        field.options = optionsStr.match(/\([A-E]\)[^(]+/gi)!
+        field.options = (m[2] || '').match(/\([A-E]\)[^(]+/gi)!
           .map(option => option.replace(/(\([A-E]\)) ?/i, '$1 ').trim())
 
         if (field.options[0] && !field.options[0].endsWith('。')) {
-          field.options[field.options.length - 1] = field.options[field.options.length - 1].replace(/。$/, '')
+          field.options[field.options.length - 1] = field.options[field.options.length - 1]!.replace(/。$/, '')
         }
       }
 
@@ -248,7 +247,7 @@ export function parseExam(content: string) {
         if (matches5) matches = matches5
         else if (matches4) matches = matches4
 
-        field.subject = matches[1].trim()
+        field.subject = (matches[1] || '').trim()
         field.options = matches
           .slice(2, matches.length)
           .filter(Boolean)
@@ -263,7 +262,7 @@ export function parseExam(content: string) {
         if (matches5) matches = matches5
         else if (matches4) matches = matches4
 
-        field.subject = matches[1].trim()
+        field.subject = (matches[1] || '').trim()
         field.options = matches
           .slice(2, matches.length)
           .filter(Boolean)
@@ -317,7 +316,7 @@ export function parseExam(content: string) {
         if (field.subject.match(/\((\d+) ?分\)$/)) {
           const m = field.subject.match(/\((\d+) ?分\)$/)
           if (m) {
-            field.score = Number.parseInt(m[1])
+            field.score = Number.parseInt(m[1] || '0')
           }
         }
 
@@ -325,7 +324,7 @@ export function parseExam(content: string) {
         else if (field.subject.match(/\((\d+)%\)$/)) {
           const m = field.subject.match(/\((\d+)%\)$/)
           if (m) {
-            field.score = Number.parseInt(m[1])
+            field.score = Number.parseInt(m[1] || '0')
           }
         }
 

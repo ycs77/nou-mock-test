@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, Textarea } from '~/types/exam'
+import type { Textarea } from '#shared/types/exam'
 
 interface ExamTextareaProps extends Textarea {
   section: Block
@@ -18,5 +18,7 @@ interface ExamTextareaProps extends Textarea {
 
 defineProps<ExamTextareaProps>()
 
-const modelValue = defineModel<Textarea['userAnswer'] | undefined>({ required: true })
+const modelValue = defineModel<Textarea['userAnswer']>({
+  required: true,
+})
 </script>

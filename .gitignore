@@ -4,6 +4,7 @@
 .nuxt
 .nitro
 .cache
+*.tsbuildinfo
 dist
 
 # Node dependencies

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <UApp>
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
 
@@ -12,7 +12,7 @@
     </main>
 
     <UModals />
-  </div>
+  </UApp>
 </template>
 
 <script setup lang="ts">

@@ -15,9 +15,9 @@
         <label
           class="inline-block px-3.5 py-1 rounded-md select-none"
           :class="{
-            'bg-gray-100 hover:bg-blue-100 dark:bg-gray-800 dark:hover:bg-gray-700 has-[:checked]:bg-blue-500 has-[:checked]:text-white dark:has-[:checked]:bg-blue-500': !answerMode,
+            'bg-gray-100 hover:bg-primary-100 dark:bg-gray-800 dark:hover:bg-gray-700 has-checked:bg-primary-500 has-checked:text-white dark:has-checked:bg-primary-500': !answerMode,
             'ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900': answerMode && answers.includes(option.value),
-            'bg-blue-500 text-white': answerMode && modelValue.includes(option.value) && modelValue.some(option => answers.includes(option)),
+            'bg-primary-500 text-white': answerMode && modelValue.includes(option.value) && modelValue.some(option => answers.includes(option)),
             'bg-gray-100 dark:bg-gray-800': answerMode && !modelValue.includes(option.value),
             'bg-red-500 text-white': answerMode && modelValue.includes(option.value) && !modelValue.some(option => answers.includes(option)),
           }"
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, Checkbox } from '~/types/exam'
+import type { Checkbox } from '#shared/types/exam'
 
 interface ExamCheckboxProps extends Checkbox {
   section: Block
@@ -45,7 +45,9 @@ interface ExamCheckboxProps extends Checkbox {
 
 const props = defineProps<ExamCheckboxProps>()
 
-const modelValue = defineModel<Exclude<Checkbox['userAnswer'], undefined>>({ required: true })
+const modelValue = defineModel<Exclude<Checkbox['userAnswer'], undefined>>({
+  required: true,
+})
 
 const answers = computed(() => {
   if (typeof props.answer === 'undefined') return []
@@ -56,7 +58,7 @@ const answers = computed(() => {
 const formattedOptions = computed(() => {
   return props.options.map(option => {
     const m = option.match(/^\(?([A-E])\)? ?/i)
-    if (m) {
+    if (m?.[1]) {
       return { label: option, value: m[1] }
     }
     return { label: option, value: option }

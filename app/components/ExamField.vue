@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, Field } from '~/types/exam'
+import type { Field } from '#shared/types/exam'
 
 interface ExamFieldProps extends Field {
   section: Block

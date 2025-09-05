@@ -1,4 +1,4 @@
-import type { Block, Checkbox, Field, Radio, Section, Textarea } from '~/types/exam'
+import type { Block, Checkbox, Field, Radio, Section, Textarea } from '../types/exam'
 
 export function isSection(block: Block): block is Section {
   return block.type === 'section'

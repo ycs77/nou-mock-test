@@ -1,9 +1,8 @@
-import { h } from 'vue'
+import type { Field, Section } from '#shared/types/exam'
 import type { DefineComponent, FunctionalComponent, PropType } from 'vue'
-import ExamRadio from './ExamRadio.vue'
 import ExamCheckbox from './ExamCheckbox.vue'
+import ExamRadio from './ExamRadio.vue'
 import ExamTextarea from './ExamTextarea.vue'
-import type { Field, Section } from '~/types/exam'
 
 interface ExamSectionProps extends Section {
   index: string

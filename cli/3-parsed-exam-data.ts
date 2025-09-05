@@ -1,9 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { parseExam } from '~/logic/parse'
+import { parseExam } from '../shared/logic/parse'
 
 (async () => {
-  const filePath = path.resolve(process.cwd(), process.argv[2])
+  const filePath = path.resolve(process.cwd(), process.argv[2] || '')
   if (!filePath.endsWith('.pdf')) {
     throw new Error('Please provide a path to a PDF file')
   }
@@ -26,6 +26,5 @@ import { parseExam } from '~/logic/parse'
     JSON.stringify(blocks, null, 2)
   )
 
-  // eslint-disable-next-line no-console
   console.log(`Exam data parsed and saved as ${filename}__3_parsed_exam_data.json`)
 })()

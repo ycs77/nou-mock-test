@@ -1,6 +1,6 @@
 import type { PDFExtractResult, PDFExtractText } from 'pdf.js-extract'
+import type { SectionType } from '../types/exam'
 import stringWidth from 'string-width'
-import type { SectionType } from '~/types/exam'
 
 /**
  * 將 PDF 檔案資料轉換為文字內容

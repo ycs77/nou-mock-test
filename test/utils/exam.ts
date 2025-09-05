@@ -1,4 +1,5 @@
 import stringWidth from 'string-width'
+import { getMaxLineWidth } from '../../shared/logic/serialize'
 
 export function printExamWithMaxWidth(content: string) {
   const maxWidth = getMaxLineWidth(content)

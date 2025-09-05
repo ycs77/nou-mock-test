@@ -1,5 +1,7 @@
 import path from 'node:path'
 import { expect, it } from 'vitest'
+import { loadPdf } from '../shared/logic/pdf'
+import { getMaxLineWidth, pdfDataToString, serializePdfStringToParagraphs } from '../shared/logic/serialize'
 import { pdfFiles } from './data/pdf-files'
 
 it('parse pdf data to string', async () => {

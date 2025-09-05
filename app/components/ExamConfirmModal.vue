@@ -20,9 +20,13 @@
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['success'])
+const emit = defineEmits<{
+  success: []
+}>()
 
-const isOpen = defineModel<boolean>({ default: false })
+const isOpen = defineModel<boolean>({
+  default: false,
+})
 
 function success() {
   emit('success')

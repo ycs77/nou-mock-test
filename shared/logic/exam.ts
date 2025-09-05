@@ -1,4 +1,6 @@
-import type { Block, ExamStore, Field } from '~/types/exam'
+import type { Block, ExamStore, Field } from '../types/exam'
+import { isSection } from '../utils/exam'
+import { cyrb53 } from '../utils/hash'
 
 export function checkField(section: Block, field: Field): boolean {
   if (section.subject.includes('是非題') || section.subject.includes('選擇題')) {

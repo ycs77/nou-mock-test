@@ -1,28 +1,23 @@
 <template>
-  <UContainer
-    :ui="{
-      padding: 'py-16',
-      constrained: 'max-w-[480px]',
-    }"
-  >
+  <UContainer class="[--ui-container:480px] py-16">
     <h1 class="text-center text-2xl sm:text-3xl font-bold">
       空中大學考古題 線上模擬表單
     </h1>
 
     <div class="mt-12 sm:mt-20">
       <UForm ref="form" :state="{}" :validate-on="[]">
-        <UFormGroup label="選擇考古題 PDF 檔" name="file">
+        <UFormField label="選擇考古題 PDF 檔" name="file">
           <UInput
             type="file"
             size="lg"
             icon="i-heroicons-folder"
             accept=".pdf"
             class="w-full"
-            :loading="loading"
+            :loading
             :disabled="loading"
             @change="selectFile"
           />
-        </UFormGroup>
+        </UFormField>
       </UForm>
     </div>
   </UContainer>
@@ -30,7 +25,6 @@
 
 <script setup lang="ts">
 import type { Form } from '#ui/types'
-import type { ExamStore } from '~/types/exam'
 
 const router = useRouter()
 
@@ -77,7 +71,7 @@ function submit() {
     } else if (res.status >= 400 && res.status < 500) {
       form.value.setErrors([
         {
-          path: 'file',
+          name: 'file',
           message: res.message,
         },
       ])
@@ -88,7 +82,7 @@ function submit() {
     if (error instanceof Error) {
       form.value.setErrors([
         {
-          path: 'file',
+          name: 'file',
           message: error.message,
         },
       ])

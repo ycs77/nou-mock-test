@@ -3,7 +3,7 @@
     {{ subject }}
   </h2>
 
-  <div v-if="typeof score === 'number'" class="mt-4 text-5xl text-center font-bold text-blue-500 dark:text-blue-400">
+  <div v-if="typeof score === 'number'" class="mt-4 text-5xl text-center font-bold text-primary-500 dark:text-primary-400">
     {{ score }}分
   </div>
 </template>

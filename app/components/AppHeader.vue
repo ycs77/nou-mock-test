@@ -1,6 +1,6 @@
 <template>
   <header>
-    <UContainer class="flex items-center justify-between gap-3 h-[4rem] border-b border-gray-200 dark:border-gray-800">
+    <UContainer class="flex items-center justify-between gap-3 h-16 border-b border-gray-200 dark:border-gray-800">
       <div class="lg:flex-1 flex items-center gap-1.5 text-gray-900 dark:text-white font-bold">
         <span class="text-lg sm:hidden">空大考古題 線上模擬表單</span>
         <span class="hidden sm:inline sm:text-xl">空中大學考古題 線上模擬表單</span>

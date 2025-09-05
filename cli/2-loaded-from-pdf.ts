@@ -1,10 +1,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadPdf } from '~/logic/pdf'
-import { pdfDataToString, serializePdfStringToParagraphs } from '~/logic/serialize'
+import { loadPdf } from '../shared/logic/pdf'
+import { pdfDataToString, serializePdfStringToParagraphs } from '../shared/logic/serialize'
 
 (async () => {
-  const filePath = path.resolve(process.cwd(), process.argv[2])
+  const filePath = path.resolve(process.cwd(), process.argv[2] || '')
   if (!filePath.endsWith('.pdf')) {
     throw new Error('Please provide a path to a PDF file')
   }
@@ -24,6 +24,5 @@ import { pdfDataToString, serializePdfStringToParagraphs } from '~/logic/seriali
     content
   )
 
-  // eslint-disable-next-line no-console
   console.log(`PDF loaded and saved as ${filename}__2_loaded_from_pdf.txt`)
 })()

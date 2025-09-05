@@ -29,7 +29,7 @@
         </div>
       </template>
 
-      <div class="h-full min-h-[24rem] [&>div]:h-full">
+      <div class="h-full min-h-96 [&>div]:h-full">
         <MonacoEditor
           v-model="value"
           lang="json"
@@ -68,10 +68,12 @@ const emit = defineEmits<{
   'update:value': [value: string]
 }>()
 
-const isOpen = defineModel<boolean>({ default: false })
+const isOpen = defineModel<boolean>({
+  default: false,
+})
 
 const colorMode = useColorMode()
-const monaco = useMonaco()!
+const monaco = await useMonaco()
 
 const value = ref(props.value)
 

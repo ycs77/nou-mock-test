@@ -1,9 +1,7 @@
-import { h } from 'vue'
 import type { DefineComponent, FunctionalComponent } from 'vue'
-import ExamTitle from './ExamTitle.vue'
-import ExamSubtitle from './ExamSubtitle.vue'
 import ExamSection from './ExamSection'
-import type { Block, Field } from '~/types/exam'
+import ExamSubtitle from './ExamSubtitle.vue'
+import ExamTitle from './ExamTitle.vue'
 
 interface ExamProps {
   blocks: Block[]
