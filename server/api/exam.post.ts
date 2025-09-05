@@ -1,9 +1,9 @@
-import { readFiles } from 'h3-formidable'
+import type { Block } from '#shared/types/exam'
 import type { PDFExtractResult } from 'pdf.js-extract'
-import { parseExam } from '~/logic/parse'
-import { loadPdf } from '~/logic/pdf'
-import { pdfDataToString, serializePdfStringToParagraphs } from '~/logic/serialize'
-import type { Block } from '~/types/exam'
+import { parseExam } from '#shared/logic/parse'
+import { loadPdf } from '#shared/logic/pdf'
+import { pdfDataToString, serializePdfStringToParagraphs } from '#shared/logic/serialize'
+import { readFiles } from 'h3-formidable'
 
 function response(status: number, message: string, blocks: Block[] = []) {
   return { status, message, blocks }

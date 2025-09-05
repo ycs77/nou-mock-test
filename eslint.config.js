@@ -1,4 +1,4 @@
-import ycs77, { GLOB_TS, GLOB_VUE } from '@ycs77/eslint-config'
+import ycs77, { GLOB_SRC, GLOB_VUE } from '@ycs77/eslint-config'
 
 export default ycs77({
   vue: true,
@@ -10,7 +10,7 @@ export default ycs77({
   ],
 })
   .append({
-    files: [GLOB_TS, GLOB_VUE],
+    files: [GLOB_SRC, GLOB_VUE],
     rules: {
       'style/brace-style': 'off',
       'style/quote-props': 'off',

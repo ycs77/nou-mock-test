@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { expect, it } from 'vitest'
+import { parseExam } from '../shared/logic/parse'
 import { pdfFiles } from './data/pdf-files'
 
 it.each(pdfFiles)('parse pdf string to exam data - %s', async filename => {

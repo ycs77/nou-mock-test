@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { parseExam } from '../../shared/logic/parse'
 import { pdfFiles } from '../data/pdf-files'
-import { parseExam } from '~/logic/parse'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)

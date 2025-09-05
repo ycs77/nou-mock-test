@@ -1,7 +1,7 @@
 import { resolve } from 'pathe'
 import Copy from 'rollup-plugin-copy'
 
-// https://nuxt.com/docs/api/nuxt-config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
@@ -14,11 +14,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@vueuse/nuxt',
     'nuxt-monaco-editor',
-    '@nuxt/test-utils/module',
   ],
-  ui: {
-    global: true,
-  },
+  css: ['~/assets/css/main.css'],
+  ssr: false,
   hooks: {
     'nitro:init': nitro => {
       nitro.options.rollupConfig!.plugins =
@@ -39,5 +37,5 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  compatibilityDate: '2024-08-19',
+  compatibilityDate: '2025-07-15',
 })
