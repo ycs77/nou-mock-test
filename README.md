@@ -10,6 +10,8 @@
 yarn
 ```
 
+分析考古題 PDF 時有使用到 Claude Code，需要有訂閱或 API Key 才能使用 AI 分析功能。
+
 啟動本地開發伺服器：
 
 ```bash

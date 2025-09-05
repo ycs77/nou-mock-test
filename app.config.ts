@@ -7,4 +7,8 @@ export default defineAppConfig({
       },
     },
   },
+
+  aiParser: {
+    enabled: true,
+  },
 })
