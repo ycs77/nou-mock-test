@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+import '../cli/dist/1-load-from-pdf.js'

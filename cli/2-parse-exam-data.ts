@@ -13,18 +13,18 @@ import { parseExam } from '../shared/logic/parse'
 
   const filename = path.basename(filePath, '.pdf')
 
-  const txtFilePath = path.resolve(path.dirname(filePath), `${filename}__2_loaded_from_pdf.txt`)
+  const txtFilePath = path.resolve(path.dirname(filePath), `${filename}__1_loaded_from_pdf.txt`)
   if (!fs.existsSync(txtFilePath)) {
-    throw new Error(`${filename}__2_loaded_from_pdf.txt does not exist`)
+    throw new Error(`${filename}__1_loaded_from_pdf.txt does not exist`)
   }
   const content = fs.readFileSync(txtFilePath, 'utf-8')
 
   const blocks = parseExam(content)
 
   fs.writeFileSync(
-    path.resolve(path.dirname(filePath), `${filename}__3_parsed_exam_data.json`),
+    path.resolve(path.dirname(filePath), `${filename}__2_parsed_exam_data.json`),
     JSON.stringify(blocks, null, 2)
   )
 
-  console.log(`Exam data parsed and saved as ${filename}__3_parsed_exam_data.json`)
+  console.log(`Exam data parsed and saved as ${filename}__2_parsed_exam_data.json`)
 })()

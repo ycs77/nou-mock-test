@@ -9,8 +9,8 @@
     "typecheck": "nuxt typecheck",
     "preview": "nuxt preview",
     "cli:build": "tsup --config cli/tsup.config.ts",
-    "generate:2-loaded-from-pdf": "tsx test/scripts/2-loaded-from-pdf.ts",
-    "generate:3-parsed-exam-data": "tsx test/scripts/3-parsed-exam-data.ts",
+    "generate:1-load-from-pdf": "tsx test/scripts/1-load-from-pdf.ts",
+    "generate:2-parse-exam-data": "tsx test/scripts/2-parse-exam-data.ts",
     "lint": "eslint .",
     "test": "vitest",
     "postinstall": "nuxt prepare"

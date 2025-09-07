@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+import '../cli/dist/2-parse-exam-data.js'

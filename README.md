@@ -28,12 +28,12 @@ yarn build
 
 ```bash
 # 在 nou-mock-test 中執行
-./bin/2-loaded-from-pdf "C:/Users/User/Downloads/file.pdf"
-./bin/3-parsed-exam-data "C:/Users/User/Downloads/file.pdf"
+./bin/1-load-from-pdf "C:/Users/User/Downloads/file.pdf"
+./bin/2-parse-exam-data "C:/Users/User/Downloads/file.pdf"
 
 # 在目的目錄下執行
-/d/dev/testing/nou-mock-test/bin/2-loaded-from-pdf file.pdf
-/d/dev/testing/nou-mock-test/bin/3-parsed-exam-data file.pdf
+/d/dev/testing/nou-mock-test/bin/1-load-from-pdf file.pdf
+/d/dev/testing/nou-mock-test/bin/2-parse-exam-data file.pdf
 ```
 
 ## 測試
@@ -45,11 +45,11 @@ yarn test
 重新產生 fixtures：
 
 ```bash
-yarn generate:2-loaded-from-pdf
+yarn generate:1-load-from-pdf
 ```
 
 重新解析考卷內容：
 
 ```bash
-yarn generate:3-parsed-exam-data
+yarn generate:2-parse-exam-data
 ```

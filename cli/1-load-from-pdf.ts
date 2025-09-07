@@ -20,9 +20,9 @@ import { pdfDataToString, serializePdfStringToParagraphs } from '../shared/logic
   content = serializePdfStringToParagraphs(content)
 
   fs.writeFileSync(
-    path.resolve(path.dirname(filePath), `${filename}__2_loaded_from_pdf.txt`),
+    path.resolve(path.dirname(filePath), `${filename}__1_loaded_from_pdf.txt`),
     content
   )
 
-  console.log(`PDF loaded and saved as ${filename}__2_loaded_from_pdf.txt`)
+  console.log(`PDF loaded and saved as ${filename}__1_loaded_from_pdf.txt`)
 })()
