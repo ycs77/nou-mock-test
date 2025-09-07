@@ -62,7 +62,7 @@ export function serializePdfStringToParagraphs(content: string): string {
     .split('\n')
     .filter(line => line.trim() !== '')
 
-  for (const line of lines) {
+  for (let line of lines) {
     if (ignores.some(text => line.includes(text))) continue
 
     // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
@@ -129,6 +129,14 @@ export function serializePdfStringToParagraphs(content: string): string {
         // ex: A 或 C 1.
       } else if (line.match(/^\([A-E]\) ?\d+\./)) {
         // ex: (A) 1.
+      } else if (line.match(/^\([1-5]\) ?\d+\./)) {
+        // ex: (2) 1.
+        line = line
+          .replace(/^\(1\) ?/, '(A) ')
+          .replace(/^\(2\) ?/, '(B) ')
+          .replace(/^\(3\) ?/, '(C) ')
+          .replace(/^\(4\) ?/, '(D) ')
+          .replace(/^\(5\) ?/, '(E) ')
       } else if (line.match(/^\d+\./)) {
         // ex: 1.
       } else {
@@ -144,6 +152,17 @@ export function serializePdfStringToParagraphs(content: string): string {
           newContent += ' '
         }
       }
+
+      // 將特殊的選項符號轉換為 A. B. C. D. E.
+      line = line
+        .replace(/ ?①/, ' A. ')
+        .replace(/ ?②/, ' B. ')
+        .replace(/ ?③/, ' C. ')
+        .replace(/ ?④/, ' D. ')
+        .replace(/ ?⑤/, ' E. ')
+
+      // 將詳答轉換為參考
+      line = line.replace('詳答：', '\n參考：')
 
       newContent += `${line}\n`
       continue
