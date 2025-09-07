@@ -5,56 +5,253 @@
   },
   {
     "type": "subtitle",
-    "subject": "科目：對聯的文學趣味"
+    "subject": "科目：性別、健康與多元文化"
   },
   {
     "type": "section",
-    "subject": "壹、簡答題",
-    "scoreOfItem": 10,
+    "subject": "一、是非題",
+    "scoreOfItem": 4,
     "scoreTotal": 40,
     "children": [
       {
-        "type": "textarea",
-        "subject": "一、試述構成「對偶」的四項要素。",
-        "reference": "(教科書第 5 頁；媒體教材 1-1-2)"
+        "type": "radio",
+        "subject": "1.性別運動的目的在於消除性別歧視，讓性別認同、性別特質、外表與裝扮能有多元的流動空間。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH1 P.17"
       },
       {
-        "type": "textarea",
-        "subject": "二、中國在哪個時期開始在桃木板上題詞，取代了原本書寫門神名字或掛門神圖像的作法？對聯文化在哪個時代推展到民間？",
-        "reference": "(教科書第 15、17 頁；媒體教材 1-2-3)"
+        "type": "radio",
+        "subject": "2.胸痛是冠狀動脈心臟病男女兩性最常見的症狀。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH5 P.131"
       },
       {
-        "type": "textarea",
-        "subject": "三、南明抗清名將黃道周的諷刺聯「史筆留芳，雖未成功終可法；洪恩浩蕩，不能報國反成仇。」用了哪一個修辭手法？另外，「常將有日思無日，莫待無時思有時」又用哪個修辭手法？",
-        "reference": "(教科書第 33、35 頁；媒體教材 1-3-5)"
+        "type": "radio",
+        "subject": "3.女性主義理論重視性別角色與認知發展的成熟度。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "CH1 P.8"
       },
       {
-        "type": "textarea",
-        "subject": "四、清代四川總督丁寶楨十分讚許「十年宦比梅花冷，一夜春隨爆竹來」對聯，試述此聯原本旨意及其比興寓意。",
-        "reference": "(教科書第 102-103 頁)"
+        "type": "radio",
+        "subject": "4.本門課的學習目的為能了解性別、健康與多元文化的關係，學習與不同性別者的合作與接納。序",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O"
+      },
+      {
+        "type": "radio",
+        "subject": "5.媽祖繞境透過網路直播讓全世界認識台灣宗教文化，可視為是全球化改變了文化傳遞的方式。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH2 P.43"
+      },
+      {
+        "type": "radio",
+        "subject": "6.CEDAW 的全名是消除對男女一切形式歧視公約。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "CH3 P.55"
+      },
+      {
+        "type": "radio",
+        "subject": "7.實施性別影響評估可以處理性別不平等的議題。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH4 P.87"
+      },
+      {
+        "type": "radio",
+        "subject": "8.一般而言，女性骨折的風險較男性高。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH5 P.137"
+      },
+      {
+        "type": "radio",
+        "subject": "9.性別主流化要求公部門須將性別觀點納入政策規劃與執行及管考。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "CH3 P.57"
+      },
+      {
+        "type": "radio",
+        "subject": "10.本書討論性別觀點可用性別天生一詞以蔽之。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "X",
+        "reference": "CH1 P.4"
       }
     ]
   },
   {
     "type": "section",
-    "subject": "貳、申論題",
-    "scoreOfItem": 20,
-    "scoreTotal": 60,
+    "subject": "二、選擇題",
+    "scoreOfItem": 4,
+    "scoreTotal": 40,
+    "children": [
+      {
+        "type": "radio",
+        "subject": "1.2024 巴黎奧運主題之一為性別平等，也是首屆男女選手比例達 50%。請問此一進步最直接符合性別主流化哪一項工作？",
+        "options": [
+          "A 性別意識培力",
+          "B 性別預算",
+          "C 性別統計"
+        ],
+        "answer": [
+          "A",
+          "C"
+        ],
+        "reference": "CH3 P.61"
+      },
+      {
+        "type": "radio",
+        "subject": "2.承上題 巴黎奧運也符合 CEDAW 重視的",
+        "options": [
+          "A 機會平等",
+          "B 支持平等",
+          "C 優惠平等"
+        ],
+        "answer": "A",
+        "reference": "CH3 P.74"
+      },
+      {
+        "type": "radio",
+        "subject": "3.台灣原住民族正名運動及相關文化復興的運動，是透過何種權利的爭取而讓原住民族得到應有的尊嚴？",
+        "options": [
+          "A 政治權",
+          "B 文化權",
+          "C 自治權"
+        ],
+        "answer": "B",
+        "reference": "CH2 P.30"
+      },
+      {
+        "type": "radio",
+        "subject": "4.科技工程領域中性別不平等之處，進行性別分析，利用分析結果納入研發科技以利創新，藉以達到減少性別偏差，改善性別關係，促進性別平等。此稱?",
+        "options": [
+          "A 性別統計",
+          "B 性別創新",
+          "C 性別意識培力"
+        ],
+        "answer": "B",
+        "reference": "CH5 P.135"
+      },
+      {
+        "type": "radio",
+        "subject": "5.亞洲非吸菸女性的肺癌環境因子暴露研究指出？",
+        "options": [
+          "A 烹飪油煙是重要危險因子",
+          "B 吸菸行為",
+          "C 工廠環境暴露"
+        ],
+        "answer": "A",
+        "reference": "CH5 P.147"
+      },
+      {
+        "type": "radio",
+        "subject": "6.性別影響評估的目的，何者正確？",
+        "options": [
+          "A 譴責不平等之處",
+          "B 瞭解不平等的原因",
+          "C 否認性別差異"
+        ],
+        "answer": "B",
+        "reference": "CH4 P.87"
+      },
+      {
+        "type": "radio",
+        "subject": "7.下列關於第三波女性主義的敘述，何者為非？",
+        "options": [
+          "A 重視性別多元",
+          "B 反對酷兒運動",
+          "C 重視論述與權力關係"
+        ],
+        "answer": "B",
+        "reference": "CH1 P.14"
+      },
+      {
+        "type": "radio",
+        "subject": "8.從兩性關係到性別關係的敘述何者正確？",
+        "options": [
+          "A 重視性別二分",
+          "B 重視性別規範",
+          "C 重視性別多元"
+        ],
+        "answer": "C",
+        "reference": "CH2 P.40"
+      },
+      {
+        "type": "radio",
+        "subject": "9.韓式炸雞近來風靡一時，韓國炸雞店也如雨後春筍般來台成立，但據報載辣度口味亦調整成台灣人可接受程度，請問此為？",
+        "options": [
+          "A 全球在地化",
+          "B 經濟全球化",
+          "C 食物全球化"
+        ],
+        "answer": "A",
+        "reference": "CH2 P.44"
+      },
+      {
+        "type": "radio",
+        "subject": "10.探討新生兒性別比例差異的社會文化原因，此為？",
+        "options": [
+          "A 性別分析",
+          "B 性別統計",
+          "C 性別影響評估"
+        ],
+        "answer": "A",
+        "reference": "CH4P.107"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "subject": "三、簡答題",
+    "scoreOfItem": 10,
+    "scoreTotal": 20,
     "children": [
       {
         "type": "textarea",
-        "subject": "一、「異文比較」是賞析對聯的一種方式。試就「善由此地心無愧，惡過吾門膽自寒」、「善來此地心無愧，惡過我門膽自寒」說明異文含義的不同，並請賞析之。",
-        "reference": "(教科書第 94-96 頁；媒體教材 2-3-9)"
+        "subject": "1.很多人認為醫療是中性的，事實上很多健康議題有其性別差異或是僅以單一性別為主的醫療研究，請舉一例說明性別觀點對於醫療健康議題的重要性。",
+        "reference": "CH5 P.129",
+        "answer": "答:作答者需舉例說明並呈現性別觀點對於醫療健康的重要性方可得分。"
       },
       {
         "type": "textarea",
-        "subject": "二、試逐項檢核並說明「大塊能相假，名山不獨藏。」是否符合基本的對聯格律？另請說明這副對聯適合張貼在什麼場所？為什麼？",
-        "reference": "(教科書第 106 頁；媒體教材 3-2-1)"
-      },
-      {
-        "type": "textarea",
-        "subject": "三、試賞析江蘇無錫陸宣公祠柱聯「世上幾百年舊家，無非積德；天下第一件好事，只是讀書。」",
-        "reference": "(教科書第 170-171 頁)"
+        "subject": "2.為何多元文化主義的核心內涵之一為「消除歧視與不平等對待」?請說明你的看法。",
+        "reference": "CH2 P.30",
+        "answer": "答:平等對待不同文化及族群團體成為民主國家核心的價值。多元文化的平等概念，除了消除歧視、更強調政治、社會歧視與不平等的消除，包括反對透過同化政策，進行政治社會及經濟權利的壟斷，同時給予弱勢族群較多的資源與權利保障，改善因歧視而導致的不平等。\n作答者的回答只要能切合上述內容或言之成理亦可得分。"
       }
     ]
   }

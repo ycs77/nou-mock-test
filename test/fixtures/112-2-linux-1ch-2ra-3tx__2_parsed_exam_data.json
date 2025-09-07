@@ -1,257 +1,219 @@
 [
   {
     "type": "title",
-    "subject": "國立空中大學 112 學年度下學期期中考試題"
+    "subject": "國立空中大學 104 學年度下學期期中考試題"
   },
   {
     "type": "subtitle",
-    "subject": "科目：性別、健康與多元文化"
+    "subject": "科目：Linux 作業系統管理"
   },
   {
     "type": "section",
     "subject": "一、是非題",
-    "scoreOfItem": 4,
-    "scoreTotal": 40,
+    "scoreOfItem": 5,
+    "scoreTotal": 25,
     "children": [
       {
         "type": "radio",
-        "subject": "1.性別運動的目的在於消除性別歧視，讓性別認同、性別特質、外表與裝扮能有多元的流動空間。",
-        "options": [
-          "O",
-          "X"
-        ],
-        "answer": "O",
-        "reference": "CH1 P.17"
-      },
-      {
-        "type": "radio",
-        "subject": "2.胸痛是冠狀動脈心臟病男女兩性最常見的症狀。",
-        "options": [
-          "O",
-          "X"
-        ],
-        "answer": "O",
-        "reference": "CH5 P.131"
-      },
-      {
-        "type": "radio",
-        "subject": "3.女性主義理論重視性別角色與認知發展的成熟度。",
+        "subject": "1. Linux 作業系統通常要在大型主機上使用，一般的個人電腦無法安裝使用。",
         "options": [
           "O",
           "X"
         ],
         "answer": "X",
-        "reference": "CH1 P.8"
+        "reference": "1-1"
       },
       {
         "type": "radio",
-        "subject": "4.本門課的學習目的為能了解性別、健康與多元文化的關係，學習與不同性別者的合作與接納。序",
-        "options": [
-          "O",
-          "X"
-        ],
-        "answer": "O"
-      },
-      {
-        "type": "radio",
-        "subject": "5.媽祖繞境透過網路直播讓全世界認識台灣宗教文化，可視為是全球化改變了文化傳遞的方式。",
+        "subject": "2. 網站提供的 Ubuntu 下載檔案格式為「ISO」， ISO 格式的檔案可以直接燒錄到光碟上。",
         "options": [
           "O",
           "X"
         ],
         "answer": "O",
-        "reference": "CH2 P.43"
+        "reference": "1-4-2"
       },
       {
         "type": "radio",
-        "subject": "6.CEDAW 的全名是消除對男女一切形式歧視公約。",
+        "subject": "3. Linux 作業系統並不支援圖形化的使用者介面(graphical user interface)，所以這一部分的功能跟微軟公司的視窗作業系統不同。",
         "options": [
           "O",
           "X"
         ],
         "answer": "X",
-        "reference": "CH3 P.55"
+        "reference": "2-1"
       },
       {
         "type": "radio",
-        "subject": "7.實施性別影響評估可以處理性別不平等的議題。",
-        "options": [
-          "O",
-          "X"
-        ],
-        "answer": "O",
-        "reference": "CH4 P.87"
-      },
-      {
-        "type": "radio",
-        "subject": "8.一般而言，女性骨折的風險較男性高。",
-        "options": [
-          "O",
-          "X"
-        ],
-        "answer": "O",
-        "reference": "CH5 P.137"
-      },
-      {
-        "type": "radio",
-        "subject": "9.性別主流化要求公部門須將性別觀點納入政策規劃與執行及管考。",
-        "options": [
-          "O",
-          "X"
-        ],
-        "answer": "O",
-        "reference": "CH3 P.57"
-      },
-      {
-        "type": "radio",
-        "subject": "10.本書討論性別觀點可用性別天生一詞以蔽之。",
+        "subject": "4. IE(Internet Explorer)是 Ubuntu 系統提供的網際網路瀏覽程式。",
         "options": [
           "O",
           "X"
         ],
         "answer": "X",
-        "reference": "CH1 P.4"
+        "reference": "2-4-1"
+      },
+      {
+        "type": "radio",
+        "subject": "5. find 指令會直接存取硬碟，比較耗費系統資源。",
+        "options": [
+          "O",
+          "X"
+        ],
+        "answer": "O",
+        "reference": "3-3.4"
       }
     ]
   },
   {
     "type": "section",
     "subject": "二、選擇題",
-    "scoreOfItem": 4,
-    "scoreTotal": 40,
+    "scoreOfItem": 5,
+    "scoreTotal": 50,
     "children": [
       {
         "type": "radio",
-        "subject": "1.2024 巴黎奧運主題之一為性別平等，也是首屆男女選手比例達 50%。請問此一進步最直接符合性別主流化哪一項工作？",
+        "subject": "1. Linux 中硬碟通常對應到下列哪一種儲存裝置代號？",
         "options": [
-          "A 性別意識培力",
-          "B 性別預算",
-          "C 性別統計"
+          "(a) /dev/fd0",
+          "(b) /dev/sda",
+          "(c) /dev/hda"
         ],
-        "answer": [
-          "A",
-          "C"
-        ],
-        "reference": "CH3 P.61"
+        "answer": "c",
+        "reference": "1-5-2-1"
       },
       {
         "type": "radio",
-        "subject": "2.承上題 巴黎奧運也符合 CEDAW 重視的",
+        "subject": "2. Linux 作業系統採用過下列哪一種檔案系統格式？",
         "options": [
-          "A 機會平等",
-          "B 支持平等",
-          "C 優惠平等"
+          "(a) FAT32",
+          "(b) NTFS",
+          "(c) ex t4"
         ],
-        "answer": "A",
-        "reference": "CH3 P.74"
+        "answer": "c",
+        "reference": "1-5-2-2"
       },
       {
         "type": "radio",
-        "subject": "3.台灣原住民族正名運動及相關文化復興的運動，是透過何種權利的爭取而讓原住民族得到應有的尊嚴？",
+        "subject": "3. Ubuntu 利用 apt-get 及 apt-cache 兩個指令的變化來進行下列哪一項操作？",
         "options": [
-          "A 政治權",
-          "B 文化權",
-          "C 自治權"
+          "(a) 儲存裝置管理",
+          "(b) 套件管理",
+          "(c) 印表機的管理"
         ],
-        "answer": "B",
-        "reference": "CH2 P.30"
+        "answer": "b",
+        "reference": "2-3"
       },
       {
         "type": "radio",
-        "subject": "4.科技工程領域中性別不平等之處，進行性別分析，利用分析結果納入研發科技以利創新，藉以達到減少性別偏差，改善性別關係，促進性別平等。此稱?",
+        "subject": "4. 假如要改變螢幕的解析度，在 Ubuntu 的「系統設定」中要選擇哪一項選項進行設定？",
         "options": [
-          "A 性別統計",
-          "B 性別創新",
-          "C 性別意識培力"
+          "(a) 螢幕",
+          "(b) 外觀",
+          "(c) 主選單",
+          "(d) 印表機"
         ],
-        "answer": "B",
-        "reference": "CH5 P.135"
+        "answer": "a",
+        "reference": "2-1-2"
       },
       {
         "type": "radio",
-        "subject": "5.亞洲非吸菸女性的肺癌環境因子暴露研究指出？",
+        "subject": "5. Ubuntu 中的哪一個指令可以用來移除套件，並且移除與該套件具有相依性之套件？",
         "options": [
-          "A 烹飪油煙是重要危險因子",
-          "B 吸菸行為",
-          "C 工廠環境暴露"
+          "(a) apt-get autoremove",
+          "(b) apt-get remove",
+          "(c) apt-get --purge remove"
         ],
-        "answer": "A",
-        "reference": "CH5 P.147"
+        "answer": "a",
+        "reference": "2-3-4"
       },
       {
         "type": "radio",
-        "subject": "6.性別影響評估的目的，何者正確？",
+        "subject": "6. 使用者登入系統之後，內定的工作目錄稱之為？",
         "options": [
-          "A 譴責不平等之處",
-          "B 瞭解不平等的原因",
-          "C 否認性別差異"
+          "(a) 本目錄",
+          "(b) 家目錄",
+          "(c) 主目錄"
         ],
-        "answer": "B",
-        "reference": "CH4 P.87"
+        "answer": "b",
+        "reference": "3-2"
       },
       {
         "type": "radio",
-        "subject": "7.下列關於第三波女性主義的敘述，何者為非？",
+        "subject": "7. 下列有關 bash 的敘述何者錯誤？",
         "options": [
-          "A 重視性別多元",
-          "B 反對酷兒運動",
-          "C 重視論述與權力關係"
+          "(a) 支援萬用字元",
+          "(b) 具有設定指令別名的功能",
+          "(c) 不可回溯已執行的指令"
         ],
-        "answer": "B",
-        "reference": "CH1 P.14"
+        "answer": "c",
+        "reference": "3-2"
       },
       {
         "type": "radio",
-        "subject": "8.從兩性關係到性別關係的敘述何者正確？",
+        "subject": "8. 下列哪一個指令會顯示伺服器上佔用 CPU 的任務資訊，並且每 5 秒鐘刷新一次？",
         "options": [
-          "A 重視性別二分",
-          "B 重視性別規範",
-          "C 重視性別多元"
+          "(a) uptime",
+          "(b) vmstat",
+          "(c) top"
         ],
-        "answer": "C",
-        "reference": "CH2 P.40"
+        "answer": "c",
+        "reference": "3-5"
       },
       {
         "type": "radio",
-        "subject": "9.韓式炸雞近來風靡一時，韓國炸雞店也如雨後春筍般來台成立，但據報載辣度口味亦調整成台灣人可接受程度，請問此為？",
+        "subject": "9. 下列哪一個指令與系統中的程序無關？",
         "options": [
-          "A 全球在地化",
-          "B 經濟全球化",
-          "C 食物全球化"
+          "(a) pstree",
+          "(b) ps",
+          "(c) free"
         ],
-        "answer": "A",
-        "reference": "CH2 P.44"
+        "answer": "c",
+        "reference": "3-5"
       },
       {
         "type": "radio",
-        "subject": "10.探討新生兒性別比例差異的社會文化原因，此為？",
+        "subject": "10. 下列哪一個指令以分頁方式顯示檔案內容，可以逐頁或逐行往後看？",
         "options": [
-          "A 性別分析",
-          "B 性別統計",
-          "C 性別影響評估"
+          "(a) much",
+          "(b) less",
+          "(c) more"
         ],
-        "answer": "A",
-        "reference": "CH4P.107"
+        "answer": "c",
+        "reference": "3-3-3"
       }
     ]
   },
   {
     "type": "section",
     "subject": "三、簡答題",
-    "scoreOfItem": 10,
-    "scoreTotal": 20,
+    "scoreOfItem": 5,
+    "scoreTotal": 25,
     "children": [
       {
         "type": "textarea",
-        "subject": "1.很多人認為醫療是中性的，事實上很多健康議題有其性別差異或是僅以單一性別為主的醫療研究，請舉一例說明性別觀點對於醫療健康議題的重要性。",
-        "reference": "CH5 P.129",
-        "answer": "答:作答者需舉例說明並呈現性別觀點對於醫療健康的重要性方可得分。"
+        "subject": "1. 何謂「Live CD」？",
+        "reference": "1-4-1"
       },
       {
         "type": "textarea",
-        "subject": "2.為何多元文化主義的核心內涵之一為「消除歧視與不平等對待」?請說明你的看法。",
-        "reference": "CH2 P.30",
-        "answer": "答:平等對待不同文化及族群團體成為民主國家核心的價值。多元文化的平等概念，除了消除歧視、更強調政治、社會歧視與不平等的消除，包括反對透過同化政策，進行政治社會及經濟權利的壟斷，同時給予弱勢族群較多的資源與權利保障，改善因歧視而導致的不平等。\n作答者的回答只要能切合上述內容或言之成理亦可得分。"
+        "subject": "2. Linux 作業系統與微軟 Windows 作業系統有什麼相似的地方？",
+        "reference": "1-4-4"
+      },
+      {
+        "type": "textarea",
+        "subject": "3. Ubuntu 作業系統中使用不同的軟體來安裝軟體，會不會造成管理上的問題？",
+        "reference": "2-3-7"
+      },
+      {
+        "type": "textarea",
+        "subject": "4. Ubuntu 作業系統中網際網路瀏覽程式需要做哪些設定才能正常使用？",
+        "reference": "2-4-5"
+      },
+      {
+        "type": "textarea",
+        "subject": "5. 圖形介面組成要素包含哪五部分？",
+        "reference": "3-1-1"
       }
     ]
   }
