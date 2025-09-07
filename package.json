@@ -16,6 +16,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@anthropic-ai/claude-code": "^1.0.108",
     "@vueuse/core": "^13.9.0",
     "h3-formidable": "^1.0.0",
     "monaco-editor": "^0.52.2",

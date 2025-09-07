@@ -3,7 +3,7 @@ import type { Block, CheckboxBlock, FieldBlock, RadioBlock, SectionBlock, Sectio
 /**
  * 解析考試題目內容成 JSON 格式
  */
-export function parseExam(content: string) {
+export function parseExam(content: string): Block[] {
   let sectionTitle = null as SectionType | null
 
   const blocks: Block[] = []

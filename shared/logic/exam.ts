@@ -26,7 +26,7 @@ export function checkField(section: Block, field: FieldBlock): boolean {
   return false
 }
 
-export function calculateExam(blocks: Block[], answers: Record<string, FieldBlock['userAnswer']>) {
+export function calculateExam(blocks: Block[], answers: Record<string, FieldBlock['userAnswer']>): ExamStore {
   let score = 0
 
   const newBlocks = blocks.map(block => {
@@ -54,8 +54,10 @@ export function calculateExam(blocks: Block[], answers: Record<string, FieldBloc
     return block
   })
 
-  return {
+  const examStore: ExamStore = {
     blocks: newBlocks,
     score,
-  } satisfies ExamStore as ExamStore
+  }
+
+  return examStore
 }

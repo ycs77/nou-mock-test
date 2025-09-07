@@ -7,7 +7,7 @@ import stringWidth from 'string-width'
  * @param pdfData PDF 檔案資料
  * @param lineDeviation 計算同一行的文字允許的誤差值
  */
-export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number = 2) {
+export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number = 2): string {
   let prevY = null as number | null
 
   const texts = pdfData
@@ -30,7 +30,7 @@ export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number
   return content
 }
 
-export function getMaxLineWidth(content: string) {
+export function getMaxLineWidth(content: string): number {
   return content
     .split('\n')
     .reduce((maxWidth, line) => Math.max(maxWidth, stringWidth(line)), 0)
@@ -39,13 +39,13 @@ export function getMaxLineWidth(content: string) {
 /**
  * 將 PDF 字串內容轉換為正確的文字段落
  */
-export function serializePdfStringToParagraphs(content: string) {
+export function serializePdfStringToParagraphs(content: string): string {
   const maxWidth = getMaxLineWidth(content)
 
   // ignores
   const ignores = [
     '其他符號作答不計分',
-    '說明：請按題號依序作答，並標示題號。',
+    '按題號依序作答',
   ]
 
   let newContent = ''

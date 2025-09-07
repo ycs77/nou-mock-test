@@ -10,6 +10,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    aiParser: {
+      enabled: process.env.NUXT_AI_PARSER_ENABLED
+        ? process.env.NUXT_AI_PARSER_ENABLED === 'true'
+        : true,
+    },
+  },
   modules: [
     '@nuxt/ui',
     '@vueuse/nuxt',

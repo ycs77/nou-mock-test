@@ -10,12 +10,20 @@
 yarn
 ```
 
-分析考古題 PDF 時有使用到 Claude Code，需要有訂閱或 API Key 才能使用 AI 分析功能。
-
 啟動本地開發伺服器：
 
 ```bash
 yarn dev
+```
+
+## AI 分析 PDF
+
+分析考古題 PDF 時可以選擇開啟使用 Claude Code 來做考古題內容的分析，但需要有訂閱或 API Key 才能使用。
+
+在 `.env` 檔案中設定開啟：
+
+```ini
+NUXT_AI_PARSER_ENABLED=true
 ```
 
 ## 線上環境
@@ -30,10 +38,12 @@ yarn build
 # 在 nou-mock-test 中執行
 ./bin/1-load-from-pdf "C:/Users/User/Downloads/file.pdf"
 ./bin/2-parse-exam-data "C:/Users/User/Downloads/file.pdf"
+./bin/2-ai-parse-exam-data "C:/Users/User/Downloads/file.pdf"
 
 # 在目的目錄下執行
 /d/dev/testing/nou-mock-test/bin/1-load-from-pdf file.pdf
 /d/dev/testing/nou-mock-test/bin/2-parse-exam-data file.pdf
+/d/dev/testing/nou-mock-test/bin/2-ai-parse-exam-data file.pdf
 ```
 
 ## 測試
