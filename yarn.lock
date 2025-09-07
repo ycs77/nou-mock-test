@@ -2228,6 +2228,15 @@
   resolved "https://registry.yarnpkg.com/@volar/source-map/-/source-map-2.4.23.tgz#d476e11a3a669d89858a5eb38b02342be39b0e44"
   integrity sha512-Z1Uc8IB57Lm6k7q6KIDu/p+JWtf3xsXJqAX/5r18hYOTpJyBn0KXUR8oTJ4WFYOcDzWC9n3IflGgHowx6U6z9Q==
 
+"@volar/typescript@2.4.23":
+  version "2.4.23"
+  resolved "https://registry.yarnpkg.com/@volar/typescript/-/typescript-2.4.23.tgz#b9b114ea01ad0ad977139edda0239fdafdb21ad7"
+  integrity sha512-lAB5zJghWxVPqfcStmAP1ZqQacMpe90UrP5RJ3arDyrhy4aCUQqmxPPLB2PWDKugvylmO41ljK7vZ+t6INMTag==
+  dependencies:
+    "@volar/language-core" "2.4.23"
+    path-browserify "^1.0.1"
+    vscode-uri "^3.0.8"
+
 "@vue-macros/common@3.0.0-beta.16":
   version "3.0.0-beta.16"
   resolved "https://registry.yarnpkg.com/@vue-macros/common/-/common-3.0.0-beta.16.tgz#504141897a7acd2cdab6d7ba85a61b2bae178faa"
@@ -2357,7 +2366,7 @@
   dependencies:
     rfdc "^1.4.1"
 
-"@vue/language-core@^3.0.1":
+"@vue/language-core@3.0.6", "@vue/language-core@^3.0.1":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@vue/language-core/-/language-core-3.0.6.tgz#5e9d2f58f3a91465c5d86e460f0239f9c6e8300d"
   integrity sha512-e2RRzYWm+qGm8apUHW1wA5RQxzNhkqbbKdbKhiDUcmMrNAZGyM8aTiL3UrTqkaFI5s7wJRGGrp4u3jgusuBp2A==
@@ -7724,7 +7733,7 @@ vitest@^3.2.4:
     vite-node "3.2.4"
     why-is-node-running "^2.3.0"
 
-vscode-uri@^3.1.0:
+vscode-uri@^3.0.8, vscode-uri@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.1.0.tgz#dd09ec5a66a38b5c3fffc774015713496d14e09c"
   integrity sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==
@@ -7769,6 +7778,14 @@ vue-router@^4.5.1:
   integrity sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==
   dependencies:
     "@vue/devtools-api" "^6.6.4"
+
+vue-tsc@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/vue-tsc/-/vue-tsc-3.0.6.tgz#09376812d2f1fab64e3592ab93281dc62e6d2754"
+  integrity sha512-Tbs8Whd43R2e2nxez4WXPvvdjGbW24rOSgRhLOHXzWiT4pcP4G7KeWh0YCn18rF4bVwv7tggLLZ6MJnO6jXPBg==
+  dependencies:
+    "@volar/typescript" "2.4.23"
+    "@vue/language-core" "3.0.6"
 
 vue@^3.4.5, vue@^3.5.13, vue@^3.5.20, vue@^3.5.21:
   version "3.5.21"

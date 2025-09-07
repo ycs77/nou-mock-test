@@ -17,6 +17,9 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/css/main.css'],
   ssr: false,
+  typescript: {
+    typeCheck: true,
+  },
   hooks: {
     'nitro:init': nitro => {
       nitro.options.rollupConfig!.plugins =

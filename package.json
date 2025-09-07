@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "typecheck": "nuxt typecheck",
     "preview": "nuxt preview",
     "cli:build": "tsup --config cli/tsup.config.ts",
     "generate:2-loaded-from-pdf": "tsx test/scripts/2-loaded-from-pdf.ts",
@@ -36,6 +37,7 @@
     "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "~5.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.6"
   }
 }
