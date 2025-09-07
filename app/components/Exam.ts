@@ -27,6 +27,7 @@ const Exam: FunctionalComponent<ExamProps, ExamEvents> = (props, { slots, emit }
         return h(ExamSubtitle, {
           key: block.subject,
           ...block,
+          score: props.score,
         })
       } else if (isSection(block)) {
         return h(ExamSection, {
