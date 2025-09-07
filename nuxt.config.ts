@@ -1,5 +1,5 @@
+import fs from 'node:fs'
 import { resolve } from 'pathe'
-import Copy from 'rollup-plugin-copy'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -24,16 +24,22 @@ export default defineNuxtConfig({
           ? nitro.options.rollupConfig!.plugins
           : nitro.options.rollupConfig!.plugins ? [nitro.options.rollupConfig!.plugins] : []
 
-      nitro.options.rollupConfig!.plugins.push(
-        Copy({
-          targets: [
-            {
-              src: 'node_modules/pdf.js-extract/lib/pdfjs/pdf.worker.js',
-              dest: resolve(nitro.options.output.serverDir, 'node_modules/pdf.js-extract/lib/pdfjs'),
-            },
-          ],
-        }),
-      )
+      nitro.options.rollupConfig!.plugins.push({
+        name: 'copy-pdfjs-worker',
+        buildEnd() {
+          const pdfDir = 'node_modules/pdf.js-extract/lib/pdfjs'
+
+          fs.mkdirSync(
+            resolve(nitro.options.output.serverDir, pdfDir),
+            { recursive: true },
+          )
+
+          fs.copyFileSync(
+            resolve(pdfDir, 'pdf.worker.js'),
+            resolve(nitro.options.output.serverDir, pdfDir, 'pdf.worker.js'),
+          )
+        },
+      })
     },
   },
   devtools: { enabled: true },
