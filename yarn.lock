@@ -2097,7 +2097,7 @@
     natural-compare "^1.4.0"
     ts-api-utils "^2.1.0"
 
-"@typescript-eslint/parser@^8.42.0":
+"@typescript-eslint/parser@^8.39.0", "@typescript-eslint/parser@^8.42.0":
   version "8.42.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-8.42.0.tgz#20ea66f4867981fb5bb62cbe1454250fc4a440ab"
   integrity sha512-r1XG74QgShUgXph1BYseJ+KZd17bKQib/yF3SR+demvytiRXrwd12Blnz5eYGm8tXaeRdd4x88MlfwldHoudGg==
@@ -2576,12 +2576,13 @@
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-13.9.0.tgz#7168b4ed647e625b05eb4e7e80fe8aabd00e3923"
   integrity sha512-e89uuTLMh0U5cZ9iDpEI2senqPGfbPRTHM/0AaQkcxnpqjkZqDYP8rpfm7edOz8s+pOCOROEy1PIveSW8+fL5g==
 
-"@ycs77/eslint-config@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@ycs77/eslint-config/-/eslint-config-5.0.0.tgz#846c357f6534e13595c22ec1a7e889ba89d0a8a0"
-  integrity sha512-cqMdcmR85S9vokYWChHBtLuSU6qAjtd+ZLgWlHbMJKC+EPFinMQhPBnQwdfR3/60RglUs475utA+xiDi6yyy9Q==
+"@ycs77/eslint-config@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@ycs77/eslint-config/-/eslint-config-5.0.1.tgz#f6338b47d0314d965dc8725120726e81349272d8"
+  integrity sha512-isNO/dGJasOcoFgdDnWrYgLpFLz5YsBQTo3KVoLDb+q/M76tbpDgmKkf87IkSqbVZx3Qltkn1rIgNZKU8WbttQ==
   dependencies:
     "@antfu/eslint-config" "~5.2.0"
+    "@typescript-eslint/parser" "^8.39.0"
     eslint-plugin-antfu "^3.1.1"
     local-pkg "^1.1.1"
 
