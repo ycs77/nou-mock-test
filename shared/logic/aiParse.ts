@@ -1,6 +1,6 @@
 import type { Block } from '../types/exam'
 import util from 'node:util'
-import { query } from '@anthropic-ai/claude-code'
+import { query } from '@anthropic-ai/claude-agent-sdk'
 
 /**
  * 使用 AI 解析考試題目內容成 JSON 格式
@@ -106,7 +106,7 @@ Here is the content:
 
 ${content}`,
     options: {
-      customSystemPrompt: 'You\'re a Parser AI, converting plain text exam content into structured JSON format data, which will be used to generate online forms.',
+      systemPrompt: 'You\'re a Parser AI, converting plain text exam content into structured JSON format data, which will be used to generate online forms.',
     },
   })) {
     if (message.type === 'result') {

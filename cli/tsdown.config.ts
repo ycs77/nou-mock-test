@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 
 export default defineConfig({
   entry: [
@@ -7,7 +7,4 @@ export default defineConfig({
     'cli/2-ai-parse-exam-data.ts',
   ],
   outDir: 'cli/dist',
-  format: ['esm'],
-  splitting: false,
-  clean: true,
 })
