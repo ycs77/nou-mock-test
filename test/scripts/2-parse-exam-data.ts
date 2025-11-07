@@ -1,17 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import util from 'node:util'
 import { parseExam } from '../../shared/logic/parse'
 import { pdfFiles } from '../data/pdf-files'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
 const debug = process.argv.includes('--debug')
 
 pdfFiles.forEach(async filename => {
-  const content = fs.readFileSync(path.resolve(__dirname, `../fixtures/${filename}__1_loaded_from_pdf.txt`), 'utf-8')
+  const content = fs.readFileSync(path.resolve(import.meta.dirname, `../fixtures/${filename}__1_loaded_from_pdf.txt`), 'utf-8')
 
   const blocks = parseExam(content)
 
@@ -20,7 +16,7 @@ pdfFiles.forEach(async filename => {
   }
 
   fs.writeFileSync(
-    path.resolve(__dirname, `../fixtures/${filename}__2_parsed_exam_data.json`),
+    path.resolve(import.meta.dirname, `../fixtures/${filename}__2_parsed_exam_data.json`),
     JSON.stringify(blocks, null, 2)
   )
 })

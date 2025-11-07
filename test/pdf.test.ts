@@ -3,7 +3,7 @@ import { expect, it } from 'vitest'
 import { loadPdf } from '../shared/logic/pdf'
 
 it('load pdf', async () => {
-  const pdfData = await loadPdf(path.resolve(__dirname, 'fixtures/104-2-linux-1ra-2tx.pdf'))
+  const pdfData = await loadPdf(path.resolve(import.meta.dirname, 'fixtures/104-2-linux-1ra-2tx.pdf'))
 
   expect(pdfData)
     .to.be.an('object')

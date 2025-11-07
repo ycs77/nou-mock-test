@@ -5,7 +5,7 @@ import { getMaxLineWidth, pdfDataToString, serializePdfStringToParagraphs } from
 import { pdfFiles } from './data/pdf-files'
 
 it('parse pdf data to string', async () => {
-  const pdfData = await loadPdf(path.resolve(__dirname, 'fixtures/104-2-linux-1ra-2tx.pdf'))
+  const pdfData = await loadPdf(path.resolve(import.meta.dirname, 'fixtures/104-2-linux-1ra-2tx.pdf'))
 
   const content = pdfDataToString(pdfData)
 
@@ -23,7 +23,7 @@ it('calculate max line width', () => {
 })
 
 it.each(pdfFiles)('serialize pdf string to paragraphs - %s', async filename => {
-  const pdfData = await loadPdf(path.resolve(__dirname, `fixtures/${filename}.pdf`))
+  const pdfData = await loadPdf(path.resolve(import.meta.dirname, `fixtures/${filename}.pdf`))
   let content = pdfDataToString(pdfData)
 
   content = serializePdfStringToParagraphs(content)
