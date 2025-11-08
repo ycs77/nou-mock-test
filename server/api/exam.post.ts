@@ -16,14 +16,16 @@ export default defineEventHandler(async event => {
 
   const file = files.pdf?.[0]
 
+  // 驗證文件是否存在
   if (!file) {
-    return response(422, '缺少上傳文件')
+    return response(422, '缺少上傳文件，請選擇一個 PDF 檔案')
   }
 
   if (!file.originalFilename?.endsWith('.pdf') || file.mimetype !== 'application/pdf') {
     return response(422, '無效文件格式')
   }
 
+  // 驗證文件大小
   if (file.size > 1024 * 1024) {
     return response(422, '文件大小不能超過 1MB')
   }
@@ -41,14 +43,23 @@ export default defineEventHandler(async event => {
       ? await aiParseExam(content)
       : parseExam(content)
 
-    if (!blocks.some(block => block.type === 'title')) {
-      return response(422, '缺少空中大學考卷標題')
-    } else if (!blocks.some(block => block.type === 'subtitle')) {
-      return response(422, '缺少空中大學考卷副標題')
+    // 驗證解析結果
+    if (!Array.isArray(blocks) || blocks.length === 0) {
+      return response(422, '解析失敗：無法從 PDF 中提取有效的考試內容')
     }
 
-    return response(200, '文件上傳完成', blocks)
+    if (!blocks.some(block => block.type === 'title')) {
+      return response(422, '解析失敗：缺少考卷標題，請確認這是有效的空中大學考卷')
+    }
+
+    if (!blocks.some(block => block.type === 'subtitle')) {
+      return response(422, '解析失敗：缺少科目資訊，請確認這是有效的空中大學考卷')
+    }
+
+    return response(200, '文件上傳成功', blocks)
   } catch (error) {
-    return response(422, `解析錯誤：${(error as Error).message}`)
+    const errorMessage = error instanceof Error ? error.message : '未知錯誤'
+    console.error('PDF 解析錯誤：', error)
+    return response(422, `解析失敗：${errorMessage}`)
   }
 })
