@@ -1,6 +1,6 @@
 import type { Block, ExamStore, FieldBlock } from '../types/exam'
 import { isSection } from '../utils/exam'
-import { cyrb53 } from '../utils/hash'
+import { getFieldKey } from '../utils/storage'
 
 export function checkField(section: Block, field: FieldBlock): boolean {
   if (section.subject.includes('是非題') || section.subject.includes('選擇題')) {
@@ -34,8 +34,7 @@ export function calculateExam(blocks: Block[], answers: Record<string, FieldBloc
       return {
         ...block,
         children: block.children.map(field => {
-          // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-          const userAnswer = answers[`${cyrb53(field.subject)}`]
+          const userAnswer = answers[getFieldKey(field.subject)]
 
           const newField = {
             ...field,

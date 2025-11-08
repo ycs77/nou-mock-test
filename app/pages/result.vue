@@ -21,19 +21,17 @@
 <script setup lang="ts">
 const router = useRouter()
 
-const examData = typeof localStorage !== 'undefined' ? localStorage.getItem('nou-mock-exam') : null
-if (!examData) {
+// 獲取考試資料，如果沒有或未完成則跳轉
+const store = getExamStore()
+if (!store) {
   router.push('/')
+} else if (typeof store.score === 'undefined') {
+  router.push('/exam')
 }
 
-const store: ExamStore = JSON.parse(examData ?? '{"blocks":[],"score":0}')
-if (typeof store.score === 'undefined') {
-  router.push('/')
-}
-
-const blocks = shallowRef(store.blocks)
+const blocks = shallowRef(store?.blocks ?? [])
 const answers = ref({}) as Ref<Record<string, FieldBlock['userAnswer']>>
-const score = ref(store.score ?? 0)
+const score = ref(store?.score ?? 0)
 
 const editorValue = ref(JSON.stringify(blocks.value, null, 2))
 
@@ -41,27 +39,34 @@ watch(blocks, () => {
   blocks.value.forEach(block => {
     if (isSection(block)) {
       block.children.forEach(field => {
-        // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-        answers.value[`${cyrb53(field.subject)}`] = field.userAnswer
+        answers.value[getFieldKey(field.subject)] = field.userAnswer
       })
     }
   })
 }, { immediate: true })
 
 watch(blocks, () => {
-  const store = calculateExam(blocks.value, answers.value)
-  if (store.score) {
-    score.value = store.score
+  const calculatedStore = calculateExam(blocks.value, answers.value)
+  if (calculatedStore.score) {
+    score.value = calculatedStore.score
   }
 })
 
 watch(editorValue, () => {
-  blocks.value = JSON.parse(editorValue.value)
-  store.blocks = blocks.value
-  localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+  if (!store) return
+
+  try {
+    blocks.value = JSON.parse(editorValue.value)
+    store.blocks = blocks.value
+    setExamStore(store)
+  } catch {
+    // JSON 解析失敗時忽略更新
+  }
 })
 
 function restart() {
+  if (!store) return
+
   store.blocks = store.blocks.map(block => {
     if (isSection(block)) {
       block.children = block.children.map(field => {
@@ -73,7 +78,7 @@ function restart() {
   })
   delete store.score
 
-  localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+  setExamStore(store)
 
   router.push('/exam')
 }

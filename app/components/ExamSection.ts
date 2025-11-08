@@ -20,8 +20,7 @@ const ExamSection: FunctionalComponent<ExamSectionProps, ExamSectionEvents> = (p
     ]),
 
     ...props.children.map(field => {
-      // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-      const answerKey = `${cyrb53(field.subject)}`
+      const answerKey = getFieldKey(field.subject)
 
       const fieldProps = {
         key: field.subject,

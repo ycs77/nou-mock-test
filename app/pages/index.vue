@@ -25,7 +25,6 @@
 
 <script setup lang="ts">
 import type { Form } from '#ui/types'
-import { useTemplateRef } from 'vue'
 
 const router = useRouter()
 
@@ -34,9 +33,8 @@ const file = ref(null) as Ref<File | null>
 
 const loading = ref(false)
 
-if (typeof localStorage !== 'undefined') {
-  localStorage.removeItem('nou-mock-exam')
-}
+// 清除之前的考試資料
+clearExamStore()
 
 function selectFile(event: Event) {
   file.value = (event.target as HTMLInputElement).files?.[0] ?? null
@@ -66,7 +64,7 @@ async function submit() {
         blocks: res.blocks,
       } satisfies ExamStore
 
-      localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+      setExamStore(store)
 
       router.push('/exam')
     } else if (res.status >= 400 && res.status < 500) {

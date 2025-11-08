@@ -24,17 +24,15 @@ const router = useRouter()
 const overlay = useOverlay()
 const modal = overlay.create(ExamConfirmModal)
 
-const examData = typeof localStorage !== 'undefined' ? localStorage.getItem('nou-mock-exam') : null
-if (!examData) {
+// 獲取考試資料，如果沒有或已完成則跳轉
+const store = getExamStore()
+if (!store) {
   router.push('/')
-}
-
-const store: ExamStore = JSON.parse(examData ?? '{"blocks":[]}')
-if (typeof store.score !== 'undefined') {
+} else if (typeof store.score !== 'undefined') {
   router.push('/result')
 }
 
-const blocks = shallowRef(store.blocks)
+const blocks = shallowRef(store?.blocks ?? [])
 const answers = ref({}) as Ref<Record<string, FieldBlock['userAnswer']>>
 
 const editorValue = ref(JSON.stringify(blocks.value, null, 2))
@@ -45,8 +43,7 @@ watch(blocks, blocks => {
   blocks.forEach(block => {
     if (isSection(block)) {
       block.children.forEach(field => {
-        // 使用 cyrb53 雜湊題目文字作為 key，避免重複
-        newAnswers[`${cyrb53(field.subject)}`] = answers.value[`${cyrb53(field.subject)}`] ?? (
+        newAnswers[getFieldKey(field.subject)] = answers.value[getFieldKey(field.subject)] ?? (
           field.type === 'checkbox' ? [] : undefined
         )
       })
@@ -57,9 +54,15 @@ watch(blocks, blocks => {
 }, { immediate: true })
 
 watch(editorValue, () => {
-  blocks.value = JSON.parse(editorValue.value)
-  store.blocks = blocks.value
-  localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+  if (!store) return
+
+  try {
+    blocks.value = JSON.parse(editorValue.value)
+    store.blocks = blocks.value
+    setExamStore(store)
+  } catch {
+    // JSON 解析失敗時忽略更新
+  }
 })
 
 async function submit() {
@@ -67,9 +70,9 @@ async function submit() {
 
   const result = await instance.result
   if (result) {
-    const store = calculateExam(blocks.value, answers.value)
+    const calculatedStore = calculateExam(blocks.value, answers.value)
 
-    localStorage.setItem('nou-mock-exam', JSON.stringify(store))
+    setExamStore(calculatedStore)
 
     router.push('/result')
   }
