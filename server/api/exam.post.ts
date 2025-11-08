@@ -5,8 +5,12 @@ import { loadPdf } from '#shared/logic/pdf'
 import { pdfDataToString, serializePdfStringToParagraphs } from '#shared/logic/serialize'
 import { readFiles } from 'h3-formidable'
 
-function response(status: number, message: string, blocks: Block[] = []) {
-  return { status, message, blocks }
+function createValidationError(message: string) {
+  return createError({
+    statusCode: 422,
+    statusMessage: 'Unprocessable Content',
+    message,
+  })
 }
 
 export default defineEventHandler(async event => {
@@ -18,19 +22,21 @@ export default defineEventHandler(async event => {
 
   // 驗證文件是否存在
   if (!file) {
-    return response(422, '缺少上傳文件，請選擇一個 PDF 檔案')
+    throw createValidationError('缺少上傳文件，請選擇一個 PDF 檔案')
   }
 
   if (!file.originalFilename?.endsWith('.pdf') || file.mimetype !== 'application/pdf') {
-    return response(422, '無效文件格式')
+    throw createValidationError('無效文件格式')
   }
 
   // 驗證文件大小
   if (file.size > 1024 * 1024) {
-    return response(422, '文件大小不能超過 1MB')
+    throw createValidationError('文件大小不能超過 1MB')
   }
 
   const runtimeConfig = useRuntimeConfig()
+
+  let blocks: Block[] = []
 
   try {
     const pdfData = await loadPdf(file.filepath)
@@ -39,27 +45,30 @@ export default defineEventHandler(async event => {
 
     content = serializePdfStringToParagraphs(content)
 
-    const blocks = runtimeConfig.aiParser.enabled
-      ? await aiParseExam(content)
-      : parseExam(content)
-
-    // 驗證解析結果
-    if (!Array.isArray(blocks) || blocks.length === 0) {
-      return response(422, '解析失敗：無法從 PDF 中提取有效的考試內容')
+    if (runtimeConfig.aiParser.enabled) {
+      blocks = await aiParseExam(content)
+    } else {
+      blocks = parseExam(content)
     }
-
-    if (!blocks.some(block => block.type === 'title')) {
-      return response(422, '解析失敗：缺少考卷標題，請確認這是有效的空中大學考卷')
-    }
-
-    if (!blocks.some(block => block.type === 'subtitle')) {
-      return response(422, '解析失敗：缺少科目資訊，請確認這是有效的空中大學考卷')
-    }
-
-    return response(200, '文件上傳成功', blocks)
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : '未知錯誤'
-    console.error('PDF 解析錯誤：', error)
-    return response(422, `解析失敗：${errorMessage}`)
+    if (error instanceof Error) {
+      console.error('PDF 解析錯誤：', error)
+      throw createValidationError(error.message)
+    }
   }
+
+  // 驗證解析結果
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    throw createValidationError('解析失敗：無法從 PDF 中提取有效的考試內容')
+  }
+
+  if (!blocks.some(block => block.type === 'title')) {
+    throw createValidationError('解析失敗：缺少考卷標題，請確認這是有效的空中大學考卷')
+  }
+
+  if (!blocks.some(block => block.type === 'subtitle')) {
+    throw createValidationError('解析失敗：缺少科目資訊，請確認這是有效的空中大學考卷')
+  }
+
+  return { blocks }
 })

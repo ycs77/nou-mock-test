@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import type { Form } from '#ui/types'
+import { FetchError } from 'ofetch'
 
 const router = useRouter()
 
@@ -54,33 +55,24 @@ async function submit() {
   loading.value = true
 
   try {
-    const res = await $fetch('/api/exam', {
+    const { blocks } = await $fetch('/api/exam', {
       method: 'POST',
       body: formData,
     })
 
-    if (res.status === 200) {
-      const store: ExamStore = {
-        blocks: res.blocks,
-      } satisfies ExamStore
+    const store: ExamStore = {
+      blocks,
+    } satisfies ExamStore
 
-      setExamStore(store)
+    setExamStore(store)
 
-      router.push('/exam')
-    } else if (res.status >= 400 && res.status < 500) {
-      form.value?.setErrors([
-        {
-          name: 'file',
-          message: res.message,
-        },
-      ])
-    }
+    router.push('/exam')
   } catch (error) {
-    if (error instanceof Error) {
+    if (error instanceof FetchError) {
       form.value?.setErrors([
         {
           name: 'file',
-          message: error.message,
+          message: error.data.message,
         },
       ])
     }
