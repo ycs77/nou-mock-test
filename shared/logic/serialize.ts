@@ -2,12 +2,21 @@ import type { PDFExtractResult, PDFExtractText } from 'pdf.js-extract'
 import type { SectionType } from '../types/exam'
 import stringWidth from 'string-width'
 
+const DEFAULT_LINE_DEVIATION = 2 // PDF 文字同一行的允許誤差值
+const LINE_WIDTH_TOLERANCE = 10 // 判斷答案段落是否需要換行的寬度容差
+
+// 忽略的文字列表
+const IGNORED_TEXTS = [
+  '其他符號作答不計分',
+  '按題號依序作答',
+] as const
+
 /**
  * 將 PDF 檔案資料轉換為文字內容
  * @param pdfData PDF 檔案資料
  * @param lineDeviation 計算同一行的文字允許的誤差值
  */
-export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number = 2): string {
+export function pdfDataToString(pdfData: PDFExtractResult, lineDeviation: number = DEFAULT_LINE_DEVIATION): string {
   let prevY = null as number | null
 
   const texts = pdfData
@@ -42,12 +51,6 @@ export function getMaxLineWidth(content: string): number {
 export function serializePdfStringToParagraphs(content: string): string {
   const maxWidth = getMaxLineWidth(content)
 
-  // ignores
-  const ignores = [
-    '其他符號作答不計分',
-    '按題號依序作答',
-  ]
-
   let newContent = ''
   let sectionTitle = null as SectionType | null
 
@@ -63,7 +66,7 @@ export function serializePdfStringToParagraphs(content: string): string {
     .filter(line => line.trim() !== '')
 
   for (let line of lines) {
-    if (ignores.some(text => line.includes(text))) continue
+    if (IGNORED_TEXTS.some(text => line.includes(text))) continue
 
     // ex: 國立空中大學 112 學年度下學期期中考試題【正參】095
     // ex: 國立空中大學 106 學年度暑期期末考試題【正參】03
@@ -220,7 +223,7 @@ export function serializePdfStringToParagraphs(content: string): string {
         // 確認當前題目為輸出完畢，才可以換行
         newContent += '\n'
         currentQuestion = ''
-      } else if (currentAnswerCanBreakLine && stringWidth(line) < (maxWidth - 10)) {
+      } else if (currentAnswerCanBreakLine && stringWidth(line) < (maxWidth - LINE_WIDTH_TOLERANCE)) {
         // 需要斷行的答案段落，且本行未佔滿頁面寬度
         newContent += '\n'
       }
