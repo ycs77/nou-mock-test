@@ -111,6 +111,18 @@ ${content}`,
   })) {
     if (message.type === 'result') {
       if (message.subtype === 'success') {
+        if (debug) {
+          // eslint-disable-next-line no-console
+          console.log(`========================================
+
+AI message result:
+
+${message.result}
+
+========================================
+`)
+        }
+
         let jsonResult = null
         const m = message.result.match(/```json\n([\s\S]*?)\n```/)
 
@@ -119,18 +131,23 @@ ${content}`,
         } else if (m?.[1]) {
           jsonResult = JSON.parse(m[1])
         } else {
-          throw new Error('AI 解析失敗：AI 回傳內容沒有存在 JSON')
-        }
-
-        if (!jsonResult || jsonResult.type !== 'doc' || !Array.isArray(jsonResult.children)) {
-          throw new Error('AI 解析失敗：JSON 結構不是正確的考卷 JSON 格式')
+          throw new Error('AI 解析失敗：AI 回傳內容沒有存在 JSON 格式資料')
         }
 
         if (debug) {
           // eslint-disable-next-line no-console
-          console.log('AI message result:', message.result)
-          // eslint-disable-next-line no-console
-          console.log('searchResult:', util.inspect(jsonResult, false, null, true))
+          console.log(`========================================
+
+searchResult:
+
+${util.inspect(jsonResult, false, null, true)}
+
+========================================
+`)
+        }
+
+        if (!jsonResult || jsonResult.type !== 'doc' || !Array.isArray(jsonResult.children)) {
+          throw new Error('AI 解析失敗：JSON 結構不是正確的考卷 JSON 格式')
         }
 
         blocks = jsonResult.children
