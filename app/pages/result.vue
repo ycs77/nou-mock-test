@@ -43,14 +43,12 @@ watch(blocks, () => {
       })
     }
   })
-}, { immediate: true })
 
-watch(blocks, () => {
   const calculatedStore = calculateExam(blocks.value, answers.value)
-  if (calculatedStore.score) {
+  if (typeof calculatedStore.score === 'number') {
     score.value = calculatedStore.score
   }
-})
+}, { immediate: true })
 
 watch(editorValue, () => {
   if (!store) return

@@ -34,11 +34,9 @@ export function calculateExam(blocks: Block[], answers: Record<string, FieldBloc
       return {
         ...block,
         children: block.children.map(field => {
-          const userAnswer = answers[getFieldKey(field.subject)]
-
           const newField = {
             ...field,
-            userAnswer,
+            userAnswer: answers[getFieldKey(field.subject)],
           }
 
           // 計算分數
